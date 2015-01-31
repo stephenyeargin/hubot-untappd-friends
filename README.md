@@ -1,4 +1,4 @@
-# Untappd for Hubot [![Build Status](https://travis-ci.org/hubot-scripts/hubot-untappd.svg?branch=master)](https://travis-ci.org/hubot-scripts/hubot-untappd)
+# Untappd Friends for Hubot [![Build Status](https://travis-ci.org/hubot-scripts/hubot-untappd-friends.svg?branch=master)](https://travis-ci.org/hubot-scripts/hubot-untappd-friends)
 
 Untappd data directly from Hubot.
 

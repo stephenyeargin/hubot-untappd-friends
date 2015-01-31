@@ -1,0 +1,128 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.3.0
+3 info using node@v0.10.36
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec { raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: '/Users/stephen/Sites/hubot-untappd',
+8 silly cache add   type: 'directory' }
+9 verbose addLocalDirectory /Users/stephen/.npm/hubot-untappd/1.0.0/package.tgz not in flight; packing
+10 verbose tar pack [ '/Users/stephen/.npm/hubot-untappd/1.0.0/package.tgz',
+10 verbose tar pack   '/Users/stephen/Sites/hubot-untappd' ]
+11 verbose tarball /Users/stephen/.npm/hubot-untappd/1.0.0/package.tgz
+12 verbose folder /Users/stephen/Sites/hubot-untappd
+13 info prepublish hubot-untappd@1.0.0
+14 verbose addLocalTarball adding from inside cache /Users/stephen/.npm/hubot-untappd/1.0.0/package.tgz
+15 silly cache afterAdd hubot-untappd@1.0.0
+16 verbose afterAdd /Users/stephen/.npm/hubot-untappd/1.0.0/package/package.json not in flight; writing
+17 verbose afterAdd /Users/stephen/.npm/hubot-untappd/1.0.0/package/package.json written
+18 silly publish { name: 'hubot-untappd',
+18 silly publish   description: 'Untappd data directly from Hubot',
+18 silly publish   version: '1.0.0',
+18 silly publish   author: { name: 'stephenyeargin' },
+18 silly publish   license: 'MIT',
+18 silly publish   keywords: [ 'hubot', 'hubot-scripts' ],
+18 silly publish   repository:
+18 silly publish    { type: 'git',
+18 silly publish      url: 'git://github.com/hubot-scripts/hubot-untappd.git' },
+18 silly publish   bugs: { url: 'https://github.com/hubot-scripts/hubot-untappd/issues' },
+18 silly publish   dependencies:
+18 silly publish    { 'coffee-script': '~1.6',
+18 silly publish      'node-untappd': '~0.2.0',
+18 silly publish      moment: '~2.5.0' },
+18 silly publish   devDependencies: { mocha: '*', chai: '*', 'sinon-chai': '*', sinon: '*' },
+18 silly publish   main: 'index.coffee',
+18 silly publish   scripts: { test: 'script/test' },
+18 silly publish   readme: '# Untappd for Hubot [![Build Status](https://travis-ci.org/hubot-scripts/hubot-untappd.svg?branch=master)](https://travis-ci.org/hubot-scripts/hubot-untappd)\n\nUntappd data directly from Hubot.\n\n## Configuration:\n\n### Heroku\n\n```\nheroku config:set UNTAPPD_API_KEY=<Your Untappd API Key>\nheroku config:set UNTAPPD_API_SECRET=<Your Untappd API Secret>\nheroku config:set UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>\n```\n\n### Other\n\n```\nexport UNTAPPD_API_KEY=<Your Untappd API Key>\nexport UNTAPPD_API_SECRET=<Your Untappd API Secret>\nexport UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>\n```\n\n# Commands:\n\n- `hubot untappd` - Recent friend activity\n- `hubot untappd user <query>` - Get stats about a particular user\n- `hubot untappd beer <query>` - Get data about a particular beer\n- `hubot untappd brewery <query>` - Get data about a particular brewery\n- `hubot untappd register` - Instructions to register with the bot\n- `hubot untappd approve` - Approve all pending friend requests\n- `hubot untappd friends` - List the bot\'s friends\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: 'c465b4e755603e307cb848e288acf375e8b00167',
+18 silly publish   homepage: 'https://github.com/hubot-scripts/hubot-untappd',
+18 silly publish   _id: 'hubot-untappd@1.0.0',
+18 silly publish   _shasum: 'd39aa7e7df8fc7ecda5309be040695765abbcaaf',
+18 silly publish   _from: '.' }
+19 silly mapToRegistry name hubot-untappd
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/hubot-untappd
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading /Users/stephen/.npm/hubot-untappd/1.0.0/package.tgz
+25 verbose request uri https://registry.npmjs.org/hubot-untappd
+26 verbose request sending authorization for write operation
+27 info attempt registry request try #1 at 23:58:27
+28 verbose request id 71cc86f9d9eb6ad0
+29 http request PUT https://registry.npmjs.org/hubot-untappd
+30 http 403 https://registry.npmjs.org/hubot-untappd
+31 verbose headers { date: 'Sat, 31 Jan 2015 05:58:28 GMT',
+31 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 verbose headers   'content-type': 'application/json',
+31 verbose headers   'cache-control': 'max-age=60',
+31 verbose headers   'content-length': '3426',
+31 verbose headers   'accept-ranges': 'bytes',
+31 verbose headers   via: '1.1 varnish',
+31 verbose headers   'x-served-by': 'cache-iad2129-IAD',
+31 verbose headers   'x-cache': 'MISS',
+31 verbose headers   'x-cache-hits': '0',
+31 verbose headers   'x-timer': 'S1422683908.114558,VS0,VE438',
+31 verbose headers   'keep-alive': 'timeout=10, max=50',
+31 verbose headers   connection: 'Keep-Alive' }
+32 verbose request invalidating /Users/stephen/.npm/registry.npmjs.org/hubot-untappd on PUT
+33 error publish Failed PUT 403
+34 verbose stack Error: forbidden user: stephenyeargin not authorized to modify hubot-untappd
+34 verbose stack Changed: description "Integrate hubot with untappd" -> "Untappd data directly from Hubot"
+34 verbose stack Changed: dist-tags.latest "0.0.1" -> "1.0.0"
+34 verbose stack Added: versions.1.0.0
+34 verbose stack Changed: readme "# hubot-untappd\u000a\u000aSimple hubot integration to [untappd](https://untappd.com/home)\u000a\u000a## Installation\u000a\u000aIn hubot project repo, run:\u000a\u000a```sh\u000anpm install hubot-untappd --save\u000a```\u000a\u000aThen add `hubot-untappd` to your hubot's `external-scripts.json`:\u000a\u000a```json\u000a[\u000a  \"hubot-untappd\"\u000a]\u000a```\u000a\u000a## Configuration\u000a\u000aYou can obtain the client id and secret from untappd by logging in [here](https://untappd.com/api/register?register=new).\u000a\u000a* `HUBOT_UNTAPPD_CLIENTID` - the untappd client id\u000a\u000a* `HUBOT_UNTAPPD_SECRET` - the untappd secret string\u000a\u000a* `HUBOT_UNTAPPD_ROOM` - the room to post updates to, default room is `#beer`\u000a\u000a## Usage\u000a\u000aThe bot will poll untappd every 10 minutes for all registered users\u000a\u000a* `hubot untappd help` - list all commands\u000a\u000a* `hubot identify` - check which username the user has registered to hubot brain\u000a\u000a* `hubot identify {untappd username}` - set untappd user name that will be used for user feed polling\u000a\u000a* `hubot last {n} beers` - shows the last `n` beers you had, default `n` is 1" -> "# Untappd for Hubot [![Build Status](https://travis-ci.org/hubot-scripts/hubot-untappd.svg?branch=master)](https://travis-ci.org/hubot-scripts/hubot-untappd)\u000a\u000aUntappd data directly from Hubot.\u000a\u000a## Configuration:\u000a\u000a### Heroku\u000a\u000a```\u000aheroku config:set UNTAPPD_API_KEY=<Your Untappd API Key>\u000aheroku config:set UNTAPPD_API_SECRET=<Your Untappd API Secret>\u000aheroku config:set UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>\u000a```\u000a\u000a### Other\u000a\u000a```\u000aexport UNTAPPD_API_KEY=<Your Untappd API Key>\u000aexport UNTAPPD_API_SECRET=<Your Untappd API Secret>\u000aexport UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>\u000a```\u000a\u000a# Commands:\u000a\u000a- `hubot untappd` - Recent friend activity\u000a- `hubot untappd user <query>` - Get stats about a particular user\u000a- `hubot untappd beer <query>` - Get data about a particular beer\u000a- `hubot untappd brewery <query>` - Get data about a particular brewery\u000a- `hubot untappd register` - Instructions to register with the bot\u000a- `hubot untappd approve` - Approve all pending friend requests\u000a- `hubot untappd friends` - List the bot's friends\u000a"
+34 verbose stack Changed: time.modified "2015-01-22T22:11:43.680Z" -> "2015-01-31T06:01:38.556Z"
+34 verbose stack Added: time.1.0.0
+34 verbose stack Changed: homepage "https://github.com/spoike/hubot-untappd" -> "https://github.com/hubot-scripts/hubot-untappd"
+34 verbose stack Changed: keywords.1 "beer" -> "hubot-scripts"
+34 verbose stack Deleted: keywords.2
+34 verbose stack Deleted: keywords.3
+34 verbose stack Deleted: keywords.4
+34 verbose stack Changed: repository.url "https://github.com/spoike/hubot-untappd.git" -> "git://github.com/hubot-scripts/hubot-untappd.git"
+34 verbose stack Changed: author.name "Mikael Brassman" -> "stephenyeargin"
+34 verbose stack Changed: bugs.url "https://github.com/spoike/hubot-untappd/issues" -> "https://github.com/hubot-scripts/hubot-untappd/issues"
+34 verbose stack Added: _attachments: hubot-untappd
+34 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:254:14)
+34 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:178:14)
+34 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:373:22)
+34 verbose stack     at Request.emit (events.js:98:17)
+34 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1318:14)
+34 verbose stack     at Request.emit (events.js:117:20)
+34 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1266:12)
+34 verbose stack     at IncomingMessage.emit (events.js:117:20)
+34 verbose stack     at _stream_readable.js:944:16
+34 verbose stack     at process._tickCallback (node.js:442:13)
+35 verbose statusCode 403
+36 verbose pkgid hubot-untappd
+37 verbose cwd /Users/stephen/Sites/hubot-untappd
+38 error Darwin 14.1.0
+39 error argv "node" "/usr/local/bin/npm" "publish"
+40 error node v0.10.36
+41 error npm  v2.3.0
+42 error code E403
+43 error forbidden user: stephenyeargin not authorized to modify hubot-untappd
+43 error Changed: description "Integrate hubot with untappd" -> "Untappd data directly from Hubot"
+43 error Changed: dist-tags.latest "0.0.1" -> "1.0.0"
+43 error Added: versions.1.0.0
+43 error Changed: readme "# hubot-untappd\u000a\u000aSimple hubot integration to [untappd](https://untappd.com/home)\u000a\u000a## Installation\u000a\u000aIn hubot project repo, run:\u000a\u000a```sh\u000anpm install hubot-untappd --save\u000a```\u000a\u000aThen add `hubot-untappd` to your hubot's `external-scripts.json`:\u000a\u000a```json\u000a[\u000a  \"hubot-untappd\"\u000a]\u000a```\u000a\u000a## Configuration\u000a\u000aYou can obtain the client id and secret from untappd by logging in [here](https://untappd.com/api/register?register=new).\u000a\u000a* `HUBOT_UNTAPPD_CLIENTID` - the untappd client id\u000a\u000a* `HUBOT_UNTAPPD_SECRET` - the untappd secret string\u000a\u000a* `HUBOT_UNTAPPD_ROOM` - the room to post updates to, default room is `#beer`\u000a\u000a## Usage\u000a\u000aThe bot will poll untappd every 10 minutes for all registered users\u000a\u000a* `hubot untappd help` - list all commands\u000a\u000a* `hubot identify` - check which username the user has registered to hubot brain\u000a\u000a* `hubot identify {untappd username}` - set untappd user name that will be used for user feed polling\u000a\u000a* `hubot last {n} beers` - shows the last `n` beers you had, default `n` is 1" -> "# Untappd for Hubot [![Build Status](https://travis-ci.org/hubot-scripts/hubot-untappd.svg?branch=master)](https://travis-ci.org/hubot-scripts/hubot-untappd)\u000a\u000aUntappd data directly from Hubot.\u000a\u000a## Configuration:\u000a\u000a### Heroku\u000a\u000a```\u000aheroku config:set UNTAPPD_API_KEY=<Your Untappd API Key>\u000aheroku config:set UNTAPPD_API_SECRET=<Your Untappd API Secret>\u000aheroku config:set UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>\u000a```\u000a\u000a### Other\u000a\u000a```\u000aexport UNTAPPD_API_KEY=<Your Untappd API Key>\u000aexport UNTAPPD_API_SECRET=<Your Untappd API Secret>\u000aexport UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>\u000a```\u000a\u000a# Commands:\u000a\u000a- `hubot untappd` - Recent friend activity\u000a- `hubot untappd user <query>` - Get stats about a particular user\u000a- `hubot untappd beer <query>` - Get data about a particular beer\u000a- `hubot untappd brewery <query>` - Get data about a particular brewery\u000a- `hubot untappd register` - Instructions to register with the bot\u000a- `hubot untappd approve` - Approve all pending friend requests\u000a- `hubot untappd friends` - List the bot's friends\u000a"
+43 error Changed: time.modified "2015-01-22T22:11:43.680Z" -> "2015-01-31T06:01:38.556Z"
+43 error Added: time.1.0.0
+43 error Changed: homepage "https://github.com/spoike/hubot-untappd" -> "https://github.com/hubot-scripts/hubot-untappd"
+43 error Changed: keywords.1 "beer" -> "hubot-scripts"
+43 error Deleted: keywords.2
+43 error Deleted: keywords.3
+43 error Deleted: keywords.4
+43 error Changed: repository.url "https://github.com/spoike/hubot-untappd.git" -> "git://github.com/hubot-scripts/hubot-untappd.git"
+43 error Changed: author.name "Mikael Brassman" -> "stephenyeargin"
+43 error Changed: bugs.url "https://github.com/spoike/hubot-untappd/issues" -> "https://github.com/hubot-scripts/hubot-untappd/issues"
+43 error Added: _attachments: hubot-untappd
+44 error If you need help, you may report this error at:
+44 error     <http://github.com/npm/npm/issues>
+45 verbose exit [ 1, true ]

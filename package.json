@@ -1,5 +1,5 @@
 {
-  "name": "hubot-untappd",
+  "name": "hubot-untappd-friends",
   "description": "Untappd data directly from Hubot",
   "version": "1.0.0",
   "author": "stephenyeargin",
@@ -12,11 +12,11 @@
 
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-untappd.git"
+    "url": "git://github.com/hubot-scripts/hubot-untappd-friends.git"
   },
 
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-untappd/issues"
+    "url": "https://github.com/hubot-scripts/hubot-untappd-friends/issues"
   },
 
   "dependencies": {
