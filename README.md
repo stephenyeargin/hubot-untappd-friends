@@ -3,9 +3,22 @@
 Untappd data directly from Hubot.
 
 ## Configuration:
+
+### Heroku
+
+```
 heroku config:set UNTAPPD_API_KEY=<Your Untappd API Key>
 heroku config:set UNTAPPD_API_SECRET=<Your Untappd API Secret>
 heroku config:set UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>
+```
+
+### Other
+
+```
+export UNTAPPD_API_KEY=<Your Untappd API Key>
+export UNTAPPD_API_SECRET=<Your Untappd API Secret>
+export UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>
+```
 
 # Commands:
 
