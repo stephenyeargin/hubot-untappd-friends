@@ -1,7 +1,7 @@
 {
   "name": "hubot-untappd-friends",
   "description": "Untappd data directly from Hubot",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "stephenyeargin",
   "license": "MIT",
   "keywords": [
