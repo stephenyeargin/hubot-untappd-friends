@@ -10,10 +10,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-untappd-friends.git"
+    "url": "git://github.com/stephenyeargin/hubot-untappd-friends.git"
   },
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-untappd-friends/issues"
+    "url": "https://github.com/stephenyeargin/hubot-untappd-friends/issues"
   },
   "dependencies": {
     "coffee-script": "~1.6",
