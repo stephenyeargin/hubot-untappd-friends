@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Untappd Friends for Hubot : Untappd data directly from Hubot.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Untappd Friends for Hubot</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/stephenyeargin/hubot-untappd-friends">View on GitHub</a>
+
+          <h1 id="project_title">Untappd Friends for Hubot</h1>
+          <h2 id="project_tagline">Untappd data directly from Hubot.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/stephenyeargin/hubot-untappd-friends/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/stephenyeargin/hubot-untappd-friends/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>You will first need to go through the process of applying for an API key. This can take anywhere from 2-3 weeks, and you will need to explain for what you intend to use the API key. You can send a link to this page and say you want to use this package.</p>
+
+<p>From here, it can be a little frustrating. <a href="https://untappd.com/api/docs#authentication">Take a look at the documentation</a>. It uses an OAuth1 workflow to send data back the specified endpoint, which you then need to exchange again to get an access token. A free <a href="http://runscope.com">Runscope</a> account may make things easier because you can create a "bucket" to capture data coming back through the API. You will want to go through the <strong>Server Side Documentation</strong> workflow.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>In your hubot repository, run:</p>
+
+<p><code>npm install hubot-untappd-friends --save</code></p>
+
+<p>Then add <strong>hubot-untappd-friends</strong> to your <code>external-scripts.json</code>:</p>
+
+<div class="highlight highlight-json"><pre>[<span class="pl-s1"><span class="pl-pds">"</span>hubot-untappd-friends<span class="pl-pds">"</span></span>]</pre></div>
+
+<h2>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration:</h2>
+
+<h3>
+<a id="heroku" class="anchor" href="#heroku" aria-hidden="true"><span class="octicon octicon-link"></span></a>Heroku</h3>
+
+<pre><code>heroku config:set UNTAPPD_API_KEY=&lt;Your Untappd API Key&gt;
+heroku config:set UNTAPPD_API_SECRET=&lt;Your Untappd API Secret&gt;
+heroku config:set UNATPPD_API_ACCESS_TOKEN=&lt;A valid OAuth 2 token&gt;
+</code></pre>
+
+<h3>
+<a id="standard" class="anchor" href="#standard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Standard</h3>
+
+<pre><code>export UNTAPPD_API_KEY=&lt;Your Untappd API Key&gt;
+export UNTAPPD_API_SECRET=&lt;Your Untappd API Secret&gt;
+export UNATPPD_API_ACCESS_TOKEN=&lt;A valid OAuth 2 token&gt;
+</code></pre>
+
+<h2>
+<a id="commands" class="anchor" href="#commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commands:</h2>
+
+<ul>
+<li>
+<code>hubot untappd</code> - Recent friend activity</li>
+<li>
+<code>hubot untappd user &lt;query&gt;</code> - Get stats about a particular user</li>
+<li>
+<code>hubot untappd beer &lt;query&gt;</code> - Get data about a particular beer</li>
+<li>
+<code>hubot untappd brewery &lt;query&gt;</code> - Get data about a particular brewery</li>
+<li>
+<code>hubot untappd register</code> - Instructions to register with the bot</li>
+<li>
+<code>hubot untappd approve</code> - Approve all pending friend requests</li>
+<li>
+<code>hubot untappd friends</code> - List the bot's friends</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Untappd Friends for Hubot maintained by <a href="https://github.com/stephenyeargin">stephenyeargin</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
