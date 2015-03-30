@@ -9,6 +9,7 @@
 #  UNTAPPD_API_KEY - Your Untappd API Key
 #  UNTAPPD_API_SECRET - Your Untappd API Secret
 #  UNATPPD_API_ACCESS_TOKEN - A valid OAuth 2 token
+#  UNTAPPD_MAX_COUNT - (optional) Number of results to return
 #
 # Commands:
 #  hubot untappd - Recent friend activity
@@ -21,6 +22,8 @@
 #
 # Author:
 #  sethington, stephenyeargin
+
+count_to_return = process.env.UNTAPPD_MAX_COUNT || 10
 
 module.exports = (robot) ->
   QS = require 'querystring'
@@ -98,7 +101,7 @@ module.exports = (robot) ->
           msg.send "#{checkin.user.user_name}: #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} at #{checkin.venue.venue_name} - #{time_ago}"
         else
           msg.send "#{checkin.user.user_name}: #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} - #{time_ago}"
-    , 5
+    , count_to_return
 
   ##
   # Get User Data
@@ -118,7 +121,7 @@ module.exports = (robot) ->
           msg.send "#{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} at #{checkin.venue.venue_name} - #{time_ago}"
         else
           msg.send "#{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} - #{time_ago}"
-    , username, 1
+    , username, count_to_return
 
   ##
   # Get Brewery Data
@@ -127,7 +130,7 @@ module.exports = (robot) ->
       msg.send 'Must provide a brewery name to ask about.'
       return
 
-    count = 5
+    count = count_to_return
     untappd.searchBrewery (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
 
@@ -150,7 +153,7 @@ module.exports = (robot) ->
       msg.send 'Must provide a beer name to ask about.'
       return
 
-    count = 5
+    count = count_to_return
     untappd.searchBeer (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
 
