@@ -177,7 +177,7 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         return unless checkHTTPErrors err, res, body, msg
         result = JSON.parse(body)
-        msg.send "Friend #{result.response.user.user_name} at #{result.response.user.untappd_url}"
+        msg.send "1) Add #{result.response.user.user_name} as a friend - #{result.response.user.untappd_url}\n2) Type `#{robot.name} untappd approve`"
 
   ##
   # Show Friends
