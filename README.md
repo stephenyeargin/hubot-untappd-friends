@@ -1,8 +1,8 @@
 # Untappd Friends for Hubot
 
-Untappd data directly from Hubot.
+[![npm version](https://badge.fury.io/js/hubot-untappd-friends.svg)](http://badge.fury.io/js/hubot-untappd-friends) [![Build Status](https://travis-ci.org/stephenyeargin/hubot-untappd-friends.svg?branch=master)](https://travis-ci.org/stephenyeargin/hubot-untappd-friends)
 
-[![Build Status](https://travis-ci.org/stephenyeargin/hubot-untappd-friends.svg?branch=master)](https://travis-ci.org/stephenyeargin/hubot-untappd-friends)
+Untappd data directly from Hubot.
 
 ## Getting Started
 
