@@ -73,18 +73,22 @@ module.exports = (robot) ->
   # Check Errors
   checkUntappdErrors = (err, obj, msg) ->
     if err
+      robot.logger.error err
       msg.send err
       return false
     if obj.meta.error_detail
+      robot.logger.error obj
       msg.send "#{obj.meta.code}: #{obj.meta.error_detail}"
       return false
     true
 
   checkHTTPErrors = (err, res, body, msg) ->
     if err
+      robot.logger.error err
       msg.send err
       return false
     if res.statusCode != 200
+      robot.logger.error res
       obj = JSON.parse(body)
       msg.send "#{res.statusCode}: #{obj.meta.error_detail}"
       return false
@@ -95,6 +99,7 @@ module.exports = (robot) ->
   getFriendFeed = (msg) ->
     untappd.friendFeed (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
+      robot.logger.debug obj.response.checkins
       for checkin in obj.response.checkins.items
         time_ago = moment(new Date(checkin.created_at)).fromNow()
         if checkin.venue.venue_name
@@ -109,9 +114,9 @@ module.exports = (robot) ->
     unless username
       msg.send 'Must provide a username to ask about.'
       return
-
     untappd.userFeed (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
+      robot.logger.debug obj.response.checkins
       if err
         msg.send "Could not retrieve recent checkins for #{username}."
         return
@@ -129,21 +134,18 @@ module.exports = (robot) ->
     unless searchterm
       msg.send 'Must provide a brewery name to ask about.'
       return
-
-    count = count_to_return
     untappd.searchBrewery (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
-
-      for result in obj.response.brewery.items
-        if count < 0
-          continue
+      robot.logger.debug obj.response.beers
+      if obj.response.brewery.items.length == 0
+        return msg.send "No breweries matched '#{searchterm}'"
+      for result in obj.response.brewery.items[0...count_to_return]
         out_msg = result.brewery.brewery_name 
         if (result.brewery.location.brewery_city != "")
           out_msg += " ("+result.brewery.location.brewery_city + ", "+result.brewery.location.brewery_state+")"
         out_msg += " - " + result.brewery.beer_count + " beers (ID: #"+result.brewery.brewery_id+")"
 
         msg.send out_msg
-        count--
     , searchterm
 
   ##
@@ -152,21 +154,17 @@ module.exports = (robot) ->
     unless searchterm
       msg.send 'Must provide a beer name to ask about.'
       return
-
-    count = count_to_return
     untappd.searchBeer (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
-
-      for result in obj.response.beers.items
-        if count < 0
-          continue
-        
+      robot.logger.debug obj.response.beers
+      if obj.response.beers.items.length == 0
+        return msg.send "No beers matched '#{searchterm}'"
+      for result in obj.response.beers.items[0...count_to_return]
         if result.beer.beer_description
           msg.send "#{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - #{result.beer.beer_description}"
         else
           msg.send "#{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name}"
 
-        count--
     , searchterm
 
   ##
@@ -176,6 +174,7 @@ module.exports = (robot) ->
     msg.http(url)
       .get() (err, res, body) ->
         return unless checkHTTPErrors err, res, body, msg
+        robot.logger.debug body
         result = JSON.parse(body)
         msg.send "1) Add #{result.response.user.user_name} as a friend - #{result.response.user.untappd_url}\n2) Type `#{robot.name} untappd approve`"
 
@@ -186,8 +185,8 @@ module.exports = (robot) ->
     msg.http(url)
       .get() (err, res, body) ->
         return unless checkHTTPErrors err, res, body, msg
+        robot.logger.debug body
         result = JSON.parse(body)
-
         if result.response.items.length > 0
           friends = []
           for friend in result.response.items
@@ -201,7 +200,7 @@ module.exports = (robot) ->
   approveRequests = (msg) ->
     untappd.pendingFriends (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
-
+      robot.logger.debug obj
       if obj.response.items.length > 0
         for result in obj.response.items
           untappd.acceptFriends (err, obj) ->
