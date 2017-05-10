@@ -8,7 +8,7 @@
 # Configuration:
 #  UNTAPPD_API_KEY - Your Untappd API Key
 #  UNTAPPD_API_SECRET - Your Untappd API Secret
-#  UNATPPD_API_ACCESS_TOKEN - A valid OAuth 2 token
+#  UNTAPPD_API_ACCESS_TOKEN - A valid OAuth 2 token
 #  UNTAPPD_MAX_COUNT - (optional) Number of results to return
 #
 # Commands:
@@ -33,7 +33,7 @@ module.exports = (robot) ->
   untappd = new UntappdClient(false);
   untappd.setClientId process.env.UNTAPPD_API_KEY
   untappd.setClientSecret process.env.UNTAPPD_API_SECRET
-  untappd.setAccessToken process.env.UNATPPD_API_ACCESS_TOKEN
+  untappd.setAccessToken process.env.UNTAPPD_API_ACCESS_TOKEN
 
   ##
   # Default command
