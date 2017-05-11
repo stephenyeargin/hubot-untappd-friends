@@ -18,7 +18,7 @@
     "url": "https://github.com/stephenyeargin/hubot-untappd-friends/issues"
   },
   "dependencies": {
-    "node-untappd": "~0.4.1",
+    "node-untappd": "~0.3.1",
     "moment": "^2.18.1"
   },
   "devDependencies": {
