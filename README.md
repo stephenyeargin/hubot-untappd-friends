@@ -29,7 +29,7 @@ Then add **hubot-untappd-friends** to your `external-scripts.json`:
 ```
 heroku config:set UNTAPPD_API_KEY=<Your Untappd API Key>
 heroku config:set UNTAPPD_API_SECRET=<Your Untappd API Secret>
-heroku config:set UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>
+heroku config:set UNTAPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>
 ```
 
 ### Standard
@@ -37,7 +37,7 @@ heroku config:set UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>
 ```
 export UNTAPPD_API_KEY=<Your Untappd API Key>
 export UNTAPPD_API_SECRET=<Your Untappd API Secret>
-export UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>
+export UNTAPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>
 ```
 
 ## Commands:
