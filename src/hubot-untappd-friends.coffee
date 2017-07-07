@@ -19,7 +19,7 @@
 #  hubot untappd register - Instructions to register with the bot
 #  hubot untappd approve - Approve all pending friend requests
 #  hubot untappd friends - List the bot's friends
-#  hubot untappd remove <friend> - Remove a friend
+#  hubot untappd remove <username> - Remove a friend
 #
 # Author:
 #  sethington, stephenyeargin
