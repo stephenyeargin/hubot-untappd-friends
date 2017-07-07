@@ -19,6 +19,7 @@
 #  hubot untappd register - Instructions to register with the bot
 #  hubot untappd approve - Approve all pending friend requests
 #  hubot untappd friends - List the bot's friends
+#  hubot untappd remove <username> - Remove a friend
 #
 # Author:
 #  sethington, stephenyeargin
@@ -53,13 +54,14 @@ module.exports = (robot) ->
 
   ##
   # Untappd Actions
-  robot.respond /untappd (register|approve|friends)$/i, (msg) ->
+  robot.respond /untappd (register|approve|friends|remove)(\s.*)?$/i, (msg) ->
     return unless checkConfiguration msg
 
     switch msg.match[1].trim()
       when 'register' then showRegister msg
       when 'friends' then showFriends msg
       when 'approve' then approveRequests msg
+      when 'remove' then removeFriend msg
 
   ##
   # Check Configuration
@@ -210,3 +212,21 @@ module.exports = (robot) ->
           , result.user.uid
       else
         msg.send "No friends to approve."
+
+  ##
+  # Remove Friend
+  removeFriend = (msg) ->
+    # Get a list of all friends
+    username = msg.match[2].trim()
+    url = "https://api.untappd.com/v4/user/info/#{username}?access_token=#{untappd.getAccessToken()}"
+    msg.http(url)
+      .get() (err, res, body) ->
+        return unless checkHTTPErrors err, res, body, msg
+        result = JSON.parse(body)
+        robot.logger.debug result
+        msg.send "Removing #{msg.match[2].trim()} ..."
+        untappd.removeFriends (err, obj) ->
+          return unless checkUntappdErrors err, obj, msg
+          user = result.response.user
+          msg.send "Removed: #{user.first_name} #{user.last_name} (#{user.user_name})"
+        , result.response.user.uid

@@ -19,4 +19,4 @@ describe 'hubot-untappd-friends', ->
     expect(@robot.respond).to.have.been.calledWith(/untappd (user|brewery|beer) (.+)$/i)
 
   it 'registers a respond listener for Untappd actions', ->
-    expect(@robot.respond).to.have.been.calledWith(/untappd (register|approve|friends)$/i)
+    expect(@robot.respond).to.have.been.calledWith(/untappd (register|approve|friends|remove)(\s.*)?$/i)
