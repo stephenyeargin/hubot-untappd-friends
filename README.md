@@ -43,6 +43,7 @@ export UNATPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>
 ## Commands:
 
 - `hubot untappd` - Recent friend activity
+- `hubot untappd` - Recent friends' badge activity
 - `hubot untappd user <query>` - Get stats about a particular user
 - `hubot untappd beer <query>` - Get data about a particular beer
 - `hubot untappd brewery <query>` - Get data about a particular brewery
