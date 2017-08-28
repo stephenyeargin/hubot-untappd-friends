@@ -13,6 +13,7 @@
 #
 # Commands:
 #  hubot untappd - Recent friend activity
+#  hubot untappd badges - Recent friends' badge activity
 #  hubot untappd user <query> - Get stats about a particular user
 #  hubot untappd beer <query> - Get data about a particular beer
 #  hubot untappd brewery <query> - Get data about a particular brewery
@@ -41,6 +42,12 @@ module.exports = (robot) ->
   robot.respond /untappd$/i, (msg) ->
     return unless checkConfiguration msg
     getFriendFeed(msg)
+
+  ##
+  #
+  robot.respond /untappd badges$/i, (msg) ->
+    return unless checkConfiguration msg
+    getBadgeFeed(msg)
 
   ##
   # Untappd Search
@@ -108,6 +115,21 @@ module.exports = (robot) ->
           msg.send "#{checkin.user.user_name}: #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} at #{checkin.venue.venue_name} - #{time_ago}"
         else
           msg.send "#{checkin.user.user_name}: #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} - #{time_ago}"
+    , count_to_return
+
+  ##
+  # Get Badge Feed
+  getBadgeFeed = (msg) ->
+    untappd.friendFeed (err, obj) ->
+      return unless checkUntappdErrors err, obj, msg
+      robot.logger.debug obj.response.checkins
+      for checkin in obj.response.checkins.items
+        time_ago = moment(new Date(checkin.created_at)).fromNow()
+        for badge in checkin.badges.items
+          if checkin.venue.venue_name
+            msg.send "#{checkin.user.user_name} earned the #{badge.badge_name} Badge after drinking a #{checkin.beer.beer_name} at #{checkin.venue.venue_name} - #{time_ago}"
+          else
+            msg.send "#{checkin.user.user_name} earned the #{badge.badge_name} Badge after drinking a #{checkin.beer.beer_name} - #{time_ago}"
     , count_to_return
 
   ##
