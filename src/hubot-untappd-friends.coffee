@@ -25,7 +25,7 @@
 # Author:
 #  sethington, stephenyeargin
 
-count_to_return = process.env.UNTAPPD_MAX_COUNT || 10
+count_to_return = process.env.UNTAPPD_MAX_COUNT || 5
 
 module.exports = (robot) ->
   QS = require 'querystring'
@@ -109,12 +109,39 @@ module.exports = (robot) ->
     untappd.friendFeed (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
       robot.logger.debug obj.response.checkins
+      contents = []
       for checkin in obj.response.checkins.items
+        chunk = {
+          "title": "#{checkin.user.first_name} was drinking a #{checkin.beer.beer_name} by #{checkin.brewery.brewery_name}",
+          "title_link": "https://untappd.com/user/#{checkin.user.user_name}/checkin/#{checkin.checkin_id}",
+          "thumb_url": "#{checkin.beer.beer_label}",
+          "color": "#7CD197"
+        }
+
         time_ago = moment(new Date(checkin.created_at)).fromNow()
         if checkin.venue.venue_name
-          msg.send "#{checkin.user.user_name}: #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} at #{checkin.venue.venue_name} - #{time_ago}"
+          chunk["author_name"] = "#{time_ago} at #{checkin.venue.venue_name}"
+          chunk["fallback"] = "#{checkin.user.first_name} was drinking a #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} at #{checkin.venue.venue_name} - #{time_ago}"
         else
-          msg.send "#{checkin.user.user_name}: #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} - #{time_ago}"
+          chunk["author_name"] = "#{time_ago}"
+          chunk["fallback"] = "#{checkin.user.first_name} was drinking a #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} - #{time_ago}"
+
+        if checkin.badges.count == 1
+          firstbadge = checkin.badges.items[0]
+          chunk["footer"] = "Earned the #{firstbadge.badge_name} badge"
+          chunk["footer_icon"] = "#{firstbadge.badge_image.sm}"
+        if checkin.badges.count > 1
+          firstbadge = checkin.badges.items[0]
+          otherbadges = checkin.badges.count - 1
+          chunk["footer"] = "Earned the #{firstbadge.badge_name} badge and #{otherbadges} more"
+          chunk["footer_icon"] = "#{firstbadge.badge_image.sm}"
+        contents.push chunk
+
+      if robot.adapterName == 'slack'
+        robot.messageRoom msg.message.room, attachments: contents
+      else
+        for chunk in contents
+          msg.send chunk.fallback
     , count_to_return
 
   ##
