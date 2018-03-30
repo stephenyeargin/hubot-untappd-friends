@@ -1,0 +1,286 @@
+Helper = require('hubot-test-helper')
+chai = require 'chai'
+nock = require 'nock'
+
+expect = chai.expect
+
+helper = new Helper [
+  '../src/untappd-friends.coffee'
+]
+
+# Alter time as test runs
+originalDateNow = Date.now
+mockDateNow = () ->
+  return Date.parse('Tue Mar 30 2018 14:10:00 GMT-0500 (CDT)')
+
+describe 'hubot-untappd-friends', ->
+  beforeEach ->
+    process.env.HUBOT_LOG_LEVEL='error'
+    process.env.UNTAPPD_API_KEY='foobar1'
+    process.env.UNTAPPD_API_SECRET='foobar2'
+    process.env.UNTAPPD_API_ACCESS_TOKEN='foobar3'
+    process.env.UNTAPPD_MAX_COUNT=2
+    Date.now = mockDateNow
+    nock.disableNetConnect()
+    @room = helper.createRoom()
+
+  afterEach ->
+    delete process.env.HUBOT_LOG_LEVEL
+    delete process.env.UNTAPPD_API_KEY
+    delete process.env.UNTAPPD_API_SECRET
+    delete process.env.UNTAPPD_API_ACCESS_TOKEN
+    delete process.env.UNTAPPD_MAX_COUNT
+    Date.now = originalDateNow
+    nock.cleanAll()
+    @room.destroy()
+
+  # hubot untappd
+  it 'responds with the latest activity from your friends', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/checkin/recent')
+      .query(
+        limit: 2,
+        client_id: 'foobar1',
+        client_secret: 'foobar2',
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/checkin-recent.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd']
+          ['hubot', 'heath was drinking a Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery at 49 Çukurcuma - an hour ago']
+          ['hubot', 'heath was drinking a Efes Pilsen (Pilsner - Other - 5%) by Anadolu Efes at DERALIYE OTTOMAN CUISINE - 8 hours ago']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
+  # hubot untappd badges
+  it 'responds with the latest badge activity from your friends', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/checkin/recent')
+      .query(
+        limit: 2,
+        client_id: 'foobar1',
+        client_secret: 'foobar2',
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/checkin-recent.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd badges')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd badges']
+          ['hubot', 'heathseals earned the Beer Foodie (Level 44) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago']
+          ['hubot', 'heathseals earned the 99 Bottles (Level 38) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago']
+          ['hubot', 'heathseals earned the Pizza & Brew (Level 4) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago']
+          ['hubot', 'heathseals earned the Beer Connoisseur (Level 8) Badge after drinking a Efes Pilsen at DERALIYE OTTOMAN CUISINE - 8 hours ago']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
+  # hubot untappd user
+  it 'responds with the latest beers from a particular user', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/user/checkins/stephenyeargin')
+      .query(
+        limit: 2,
+        client_id: 'foobar1',
+        client_secret: 'foobar2',
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/user-checkins-stephenyeargin.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd user stephenyeargin')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd user stephenyeargin']
+          ['hubot', 'Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company at Yazoo Brewing Company - 12 days ago']
+          ['hubot', 'Hopry (IPA - Imperial / Double - 7.9%) by Yazoo Brewing Company at Yazoo Brewing Company - 12 days ago']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
+  # hubot untappd beer <query>
+  it 'responds with the search results for a particular beer', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/search/beer')
+      .query(
+        q: 'miro miel'
+        client_id: 'foobar1',
+        client_secret: 'foobar2',
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/search-beer.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd beer miro miel')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd beer miro miel']
+          ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. \n\nGives a nice crisp, malty finish, refreshing and light brew.  ']
+          ['hubot', 'Framboise Et Miel (Fruit Beer - 5%) by Brouemont Micro-Brasserie & Restaurant']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
+  # hubot untappd brewery <query>
+  it 'responds with the search results for a particular brewery', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/search/brewery')
+      .query(
+        q: 'east nashville beerworks'
+        client_id: 'foobar1',
+        client_secret: 'foobar2',
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/search-brewery.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd brewery east nashville beerworks')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd brewery east nashville beerworks']
+          ['hubot', 'East Nashville Beer Works (Nashville, TN) - 27 beers (ID: #209759)']
+          ['hubot', 'East Nashville Beerworks - 4 beers (ID: #301934)']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
+  # hubot untappd register
+  it 'responds with instructions to register with the bot', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/user/info')
+      .query(
+        client_id: 'foobar1',
+        client_secret: 'foobar2',
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/user-info.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd register')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd register']
+          ['hubot', '1) Add websagesrobot as a friend - http://untappd.com/user/websagesrobot\n2) Type `hubot untappd approve`']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
+  # hubot untappd approve
+  it 'approves a pending user request', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/user/pending')
+      .query(
+        client_id: 'foobar1',
+        client_secret: 'foobar2',
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/user-pending.json')
+    nock('https://api.untappd.com')
+      .post('/v4/friend/accept/1570195')
+      .query(
+        client_id: 'foobar1',
+        client_secret: 'foobar2',
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/friend-accept.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd approve')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd approve']
+          ['hubot', 'Approved: Alewife NYC (AlewifeNYC)']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
+  # hubot untappd friends
+  it 'responds with a list of the bot\'s friends', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/user/friends')
+      .query(
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/user-friends.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd friends')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd friends']
+          ['hubot', 'Howard C. (hchoularton), Dan D. (Tacoma_Dan), Ruben V. (Tecate213), Michael B. (Boyernator), Lennard K. (magistraalhardzuipen), Jasper R. (JasperRusthoven), Wouter R. (non_will_survive), Jacob D. (Flintquatch), B R. (Beer4Brad), Paddy  (paddyboy1918), Jimmy V  (Jvande0313), Raymond  (r4ymond), Josh R. (JoshRaynes), Roel R. (rrijks), Frankie F. (FrankieFierYo), Jim M. (jimmcm88), Sean M. (sean_themighty), Tom M. (Mostreytom), Luke P. (lukepillar), Jake W. (JakeWinstone), Maurice W. (Maurice079), Jonathan B. (jonnybgoode82), Craig B. (Arcticwolf8), Kayleigh  (_Kayleigh_), Dustin R. (droberts5)']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
+  # hubot untappd remove <username>
+  it 'removes an existing friend', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/user/info/AlewifeNYC')
+      .query(
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/user-info-AlewifeNYC.json')
+
+    nock('https://api.untappd.com')
+      .get('/v4/friend/remove/273954')
+      .query(
+        client_id: 'foobar1',
+        client_secret: 'foobar2',
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/friend-remove.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd remove AlewifeNYC')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd remove AlewifeNYC']
+          ['hubot', 'Removing AlewifeNYC ...']
+          ['hubot', 'Removed: Alewife N. (AlewifeNYC)']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
