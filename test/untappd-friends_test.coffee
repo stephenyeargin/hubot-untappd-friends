@@ -52,8 +52,8 @@ describe 'hubot-untappd-friends', ->
       try
         expect(selfRoom.messages).to.eql [
           ['alice', '@hubot untappd']
-          ['hubot', 'heath was drinking a Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery at 49 Çukurcuma - an hour ago']
-          ['hubot', 'heath was drinking a Efes Pilsen (Pilsner - Other - 5%) by Anadolu Efes at DERALIYE OTTOMAN CUISINE - 8 hours ago']
+          ['hubot', 'heath (heathseals) was drinking a Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery at 49 Çukurcuma - an hour ago']
+          ['hubot', 'heath (heathseals) was drinking a Efes Pilsen (Pilsner - Other - 5%) by Anadolu Efes at DERALIYE OTTOMAN CUISINE - 8 hours ago']
         ]
         done()
       catch err
@@ -79,10 +79,10 @@ describe 'hubot-untappd-friends', ->
       try
         expect(selfRoom.messages).to.eql [
           ['alice', '@hubot untappd badges']
-          ['hubot', 'heathseals earned the Beer Foodie (Level 44) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago']
-          ['hubot', 'heathseals earned the 99 Bottles (Level 38) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago']
-          ['hubot', 'heathseals earned the Pizza & Brew (Level 4) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago']
-          ['hubot', 'heathseals earned the Beer Connoisseur (Level 8) Badge after drinking a Efes Pilsen at DERALIYE OTTOMAN CUISINE - 8 hours ago']
+          ['hubot', 'heath (heathseals) earned the Beer Foodie (Level 44) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago']
+          ['hubot', 'heath (heathseals) earned the 99 Bottles (Level 38) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago']
+          ['hubot', 'heath (heathseals) earned the Pizza & Brew (Level 4) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago']
+          ['hubot', 'heath (heathseals) earned the Beer Connoisseur (Level 8) Badge after drinking a Efes Pilsen at DERALIYE OTTOMAN CUISINE - 8 hours ago']
         ]
         done()
       catch err
