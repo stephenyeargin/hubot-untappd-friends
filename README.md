@@ -24,21 +24,12 @@ Then add **hubot-untappd-friends** to your `external-scripts.json`:
 
 ## Configuration:
 
-### Heroku
-
-```
-heroku config:set UNTAPPD_API_KEY=<Your Untappd API Key>
-heroku config:set UNTAPPD_API_SECRET=<Your Untappd API Secret>
-heroku config:set UNTAPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>
-```
-
-### Standard
-
-```
-export UNTAPPD_API_KEY=<Your Untappd API Key>
-export UNTAPPD_API_SECRET=<Your Untappd API Secret>
-export UNTAPPD_API_ACCESS_TOKEN=<A valid OAuth 2 token>
-```
+| Variable                   | Required? | Description                         |
+| -------------------------- | :-------: | ----------------------------------- |
+| `UNTAPPD_API_KEY`          | Yes       | Client ID for your integration      |
+| `UNTAPPD_API_SECRET`       | Yes       | Client Secret for your integration  |
+| `UNTAPPD_API_ACCESS_TOKEN` | Yes       | OAuth 2.0 access token              |
+| `UNTAPPD_MAX_COUNT`        | No        | Number of beers to show, default: 5 |
 
 ## Commands:
 

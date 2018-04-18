@@ -1,10 +1,6 @@
 # Description:
 #  Untappd data directly from Hubot
 #
-# Requires:
-#  "node-untappd": "~0.2.0"
-#  "moment": "~2.5.0"
-#
 # Configuration:
 #  UNTAPPD_API_KEY - Your Untappd API Key
 #  UNTAPPD_API_SECRET - Your Untappd API Secret
