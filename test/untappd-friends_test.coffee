@@ -118,7 +118,7 @@ describe 'hubot-untappd-friends', ->
     , 1000)
 
   # hubot untappd beer <query>
-  it 'responds with the search results for a particular beer', (done) ->
+  it 'responds with the beer search results for a query', (done) ->
     nock('https://api.untappd.com')
       .get('/v4/search/beer')
       .query(
@@ -135,8 +135,33 @@ describe 'hubot-untappd-friends', ->
       try
         expect(selfRoom.messages).to.eql [
           ['alice', '@hubot untappd beer miro miel']
-          ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. \n\nGives a nice crisp, malty finish, refreshing and light brew.  ']
-          ['hubot', 'Framboise Et Miel (Fruit Beer - 5%) by Brouemont Micro-Brasserie & Restaurant']
+          ['hubot', '1130814: Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally source ...']
+          ['hubot', '352951: Framboise Et Miel (Fruit Beer - 5%) by Brouemont Micro-Brasserie & Restaurant']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
+  # hubot untappd beer ID
+  it 'responds with the information about a specific beer', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/beer/info/1130814')
+      .query(
+        client_id: 'foobar1',
+        client_secret: 'foobar2',
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/search-beer-by-id.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd beer 1130814')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd beer 1130814']
+          ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. \r\n\r\nGives a nice crisp, malty finish, refreshing and light brew. Our honey is sourced from Johnson\'s Honey Farm in Goodlettsville, a Nashville suburb. ']
         ]
         done()
       catch err
@@ -145,7 +170,7 @@ describe 'hubot-untappd-friends', ->
     , 1000)
 
   # hubot untappd brewery <query>
-  it 'responds with the search results for a particular brewery', (done) ->
+  it 'responds with brewery search results for a query', (done) ->
     nock('https://api.untappd.com')
       .get('/v4/search/brewery')
       .query(
@@ -162,8 +187,8 @@ describe 'hubot-untappd-friends', ->
       try
         expect(selfRoom.messages).to.eql [
           ['alice', '@hubot untappd brewery east nashville beerworks']
-          ['hubot', 'East Nashville Beer Works (Nashville, TN) - 27 beers (ID: #209759)']
-          ['hubot', 'East Nashville Beerworks - 4 beers (ID: #301934)']
+          ['hubot', '209759: East Nashville Beer Works (Nashville, TN) - 27 beers']
+          ['hubot', '301934: East Nashville Beerworks - 4 beers']
         ]
         done()
       catch err

@@ -10,8 +10,8 @@
 # Commands:
 #  hubot untappd - Recent friend activity
 #  hubot untappd badges - Recent friends' badge activity
-#  hubot untappd user <query> - Get stats about a particular user
-#  hubot untappd beer <query> - Get data about a particular beer
+#  hubot untappd user <username> - Get stats about a particular user
+#  hubot untappd beer <query|ID> - Get data about a particular beer
 #  hubot untappd brewery <query> - Get data about a particular brewery
 #  hubot untappd register - Instructions to register with the bot
 #  hubot untappd approve - Approve all pending friend requests
@@ -207,10 +207,10 @@ module.exports = (robot) ->
       if obj.response.brewery.items.length == 0
         return msg.send "No breweries matched '#{searchterm}'"
       for result in obj.response.brewery.items[0...count_to_return]
-        out_msg = result.brewery.brewery_name 
+        out_msg = "#{result.brewery.brewery_id}: #{result.brewery.brewery_name}"
         if (result.brewery.location.brewery_city != "")
-          out_msg += " ("+result.brewery.location.brewery_city + ", "+result.brewery.location.brewery_state+")"
-        out_msg += " - " + result.brewery.beer_count + " beers (ID: #"+result.brewery.brewery_id+")"
+          out_msg += " (#{result.brewery.location.brewery_city}, #{result.brewery.location.brewery_state})"
+        out_msg += " - #{result.brewery.beer_count} beers"
 
         msg.send out_msg
     , searchterm
@@ -221,18 +221,31 @@ module.exports = (robot) ->
     unless searchterm
       msg.send 'Must provide a beer name to ask about.'
       return
-    untappd.searchBeer (err, obj) ->
-      return unless checkUntappdErrors err, obj, msg
-      robot.logger.debug obj.response.beers
-      if obj.response.beers.items.length == 0
-        return msg.send "No beers matched '#{searchterm}'"
-      for result in obj.response.beers.items[0...count_to_return]
+    if searchterm.match(/\d+/)
+      untappd.beerInfo (err, obj) ->
+        result = obj.response
         if result.beer.beer_description
-          msg.send "#{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - #{result.beer.beer_description}"
+          msg.send "#{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - #{result.beer.beer_description}"
         else
-          msg.send "#{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name}"
+          msg.send "#{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name}"
 
-    , searchterm
+      , searchterm
+    else
+      untappd.searchBeer (err, obj) ->
+        return unless checkUntappdErrors err, obj, msg
+        robot.logger.debug obj.response.beers
+        if obj.response.beers.items.length == 0
+          return msg.send "No beers matched '#{searchterm}'"
+        for result in obj.response.beers.items[0...count_to_return]
+          if result.beer.beer_description
+            truncateCharacterCount = 70
+            shortDescription = result.beer.beer_description
+            shortDescription = shortDescription.substr(0, truncateCharacterCount - 1) + ((if shortDescription.length > truncateCharacterCount then " ..." else ""))
+            msg.send "#{result.beer.bid}: #{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - #{shortDescription}"
+          else
+            msg.send "#{result.beer.bid}: #{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name}"
+
+      , searchterm
 
   ##
   # Show Register
