@@ -108,7 +108,7 @@ module.exports = (robot) ->
       contents = []
       for checkin in obj.response.checkins.items
         chunk = {
-          "title": "#{checkin.user.first_name} (#{checkin.user.user_name}) was drinking a #{checkin.beer.beer_name} by #{checkin.brewery.brewery_name}",
+          "title": "#{checkin.user.first_name} (#{checkin.user.user_name}) was drinking #{checkin.beer.beer_name} by #{checkin.brewery.brewery_name}",
           "title_link": "https://untappd.com/user/#{checkin.user.user_name}/checkin/#{checkin.checkin_id}",
           "thumb_url": "#{checkin.beer.beer_label}",
           "color": "#7CD197"
@@ -117,10 +117,10 @@ module.exports = (robot) ->
         time_ago = moment(new Date(checkin.created_at)).fromNow()
         if checkin.venue.venue_name
           chunk["author_name"] = "#{time_ago} at #{checkin.venue.venue_name}"
-          chunk["fallback"] = "#{checkin.user.first_name} (#{checkin.user.user_name}) was drinking a #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} at #{checkin.venue.venue_name} - #{time_ago}"
+          chunk["fallback"] = "#{checkin.user.first_name} (#{checkin.user.user_name}) was drinking #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} at #{checkin.venue.venue_name} - #{time_ago}"
         else
           chunk["author_name"] = "#{time_ago}"
-          chunk["fallback"] = "#{checkin.user.first_name} (#{checkin.user.user_name}) was drinking a #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} - #{time_ago}"
+          chunk["fallback"] = "#{checkin.user.first_name} (#{checkin.user.user_name}) was drinking #{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} - #{time_ago}"
 
         if checkin.badges.count == 1
           firstbadge = checkin.badges.items[0]
