@@ -60,21 +60,21 @@ describe 'hubot-untappd-friends for slack', ->
                 {
                   "author_name": "an hour ago at 49 Çukurcuma",
                   "color": "#7CD197",
-                  "fallback": "heath (heathseals) was drinking a Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery at 49 Çukurcuma - an hour ago",
+                  "fallback": "heath (heathseals) was drinking Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery at 49 Çukurcuma - an hour ago",
                   "footer": "Earned the Beer Foodie (Level 44) badge and 2 more",
                   "footer_icon": "https://untappd.akamaized.net/badges/bdg_BeerFoodie_sm.jpg",
                   "thumb_url": "https://untappd.akamaized.net/site/beer_logos/beer-764911_07c43_sm.jpeg",
-                  "title": "heath (heathseals) was drinking a Blonde Ale by Gara Guzu Brewery",
+                  "title": "heath (heathseals) was drinking Blonde Ale by Gara Guzu Brewery",
                   "title_link": "https://untappd.com/user/heathseals/checkin/578981788"
                 },
                 {
                   "author_name": "8 hours ago at DERALIYE OTTOMAN CUISINE",
                   "color": "#7CD197",
-                  "fallback": "heath (heathseals) was drinking a Efes Pilsen (Pilsner - Other - 5%) by Anadolu Efes at DERALIYE OTTOMAN CUISINE - 8 hours ago",
+                  "fallback": "heath (heathseals) was drinking Efes Pilsen (Pilsner - Other - 5%) by Anadolu Efes at DERALIYE OTTOMAN CUISINE - 8 hours ago",
                   "footer": "Earned the Beer Connoisseur (Level 8) badge",
                   "footer_icon": "https://untappd.akamaized.net/badges/bdg_connoiseur_sm.jpg",
                   "thumb_url": "https://untappd.akamaized.net/site/beer_logos/beer-EfesPilsener_17259.jpeg",
-                  "title": "heath (heathseals) was drinking a Efes Pilsen by Anadolu Efes",
+                  "title": "heath (heathseals) was drinking Efes Pilsen by Anadolu Efes",
                   "title_link": "https://untappd.com/user/heathseals/checkin/578869664"
                 }
               ]
