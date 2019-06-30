@@ -33,7 +33,7 @@
     "matchdep": "^2.0.0",
     "mocha": "^6.0.2",
     "nock": "^10.0.6",
-    "release-it": "^10.2.0",
+    "release-it": "^12.3.0",
     "sinon": "^7.2.6",
     "sinon-chai": "^3.3.0"
   },
