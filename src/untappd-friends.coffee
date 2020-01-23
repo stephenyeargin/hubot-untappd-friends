@@ -134,7 +134,7 @@ module.exports = (robot) ->
         contents.push chunk
 
       if robot.adapterName == 'slack'
-        robot.messageRoom msg.message.room, attachments: contents
+        robot.messageRoom msg.message.room, attachments: contents, unfurl_links: false
       else
         for chunk in contents
           msg.send chunk.fallback
@@ -168,7 +168,7 @@ module.exports = (robot) ->
           contents.push chunk
 
       if robot.adapterName == 'slack'
-        robot.messageRoom msg.message.room, attachments: contents
+        robot.messageRoom msg.message.room, attachments: contents, unfurl_links: false
       else
         for chunk in contents
           msg.send chunk.fallback
@@ -224,10 +224,12 @@ module.exports = (robot) ->
     if searchterm.match(/\d+/)
       untappd.beerInfo (err, obj) ->
         result = obj.response
+        beer_name = result.beer.beer_name
+        beer_name = "#{beer_name} [Out of Production]" if result.beer.in_production == 0
         if result.beer.beer_description
-          msg.send "#{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - #{result.beer.beer_description}"
+          msg.send "#{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - #{result.beer.beer_description.trim()} - https://untappd.com/beer/#{result.beer.bid}"
         else
-          msg.send "#{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name}"
+          msg.send "#{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - https://untappd.com/beer/#{result.beer.bid}"
 
       , searchterm
     else
@@ -237,13 +239,15 @@ module.exports = (robot) ->
         if obj.response.beers.items.length == 0
           return msg.send "No beers matched '#{searchterm}'"
         for result in obj.response.beers.items[0...count_to_return]
+          beer_name = result.beer.beer_name
+          beer_name = "#{beer_name} [Out of Production]" if result.beer.in_production == 0
           if result.beer.beer_description
             truncateCharacterCount = 70
-            shortDescription = result.beer.beer_description
+            shortDescription = result.beer.beer_description.trim()
             shortDescription = shortDescription.substr(0, truncateCharacterCount - 1) + ((if shortDescription.length > truncateCharacterCount then " ..." else ""))
-            msg.send "#{result.beer.bid}: #{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - #{shortDescription}"
+            msg.send "#{result.beer.bid}: #{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - #{shortDescription} - https://untappd.com/beer/#{result.beer.bid}"
           else
-            msg.send "#{result.beer.bid}: #{result.beer.beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name}"
+            msg.send "#{result.beer.bid}: #{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - https://untappd.com/beer/#{result.beer.bid}"
 
       , searchterm
 

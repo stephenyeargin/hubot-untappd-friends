@@ -135,8 +135,8 @@ describe 'hubot-untappd-friends', ->
       try
         expect(selfRoom.messages).to.eql [
           ['alice', '@hubot untappd beer miro miel']
-          ['hubot', '1130814: Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally source ...']
-          ['hubot', '352951: Framboise Et Miel (Fruit Beer - 5%) by Brouemont Micro-Brasserie & Restaurant']
+          ['hubot', '1130814: Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally source ... - https://untappd.com/beer/1130814']
+          ['hubot', '352951: Framboise Et Miel [Out of Production] (Fruit Beer - 5%) by Brouemont Micro-Brasserie & Restaurant - https://untappd.com/beer/352951']
         ]
         done()
       catch err
@@ -161,7 +161,7 @@ describe 'hubot-untappd-friends', ->
       try
         expect(selfRoom.messages).to.eql [
           ['alice', '@hubot untappd beer 1130814']
-          ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. \r\n\r\nGives a nice crisp, malty finish, refreshing and light brew. Our honey is sourced from Johnson\'s Honey Farm in Goodlettsville, a Nashville suburb. ']
+          ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. \r\n\r\nGives a nice crisp, malty finish, refreshing and light brew. Our honey is sourced from Johnson\'s Honey Farm in Goodlettsville, a Nashville suburb. - https://untappd.com/beer/1130814']
         ]
         done()
       catch err
