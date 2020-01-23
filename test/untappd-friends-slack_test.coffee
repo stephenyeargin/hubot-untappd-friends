@@ -77,7 +77,8 @@ describe 'hubot-untappd-friends for slack', ->
                   "title": "heath (heathseals) was drinking Efes Pilsen by Anadolu Efes",
                   "title_link": "https://untappd.com/user/heathseals/checkin/578869664"
                 }
-              ]
+              ],
+              "unfurl_links": false
             }
           ]
         ]
@@ -149,7 +150,8 @@ describe 'hubot-untappd-friends for slack', ->
                   "title": "heath (heathseals) earned the Beer Connoisseur (Level 8) Badge",
                   "title_link": "https://untappd.com/user/heathseals/checkin/578869664"
                 }
-              ]
+              ],
+              "unfurl_links": false
             }
           ]
         ]
