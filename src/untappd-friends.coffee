@@ -225,7 +225,7 @@ module.exports = (robot) ->
       untappd.beerInfo (err, obj) ->
         result = obj.response
         beer_name = result.beer.beer_name
-        beer_name = "#{beer_name} [Out of Production]" if result.beer.in_production == 0
+        beer_name = "#{beer_name} [Out of Production]" if result.beer.is_in_production == 0
         if result.beer.beer_description
           msg.send "#{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - #{result.beer.beer_description.trim()} - https://untappd.com/beer/#{result.beer.bid}"
         else
@@ -240,7 +240,7 @@ module.exports = (robot) ->
           return msg.send "No beers matched '#{searchterm}'"
         for result in obj.response.beers.items[0...count_to_return]
           beer_name = result.beer.beer_name
-          beer_name = "#{beer_name} [Out of Production]" if result.beer.in_production == 0
+          beer_name = "#{beer_name} [Out of Production]" if result.beer.is_in_production == 0
           if result.beer.beer_description
             truncateCharacterCount = 70
             shortDescription = result.beer.beer_description.trim()
