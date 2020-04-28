@@ -29,19 +29,23 @@
     "chai": "^4.2.0",
     "coffee-script": "^1.12.7",
     "hubot-test-helper": "^1.9.0",
-    "husky": "^3.0.9",
+    "husky": "^4.2.5",
     "matchdep": "^2.0.0",
-    "mocha": "^6.2.2",
-    "nock": "^11.6.0",
-    "release-it": "^12.4.3",
-    "sinon": "^7.5.0",
-    "sinon-chai": "^3.3.0"
+    "mocha": "^7.1.2",
+    "nock": "^12.0.3",
+    "release-it": "^13.5.7",
+    "sinon": "^9.0.2",
+    "sinon-chai": "^3.5.0"
   },
   "main": "index.coffee",
   "scripts": {
     "release": "release-it",
-    "precommit": "npm test",
-    "prepush": "npm test",
     "test": "mocha 'test/**/*.coffee'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
   }
 }
