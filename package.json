@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "node-untappd": "^0.3.1",
-    "moment": "^2.24.0"
+    "moment": "^2.27.0"
   },
   "peerDependencies": {
     "hubot": "^3"
@@ -31,16 +31,16 @@
     "hubot-test-helper": "^1.9.0",
     "husky": "^4.2.5",
     "matchdep": "^2.0.0",
-    "mocha": "^7.1.2",
-    "nock": "^12.0.3",
-    "release-it": "^13.5.7",
+    "mocha": "^8.0.1",
+    "nock": "^13.0.2",
+    "release-it": "^13.6.5",
     "sinon": "^9.0.2",
     "sinon-chai": "^3.5.0"
   },
   "main": "index.coffee",
   "scripts": {
     "release": "release-it",
-    "test": "mocha 'test/**/*.coffee'"
+    "test": "mocha --require coffee-script/register \"test/**/*.coffee\" --reporter spec"
   },
   "husky": {
     "hooks": {
