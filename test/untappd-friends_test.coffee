@@ -39,9 +39,7 @@ describe 'hubot-untappd-friends', ->
     nock('https://api.untappd.com')
       .get('/v4/checkin/recent')
       .query(
-        limit: 2,
-        client_id: 'foobar1',
-        client_secret: 'foobar2',
+        limit: 2
         access_token: 'foobar3',
       )
       .replyWithFile(200, __dirname + '/fixtures/checkin-recent.json')
@@ -67,8 +65,6 @@ describe 'hubot-untappd-friends', ->
       .get('/v4/checkin/recent')
       .query(
         limit: 2,
-        client_id: 'foobar1',
-        client_secret: 'foobar2',
         access_token: 'foobar3',
       )
       .replyWithFile(200, __dirname + '/fixtures/checkin-recent.json')
@@ -96,8 +92,7 @@ describe 'hubot-untappd-friends', ->
       .get('/v4/user/checkins/stephenyeargin')
       .query(
         limit: 2,
-        client_id: 'foobar1',
-        client_secret: 'foobar2',
+        USERNAME: 'stephenyeargin',
         access_token: 'foobar3',
       )
       .replyWithFile(200, __dirname + '/fixtures/user-checkins-stephenyeargin.json')
@@ -123,8 +118,7 @@ describe 'hubot-untappd-friends', ->
       .get('/v4/search/beer')
       .query(
         q: 'miro miel'
-        client_id: 'foobar1',
-        client_secret: 'foobar2',
+        limit: 2,
         access_token: 'foobar3',
       )
       .replyWithFile(200, __dirname + '/fixtures/search-beer.json')
@@ -149,9 +143,9 @@ describe 'hubot-untappd-friends', ->
     nock('https://api.untappd.com')
       .get('/v4/beer/info/1130814')
       .query(
-        client_id: 'foobar1',
-        client_secret: 'foobar2',
+        BID: '1130814',
         access_token: 'foobar3',
+        limit: 2
       )
       .replyWithFile(200, __dirname + '/fixtures/search-beer-by-id.json')
 
@@ -175,8 +169,7 @@ describe 'hubot-untappd-friends', ->
       .get('/v4/search/brewery')
       .query(
         q: 'east nashville beerworks'
-        client_id: 'foobar1',
-        client_secret: 'foobar2',
+        limit: '2',
         access_token: 'foobar3',
       )
       .replyWithFile(200, __dirname + '/fixtures/search-brewery.json')
@@ -226,16 +219,12 @@ describe 'hubot-untappd-friends', ->
     nock('https://api.untappd.com')
       .get('/v4/user/pending')
       .query(
-        client_id: 'foobar1',
-        client_secret: 'foobar2',
-        access_token: 'foobar3',
+        access_token: 'foobar3'
       )
       .replyWithFile(200, __dirname + '/fixtures/user-pending.json')
     nock('https://api.untappd.com')
       .post('/v4/friend/accept/1570195')
       .query(
-        client_id: 'foobar1',
-        client_secret: 'foobar2',
         access_token: 'foobar3',
       )
       .replyWithFile(200, __dirname + '/fixtures/friend-accept.json')
@@ -289,8 +278,7 @@ describe 'hubot-untappd-friends', ->
     nock('https://api.untappd.com')
       .get('/v4/friend/remove/273954')
       .query(
-        client_id: 'foobar1',
-        client_secret: 'foobar2',
+        TARGET_ID: '273954',
         access_token: 'foobar3',
       )
       .replyWithFile(200, __dirname + '/fixtures/friend-remove.json')

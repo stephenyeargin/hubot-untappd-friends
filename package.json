@@ -19,8 +19,8 @@
     "url": "https://github.com/stephenyeargin/hubot-untappd-friends/issues"
   },
   "dependencies": {
-    "node-untappd": "^0.5.0",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "node-untappd": "^0.5.0"
   },
   "peerDependencies": {
     "hubot": "^3"
