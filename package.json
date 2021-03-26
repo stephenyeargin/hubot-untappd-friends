@@ -40,7 +40,8 @@
   "main": "index.coffee",
   "scripts": {
     "release": "release-it",
-    "test": "mocha --require coffee-script/register \"test/**/*.coffee\" --reporter spec"
+    "test": "mocha --require coffee-script/register \"test/**/*.coffee\" --reporter spec",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
