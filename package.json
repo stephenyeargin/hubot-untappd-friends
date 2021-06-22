@@ -42,11 +42,5 @@
     "release": "release-it",
     "test": "mocha --require coffee-script/register \"test/**/*.coffee\" --reporter spec",
     "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm test",
-      "pre-push": "npm test"
-    }
   }
 }
