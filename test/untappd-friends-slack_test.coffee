@@ -41,8 +41,6 @@ describe 'hubot-untappd-friends for slack', ->
       .get('/v4/checkin/recent')
       .query(
         limit: 2,
-        client_id: 'foobar1',
-        client_secret: 'foobar2',
         access_token: 'foobar3',
       )
       .replyWithFile(200, __dirname + '/fixtures/checkin-recent.json')
@@ -94,8 +92,6 @@ describe 'hubot-untappd-friends for slack', ->
       .get('/v4/checkin/recent')
       .query(
         limit: 2,
-        client_id: 'foobar1',
-        client_secret: 'foobar2',
         access_token: 'foobar3',
       )
       .replyWithFile(200, __dirname + '/fixtures/checkin-recent.json')

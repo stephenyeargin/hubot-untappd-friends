@@ -1,11 +1,12 @@
+os: linux
+dist: xenial
 language: node_js
-sudo: false
 notifications:
   email: false
 node_js:
+  - "16" # stable
   - "14" # LTS
-  - "12" # LTS
-  - "10" # maintenance
+  - "12" # maintenance
 cache:
   directories:
     - node_modules

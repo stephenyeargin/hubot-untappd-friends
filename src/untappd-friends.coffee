@@ -26,7 +26,7 @@ count_to_return = process.env.UNTAPPD_MAX_COUNT || 5
 module.exports = (robot) ->
   QS = require 'querystring'
   UntappdClient = require 'node-untappd'
-  moment = require "moment"
+  moment = require 'moment'
 
   untappd = new UntappdClient(false);
   untappd.setClientId process.env.UNTAPPD_API_KEY
@@ -102,7 +102,7 @@ module.exports = (robot) ->
   ##
   # Get Friend Feed
   getFriendFeed = (msg) ->
-    untappd.friendFeed (err, obj) ->
+    untappd.activityFeed (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
       robot.logger.debug obj.response.checkins
       contents = []
@@ -138,12 +138,12 @@ module.exports = (robot) ->
       else
         for chunk in contents
           msg.send chunk.fallback
-    , count_to_return
+    , {limit: count_to_return}
 
   ##
   # Get Badge Feed
   getBadgeFeed = (msg) ->
-    untappd.friendFeed (err, obj) ->
+    untappd.activityFeed (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
       robot.logger.debug obj.response.checkins
       contents = []
@@ -173,7 +173,7 @@ module.exports = (robot) ->
         for chunk in contents
           msg.send chunk.fallback
 
-    , count_to_return
+    , {limit: count_to_return}
 
   ##
   # Get User Data
@@ -181,7 +181,7 @@ module.exports = (robot) ->
     unless username
       msg.send 'Must provide a username to ask about.'
       return
-    untappd.userFeed (err, obj) ->
+    untappd.userActivityFeed (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
       robot.logger.debug obj.response.checkins
       if err
@@ -193,7 +193,7 @@ module.exports = (robot) ->
           msg.send "#{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} at #{checkin.venue.venue_name} - #{time_ago}"
         else
           msg.send "#{checkin.beer.beer_name} (#{checkin.beer.beer_style} - #{checkin.beer.beer_abv}%) by #{checkin.brewery.brewery_name} - #{time_ago}"
-    , username, count_to_return
+    , {USERNAME: username, limit: count_to_return}
 
   ##
   # Get Brewery Data
@@ -201,7 +201,7 @@ module.exports = (robot) ->
     unless searchterm
       msg.send 'Must provide a brewery name to ask about.'
       return
-    untappd.searchBrewery (err, obj) ->
+    untappd.brewerySearch (err, obj) ->
       return unless checkUntappdErrors err, obj, msg
       robot.logger.debug obj.response.beers
       if obj.response.brewery.items.length == 0
@@ -213,7 +213,7 @@ module.exports = (robot) ->
         out_msg += " - #{result.brewery.beer_count} beers"
 
         msg.send out_msg
-    , searchterm
+    , {q: searchterm, limit: count_to_return}
 
   ##
   # Get Beer Data
@@ -223,6 +223,7 @@ module.exports = (robot) ->
       return
     if searchterm.match(/\d+/)
       untappd.beerInfo (err, obj) ->
+        return unless checkUntappdErrors err, obj, msg
         result = obj.response
         beer_name = result.beer.beer_name
         beer_name = "#{beer_name} [Out of Production]" if result.beer.is_in_production == 0
@@ -231,9 +232,9 @@ module.exports = (robot) ->
         else
           msg.send "#{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - https://untappd.com/beer/#{result.beer.bid}"
 
-      , searchterm
+      , {BID: searchterm, limit: count_to_return}
     else
-      untappd.searchBeer (err, obj) ->
+      untappd.beerSearch (err, obj) ->
         return unless checkUntappdErrors err, obj, msg
         robot.logger.debug obj.response.beers
         if obj.response.beers.items.length == 0
@@ -249,7 +250,7 @@ module.exports = (robot) ->
           else
             msg.send "#{result.beer.bid}: #{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - https://untappd.com/beer/#{result.beer.bid}"
 
-      , searchterm
+      , {q: searchterm, limit: count_to_return}
 
   ##
   # Show Register
@@ -291,9 +292,10 @@ module.exports = (robot) ->
             return unless checkUntappdErrors err, obj, msg
             friend = obj.response.target_user
             msg.send "Approved: #{friend.first_name} #{friend.last_name} (#{friend.user_name})"
-          , result.user.uid
+          , {TARGET_ID: result.user.uid}
       else
         msg.send "No friends to approve."
+    , {}
 
   ##
   # Remove Friend
@@ -311,4 +313,4 @@ module.exports = (robot) ->
           return unless checkUntappdErrors err, obj, msg
           user = result.response.user
           msg.send "Removed: #{user.first_name} #{user.last_name} (#{user.user_name})"
-        , result.response.user.uid
+        , {TARGET_ID: result.response.user.uid}
