@@ -163,6 +163,31 @@ describe 'hubot-untappd-friends', ->
       return
     , 1000)
 
+  # hubot untappd beer <query> with numbers
+  it 'responds with the beer search results for a query', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/search/beer')
+      .query(
+        q: 'f00f'
+        limit: 2,
+        access_token: 'foobar3',
+      )
+      .replyWithFile(200, __dirname + '/fixtures/search-beer-digits.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd beer f00f')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd beer f00f']
+          ['hubot', 'No beers matched \'f00f\'']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
   # hubot untappd brewery <query>
   it 'responds with brewery search results for a query', (done) ->
     nock('https://api.untappd.com')
