@@ -221,7 +221,7 @@ module.exports = (robot) ->
     unless searchterm
       msg.send 'Must provide a beer name to ask about.'
       return
-    if searchterm.match(/\d+/)
+    if searchterm.match(/^\d+$/)
       untappd.beerInfo (err, obj) ->
         return unless checkUntappdErrors err, obj, msg
         result = obj.response
