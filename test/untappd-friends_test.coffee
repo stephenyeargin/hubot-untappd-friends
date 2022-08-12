@@ -1,6 +1,7 @@
 Helper = require('hubot-test-helper')
 chai = require 'chai'
 nock = require 'nock'
+sinon = require 'sinon'
 
 expect = chai.expect
 
@@ -20,6 +21,7 @@ describe 'hubot-untappd-friends', ->
     process.env.UNTAPPD_API_SECRET='foobar2'
     process.env.UNTAPPD_API_ACCESS_TOKEN='foobar3'
     process.env.UNTAPPD_MAX_COUNT=2
+    process.env.UNTAPPD_MAX_RANDOM_ID=100
     Date.now = mockDateNow
     nock.disableNetConnect()
     @room = helper.createRoom()
@@ -30,6 +32,7 @@ describe 'hubot-untappd-friends', ->
     delete process.env.UNTAPPD_API_SECRET
     delete process.env.UNTAPPD_API_ACCESS_TOKEN
     delete process.env.UNTAPPD_MAX_COUNT
+    delete process.env.UNTAPPD_MAX_RANDOM_ID
     Date.now = originalDateNow
     nock.cleanAll()
     @room.destroy()
@@ -155,6 +158,32 @@ describe 'hubot-untappd-friends', ->
       try
         expect(selfRoom.messages).to.eql [
           ['alice', '@hubot untappd beer 1130814']
+          ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. \r\n\r\nGives a nice crisp, malty finish, refreshing and light brew. Our honey is sourced from Johnson\'s Honey Farm in Goodlettsville, a Nashville suburb. - https://untappd.com/beer/1130814']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
+  # hubot untappd beer ID
+  it 'responds with the information about a random beer', (done) ->
+    sinon.stub(Math, 'random').returns(1);
+    nock('https://api.untappd.com')
+      .get('/v4/beer/info/100')
+      .query(
+        BID: '100',
+        access_token: 'foobar3',
+        limit: 2
+      )
+      .replyWithFile(200, __dirname + '/fixtures/search-beer-by-id.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd beer random')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd beer random']
           ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. \r\n\r\nGives a nice crisp, malty finish, refreshing and light brew. Our honey is sourced from Johnson\'s Honey Farm in Goodlettsville, a Nashville suburb. - https://untappd.com/beer/1130814']
         ]
         done()

@@ -11,6 +11,7 @@
 #  hubot untappd - Recent friend activity
 #  hubot untappd badges - Recent friends' badge activity
 #  hubot untappd user <username> - Get stats about a particular user
+#  hubot untappd beer random - Retrieve a random beer
 #  hubot untappd beer <query|ID> - Get data about a particular beer
 #  hubot untappd brewery <query> - Get data about a particular brewery
 #  hubot untappd register - Instructions to register with the bot
@@ -22,6 +23,7 @@
 #  sethington, stephenyeargin
 
 count_to_return = process.env.UNTAPPD_MAX_COUNT || 5
+max_random_beer_id = process.env.UNTAPPD_MAX_RANDOM_ID || 4973500
 
 module.exports = (robot) ->
   QS = require 'querystring'
@@ -233,6 +235,9 @@ module.exports = (robot) ->
           msg.send "#{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - https://untappd.com/beer/#{result.beer.bid}"
 
       , {BID: searchterm, limit: count_to_return}
+    else if searchterm.match(/^random$/i)
+      beerId = Math.floor(Math.random() * max_random_beer_id).toString();
+      getBeerData beerId, msg
     else
       untappd.beerSearch (err, obj) ->
         return unless checkUntappdErrors err, obj, msg
