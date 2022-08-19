@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/hubot-untappd-friends.svg)](http://badge.fury.io/js/hubot-untappd-friends) [![Node CI](https://github.com/stephenyeargin/hubot-untappd-friends/actions/workflows/nodejs.yml/badge.svg)](https://github.com/stephenyeargin/hubot-untappd-friends/actions/workflows/nodejs.yml)
 
-Get the latest checkins from your Untappd friends.
+Get the latest check-ins from your Untappd friends.
 
 ## Getting Started
 

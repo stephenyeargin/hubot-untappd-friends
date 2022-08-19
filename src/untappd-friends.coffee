@@ -6,6 +6,9 @@
 #  UNTAPPD_API_SECRET - Your Untappd API Secret
 #  UNTAPPD_API_ACCESS_TOKEN - A valid OAuth 2 token
 #  UNTAPPD_MAX_COUNT - (optional) Number of results to return
+#  UNTAPPD_MAX_DESCRIPTION_LENGTH - Where to truncate long descriptions.
+#  UNTAPPD_MAX_RANDOM_ID - Maximum value to use for random beer command.
+
 #
 # Commands:
 #  hubot untappd - Recent friend activity
