@@ -24,18 +24,21 @@ Then add **hubot-untappd-friends** to your `external-scripts.json`:
 
 ## Configuration:
 
-| Variable                   | Required? | Description                         |
-| -------------------------- | :-------: | ----------------------------------- |
-| `UNTAPPD_API_KEY`          | Yes       | Client ID for your integration      |
-| `UNTAPPD_API_SECRET`       | Yes       | Client Secret for your integration  |
-| `UNTAPPD_API_ACCESS_TOKEN` | Yes       | OAuth 2.0 access token              |
-| `UNTAPPD_MAX_COUNT`        | No        | Number of beers to show, default: 5 |
+| Variable                         | Required? | Description                                       |
+| -------------------------------- | :-------: | ------------------------------------------------- |
+| `UNTAPPD_API_KEY`                | Yes       | Client ID for your integration                    |
+| `UNTAPPD_API_SECRET`             | Yes       | Client Secret for your integration                |
+| `UNTAPPD_API_ACCESS_TOKEN`       | Yes       | OAuth 2.0 access token                            |
+| `UNTAPPD_MAX_COUNT`              | No        | Number of beers to show; default: 5               |
+| `UNTAPPD_MAX_DESCRIPTION_LENGTH` | No        | Where to truncate long descriptions; default: 150 |
+| `UNTAPPD_MAX_RANDOM_ID`          | No        | Maximum value to use for random beer command      |
 
 ## Commands:
 
 - `hubot untappd` - Recent friend activity
 - `hubot untappd badges` - Recent friends' badge activity
 - `hubot untappd user <query>` - Get stats about a particular user
+- `hubot untappd beer random` - Gets a random beer from the database
 - `hubot untappd beer <query>` - Get data about a particular beer
 - `hubot untappd brewery <query>` - Get data about a particular brewery
 - `hubot untappd register` - Instructions to register with the bot

@@ -24,6 +24,7 @@
 
 count_to_return = process.env.UNTAPPD_MAX_COUNT || 5
 max_random_beer_id = process.env.UNTAPPD_MAX_RANDOM_ID || 4973500
+max_description_length = process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH || 150
 
 module.exports = (robot) ->
   QS = require 'querystring'
@@ -230,7 +231,8 @@ module.exports = (robot) ->
         beer_name = result.beer.beer_name
         beer_name = "#{beer_name} [Out of Production]" if result.beer.is_in_production == 0
         if result.beer.beer_description
-          msg.send "#{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - #{result.beer.beer_description.trim()} - https://untappd.com/beer/#{result.beer.bid}"
+          shortDescription = formatShortDescription(result.beer.beer_description)
+          msg.send "#{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - #{shortDescription} - https://untappd.com/beer/#{result.beer.bid}"
         else
           msg.send "#{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - https://untappd.com/beer/#{result.beer.bid}"
 
@@ -248,9 +250,7 @@ module.exports = (robot) ->
           beer_name = result.beer.beer_name
           beer_name = "#{beer_name} [Out of Production]" if result.beer.is_in_production == 0
           if result.beer.beer_description
-            truncateCharacterCount = 70
-            shortDescription = result.beer.beer_description.trim()
-            shortDescription = shortDescription.substr(0, truncateCharacterCount - 1) + ((if shortDescription.length > truncateCharacterCount then " ..." else ""))
+            shortDescription = formatShortDescription(result.beer.beer_description)
             msg.send "#{result.beer.bid}: #{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - #{shortDescription} - https://untappd.com/beer/#{result.beer.bid}"
           else
             msg.send "#{result.beer.bid}: #{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - https://untappd.com/beer/#{result.beer.bid}"
@@ -319,3 +319,11 @@ module.exports = (robot) ->
           user = result.response.user
           msg.send "Removed: #{user.first_name} #{user.last_name} (#{user.user_name})"
         , {TARGET_ID: result.response.user.uid}
+
+  ##
+  # Short Beer Description
+  formatShortDescription = (beer_description) ->
+    shortDescription = beer_description.replace(/\r?\n|\r/g, '').trim()
+    shortDescription = shortDescription.substr(0, max_description_length - 1) + ((if shortDescription.length > max_description_length then " ..." else ""))
+    shortDescription
+ 
