@@ -351,3 +351,49 @@ describe 'hubot-untappd-friends', ->
         done err
       return
     , 1000)
+
+describe 'hide beer descriptions', ->
+  beforeEach ->
+    process.env.HUBOT_LOG_LEVEL='error'
+    process.env.UNTAPPD_API_KEY='foobar1'
+    process.env.UNTAPPD_API_SECRET='foobar2'
+    process.env.UNTAPPD_API_ACCESS_TOKEN='foobar3'
+    process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH = 0
+    Date.now = mockDateNow
+    nock.disableNetConnect()
+    @room = helper.createRoom()
+
+  afterEach ->
+    delete process.env.HUBOT_LOG_LEVEL
+    delete process.env.UNTAPPD_API_KEY
+    delete process.env.UNTAPPD_API_SECRET
+    delete process.env.UNTAPPD_API_ACCESS_TOKEN
+    delete process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH
+    Date.now = originalDateNow
+    nock.cleanAll()
+    @room.destroy()
+
+  # hubot untappd
+  it 'hides beer description', (done) ->
+    nock('https://api.untappd.com')
+      .get('/v4/beer/info/1130814')
+      .query(
+        BID: '1130814',
+        access_token: 'foobar3',
+        limit: 5
+      )
+      .replyWithFile(200, __dirname + '/fixtures/search-beer-by-id.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd beer 1130814')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd beer 1130814']
+          ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - https://untappd.com/beer/1130814']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)

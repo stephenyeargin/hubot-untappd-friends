@@ -6,7 +6,7 @@
 #  UNTAPPD_API_SECRET - Your Untappd API Secret
 #  UNTAPPD_API_ACCESS_TOKEN - A valid OAuth 2 token
 #  UNTAPPD_MAX_COUNT - (optional) Number of results to return
-#  UNTAPPD_MAX_DESCRIPTION_LENGTH - Where to truncate long descriptions.
+#  UNTAPPD_MAX_DESCRIPTION_LENGTH - Where to truncate long descriptions, `0` to hide.
 #  UNTAPPD_MAX_RANDOM_ID - Maximum value to use for random beer command.
 
 #
@@ -25,14 +25,17 @@
 # Author:
 #  sethington, stephenyeargin
 
-count_to_return = process.env.UNTAPPD_MAX_COUNT || 5
-max_random_beer_id = process.env.UNTAPPD_MAX_RANDOM_ID || 4973500
-max_description_length = process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH || 150
-
 module.exports = (robot) ->
   QS = require 'querystring'
   UntappdClient = require 'node-untappd'
   moment = require 'moment'
+
+  count_to_return = process.env.UNTAPPD_MAX_COUNT || 5
+  max_random_beer_id = process.env.UNTAPPD_MAX_RANDOM_ID || 4973500
+  if typeof process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH == 'undefined'
+    max_description_length = 150
+  else
+    max_description_length = parseInt(process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH, 10)
 
   untappd = new UntappdClient(false);
   untappd.setClientId process.env.UNTAPPD_API_KEY
@@ -233,7 +236,7 @@ module.exports = (robot) ->
         result = obj.response
         beer_name = result.beer.beer_name
         beer_name = "#{beer_name} [Out of Production]" if result.beer.is_in_production == 0
-        if result.beer.beer_description
+        if result.beer.beer_description and max_description_length > 0
           shortDescription = formatShortDescription(result.beer.beer_description)
           msg.send "#{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - #{shortDescription} - https://untappd.com/beer/#{result.beer.bid}"
         else
@@ -252,7 +255,7 @@ module.exports = (robot) ->
         for result in obj.response.beers.items[0...count_to_return]
           beer_name = result.beer.beer_name
           beer_name = "#{beer_name} [Out of Production]" if result.beer.is_in_production == 0
-          if result.beer.beer_description
+          if result.beer.beer_description and max_description_length > 0
             shortDescription = formatShortDescription(result.beer.beer_description)
             msg.send "#{result.beer.bid}: #{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - #{shortDescription} - https://untappd.com/beer/#{result.beer.bid}"
           else

@@ -24,14 +24,14 @@ Then add **hubot-untappd-friends** to your `external-scripts.json`:
 
 ## Configuration:
 
-| Variable                         | Required? | Description                                       |
-| -------------------------------- | :-------: | ------------------------------------------------- |
-| `UNTAPPD_API_KEY`                | Yes       | Client ID for your integration                    |
-| `UNTAPPD_API_SECRET`             | Yes       | Client Secret for your integration                |
-| `UNTAPPD_API_ACCESS_TOKEN`       | Yes       | OAuth 2.0 access token                            |
-| `UNTAPPD_MAX_COUNT`              | No        | Number of beers to show; default: 5               |
-| `UNTAPPD_MAX_DESCRIPTION_LENGTH` | No        | Where to truncate long descriptions; default: 150 |
-| `UNTAPPD_MAX_RANDOM_ID`          | No        | Maximum value to use for random beer command      |
+| Variable                         | Required? | Description                                                      |
+| -------------------------------- | :-------: | ---------------------------------------------------------------- |
+| `UNTAPPD_API_KEY`                | Yes       | Client ID for your integration                                   |
+| `UNTAPPD_API_SECRET`             | Yes       | Client Secret for your integration                               |
+| `UNTAPPD_API_ACCESS_TOKEN`       | Yes       | OAuth 2.0 access token                                           |
+| `UNTAPPD_MAX_COUNT`              | No        | Number of beers to show; default: `5`                            |
+| `UNTAPPD_MAX_DESCRIPTION_LENGTH` | No        | Where to truncate long descriptions, `0` to hide; default: `150` |
+| `UNTAPPD_MAX_RANDOM_ID`          | No        | Maximum value to use for random beer command                     |
 
 ## Commands:
 
