@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "moment": "^2.29.4",
-    "node-untappd": "stephenyeargin/node-untappd#fix-for-pending-friends"
+    "node-untappd": "stephenyeargin/node-untappd#v0.5-pinned"
   },
   "peerDependencies": {
     "hubot": "^3"
