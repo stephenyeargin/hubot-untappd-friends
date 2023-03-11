@@ -8,7 +8,6 @@
 #  UNTAPPD_MAX_COUNT - (optional) Number of results to return
 #  UNTAPPD_MAX_DESCRIPTION_LENGTH - Where to truncate long descriptions, `0` to hide.
 #  UNTAPPD_MAX_RANDOM_ID - Maximum value to use for random beer command.
-
 #
 # Commands:
 #  hubot untappd - Recent friend activity
