@@ -31,7 +31,7 @@ module.exports = (robot) ->
   moment = require 'moment'
 
   count_to_return = process.env.UNTAPPD_MAX_COUNT || 5
-  max_random_beer_id = process.env.UNTAPPD_MAX_RANDOM_ID || 4973500
+  max_random_beer_id = process.env.UNTAPPD_MAX_RANDOM_ID || 5320000
   if typeof process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH == 'undefined'
     max_description_length = 150
   else
@@ -224,6 +224,29 @@ module.exports = (robot) ->
         msg.send out_msg
     , {q: searchterm, limit: count_to_return}
 
+  formatBeerResponse = (beerData, msg) ->
+    beer_name = beerData.beer_name
+    beer_name = "#{beer_name} [Out of Production]" if beerData.is_in_production == 0
+    if beerData.beer_description and max_description_length > 0
+      shortDescription = formatShortDescription(beerData.beer_description)
+      return "#{beer_name} (#{beerData.beer_style} - #{beerData.beer_abv}%) by #{beerData.brewery.brewery_name} - #{shortDescription} - https://untappd.com/beer/#{beerData.bid}"
+    else
+      return "#{beer_name} (#{beerData.beer_style} - #{beerData.beer_abv}%) by #{beerData.brewery.brewery_name} - https://untappd.com/beer/#{beerData.bid}"
+
+  ##
+  # Get Random Beer
+  randomAttempts = 0
+  getRandomBeer = (msg) ->
+    randomAttempts = randomAttempts + 1
+    beerId = Math.floor(Math.random() * max_random_beer_id).toString();
+    untappd.beerInfo (err, obj) ->
+      # Call itself again if attempts is less than max
+      return getRandomBeer(msg) if obj.meta.code == 404 && randomAttempts < 5
+      return unless checkUntappdErrors err, obj, msg
+      msg.send formatBeerResponse(obj.response.beer)
+      randomAttempts = 0
+    , {BID: beerId, limit: count_to_return}
+
   ##
   # Get Beer Data
   getBeerData = (searchterm, msg) ->
@@ -233,19 +256,10 @@ module.exports = (robot) ->
     if searchterm.match(/^\d+$/)
       untappd.beerInfo (err, obj) ->
         return unless checkUntappdErrors err, obj, msg
-        result = obj.response
-        beer_name = result.beer.beer_name
-        beer_name = "#{beer_name} [Out of Production]" if result.beer.is_in_production == 0
-        if result.beer.beer_description and max_description_length > 0
-          shortDescription = formatShortDescription(result.beer.beer_description)
-          msg.send "#{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - #{shortDescription} - https://untappd.com/beer/#{result.beer.bid}"
-        else
-          msg.send "#{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.beer.brewery.brewery_name} - https://untappd.com/beer/#{result.beer.bid}"
-
+        msg.send formatBeerResponse(obj.response.beer)
       , {BID: searchterm, limit: count_to_return}
     else if searchterm.match(/^random$/i)
-      beerId = Math.floor(Math.random() * max_random_beer_id).toString();
-      getBeerData beerId, msg
+      getRandomBeer msg
     else
       untappd.beerSearch (err, obj) ->
         return unless checkUntappdErrors err, obj, msg
@@ -253,14 +267,9 @@ module.exports = (robot) ->
         if obj.response.beers.items.length == 0
           return msg.send "No beers matched '#{searchterm}'"
         for result in obj.response.beers.items[0...count_to_return]
-          beer_name = result.beer.beer_name
-          beer_name = "#{beer_name} [Out of Production]" if result.beer.is_in_production == 0
-          if result.beer.beer_description and max_description_length > 0
-            shortDescription = formatShortDescription(result.beer.beer_description)
-            msg.send "#{result.beer.bid}: #{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - #{shortDescription} - https://untappd.com/beer/#{result.beer.bid}"
-          else
-            msg.send "#{result.beer.bid}: #{beer_name} (#{result.beer.beer_style} - #{result.beer.beer_abv}%) by #{result.brewery.brewery_name} - https://untappd.com/beer/#{result.beer.bid}"
-
+          # Search results put these at different spots
+          result.beer.brewery = result.brewery
+          msg.send formatBeerResponse(result.beer)
       , {q: searchterm, limit: count_to_return}
 
   ##

@@ -13,6 +13,7 @@ helper = new Helper [
 originalDateNow = Date.now
 mockDateNow = () ->
   return Date.parse('Tue Mar 30 2018 14:10:00 GMT-0500 (CDT)')
+randomStub = undefined
 
 describe 'hubot-untappd-friends', ->
   beforeEach ->
@@ -25,6 +26,7 @@ describe 'hubot-untappd-friends', ->
     Date.now = mockDateNow
     nock.disableNetConnect()
     @room = helper.createRoom()
+    randomStub = sinon.stub(Math, 'random')
 
   afterEach ->
     delete process.env.HUBOT_LOG_LEVEL
@@ -36,6 +38,7 @@ describe 'hubot-untappd-friends', ->
     Date.now = originalDateNow
     nock.cleanAll()
     @room.destroy()
+    randomStub.restore()
 
   # hubot untappd
   it 'responds with the latest activity from your friends', (done) ->
@@ -132,8 +135,8 @@ describe 'hubot-untappd-friends', ->
       try
         expect(selfRoom.messages).to.eql [
           ['alice', '@hubot untappd beer miro miel']
-          ['hubot', '1130814: Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. Gives a nice crisp, malty finish, refreshing and light brew. - https://untappd.com/beer/1130814']
-          ['hubot', '352951: Framboise Et Miel [Out of Production] (Fruit Beer - 5%) by Brouemont Micro-Brasserie & Restaurant - https://untappd.com/beer/352951']
+          ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. Gives a nice crisp, malty finish, refreshing and light brew. - https://untappd.com/beer/1130814']
+          ['hubot', 'Framboise Et Miel [Out of Production] (Fruit Beer - 5%) by Brouemont Micro-Brasserie & Restaurant - https://untappd.com/beer/352951']
         ]
         done()
       catch err
@@ -168,7 +171,41 @@ describe 'hubot-untappd-friends', ->
 
   # hubot untappd beer ID
   it 'responds with the information about a random beer', (done) ->
-    sinon.stub(Math, 'random').returns(1);
+    randomStub.onFirstCall().returns(1)
+    nock('https://api.untappd.com')
+      .get('/v4/beer/info/100')
+      .query(
+        BID: '100',
+        access_token: 'foobar3',
+        limit: 2
+      )
+      .replyWithFile(200, __dirname + '/fixtures/search-beer-by-id.json')
+
+    selfRoom = @room
+    selfRoom.user.say('alice', '@hubot untappd beer random')
+    setTimeout(() ->
+      try
+        expect(selfRoom.messages).to.eql [
+          ['alice', '@hubot untappd beer random']
+          ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. Gives a nice crisp, malty finish, refreshing and light brew. Our honey  ... - https://untappd.com/beer/1130814']
+        ]
+        done()
+      catch err
+        done err
+      return
+    , 1000)
+
+  it 'responds with the information about a random beer after a 404', (done) ->
+    randomStub.onFirstCall().returns(0.5)
+    randomStub.onSecondCall().returns(1)
+    nock('https://api.untappd.com')
+      .get('/v4/beer/info/50')
+      .query(
+        BID: '50',
+        access_token: 'foobar3',
+        limit: 2
+      )
+      .replyWithFile(200, __dirname + '/fixtures/search-beer-by-id-404.json')
     nock('https://api.untappd.com')
       .get('/v4/beer/info/100')
       .query(
