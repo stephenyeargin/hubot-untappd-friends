@@ -362,7 +362,7 @@ module.exports = (robot) => {
       if (!checkUntappdErrors(error, obj, msg)) { return; }
       robot.logger.debug(obj);
       if (obj.response.items.length > 0) {
-        obj.response.items.map((result) => untappd.acceptFriends(
+        obj.response.items.forEach((result) => untappd.acceptFriends(
           (acceptError, approveObj) => {
             if (!checkUntappdErrors(acceptError, approveObj, msg)) { return; }
             const friend = approveObj.response.target_user;
