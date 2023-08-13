@@ -70,7 +70,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -101,7 +101,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -131,7 +131,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -161,7 +161,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -190,7 +190,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -220,7 +220,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -258,7 +258,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -287,7 +287,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -317,7 +317,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -346,7 +346,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -379,7 +379,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -406,7 +406,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -442,7 +442,7 @@ describe('hubot-untappd-friends', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 });
@@ -495,7 +495,7 @@ describe('hide beer descriptions', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 });

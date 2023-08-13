@@ -91,7 +91,7 @@ describe('hubot-untappd-friends for slack', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 
@@ -166,7 +166,7 @@ describe('hubot-untappd-friends for slack', () => {
           done(err);
         }
       },
-      1000,
+      100,
     );
   });
 });
