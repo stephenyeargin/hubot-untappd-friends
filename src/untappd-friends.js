@@ -89,6 +89,50 @@ module.exports = (robot) => {
     return shortDescription.substr(0, maxDescriptionLength - 1) + ((shortDescription.length > maxDescriptionLength ? ' ...' : ''));
   };
 
+  // Format checkin
+  const formatCheckin = (checkin) => {
+    if (/slack/i.test(robot.adapterName)) {
+      const output = {
+        title: `${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name}`,
+        fallback: `${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name}`,
+        thumb_url: checkin.beer.beer_label,
+        title_link: `https://untappd.com/user/${checkin.user.user_name}/checkin/${checkin.checkin_id}`,
+        ts: moment(new Date(checkin.created_at)).unix(),
+        color: '#7CD197',
+      };
+      if (checkin.venue.venue_name) {
+        output.footer = checkin.venue.venue_name ? `at ${checkin.venue.venue_name}` : '';
+        output.footer_icon = checkin.venue.venue_icon.lg;
+      }
+      return output;
+    }
+    const timeAgo = moment(new Date(checkin.created_at)).fromNow();
+    if (checkin.venue.venue_name) {
+      return `- ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} at ${checkin.venue.venue_name} - ${timeAgo}`;
+    }
+    return `- ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} - ${timeAgo}`;
+  };
+
+  // Format user
+  const formatUser = (user) => {
+    if (/slack/i.test(robot.adapterName)) {
+      return {
+        title: `${user.first_name} ${user.last_name} (${user.user_name})`,
+        fallback: `${user.first_name} ${user.last_name} (${user.user_name}): ${user.stats.total_beers} beers, ${user.stats.total_checkins} checkins, ${user.stats.total_badges} badges`,
+        thumb_url: user.user_avatar,
+        title_link: `https://untappd.com/user/${user.user_name}`,
+        color: '#7CD197',
+        fields: [
+          { title: 'Joined', value: moment(user.created_at).format('MMM DD, YYYY'), short: true },
+          { title: 'Beers', value: user.stats.total_beers, short: true },
+          { title: 'Checkins', value: user.stats.total_checkins, short: true },
+          { title: 'Badges', value: user.stats.total_badges, short: true },
+        ],
+      };
+    }
+    return `${user.first_name} ${user.last_name} (${user.user_name}): ${user.stats.total_beers} beers, ${user.stats.total_checkins} checkins, ${user.stats.total_badges} badges`;
+  };
+
   // Get Friend Feed
   const getFriendFeed = (msg) => untappd.activityFeed(
     (err, obj) => {
@@ -105,26 +149,26 @@ module.exports = (robot) => {
           title_link: `https://untappd.com/user/${checkin.user.user_name}/checkin/${checkin.checkin_id}`,
           thumb_url: `${checkin.beer.beer_label}`,
           color: '#7CD197',
+          ts: moment(new Date(checkin.created_at)).unix(),
         };
 
         const timeAgo = moment(new Date(checkin.created_at)).fromNow();
         if (checkin.venue.venue_name) {
-          chunk.author_name = `${timeAgo} at ${checkin.venue.venue_name}`;
+          chunk.footer = `${checkin.venue.venue_name}`;
           chunk.fallback = `${checkin.user.first_name} (${checkin.user.user_name}) was drinking ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} at ${checkin.venue.venue_name} - ${timeAgo}`;
         } else {
-          chunk.author_name = `${timeAgo}`;
           chunk.fallback = `${checkin.user.first_name} (${checkin.user.user_name}) was drinking ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} - ${timeAgo}`;
         }
 
         if (checkin.badges.count === 1) {
           [firstBadge] = checkin.badges.items;
-          chunk.footer = `Earned the ${firstBadge.badge_name} badge`;
+          chunk.footer = [chunk.footer, `Earned the ${firstBadge.badge_name} badge`].join(' • ');
           chunk.footer_icon = `${firstBadge.badge_image.sm}`;
         }
         if (checkin.badges.count > 1) {
           [firstBadge] = checkin.badges.items;
           const otherBadges = checkin.badges.count - 1;
-          chunk.footer = `Earned the ${firstBadge.badge_name} badge and ${otherBadges} more`;
+          chunk.footer = [chunk.footer, `Earned the ${firstBadge.badge_name} badge and ${otherBadges} more`].join(' • ');
           chunk.footer_icon = `${firstBadge.badge_image.sm}`;
         }
         contents.push(chunk);
@@ -174,7 +218,7 @@ module.exports = (robot) => {
         });
       });
 
-      if (robot.adapterName === 'slack') {
+      if (/slack/i.test(robot.adapterName)) {
         robot.messageRoom(msg.message.room, { attachments: contents, unfurl_links: false });
         return;
       }
@@ -191,26 +235,38 @@ module.exports = (robot) => {
       msg.send('Must provide a username to ask about.');
       return;
     }
-    untappd.userActivityFeed(
+    const output = [];
+    untappd.userInfo(
       (err, obj) => {
         if (!checkUntappdErrors(err, obj, msg)) {
           return;
         }
-        robot.logger.debug(obj.response.checkins);
-        if (err) {
-          msg.send(`Could not retrieve recent checkins for ${username}.`);
-          return;
-        }
-        obj.response.checkins.items.forEach((checkin) => {
-          const timeAgo = moment(new Date(checkin.created_at)).fromNow();
-          if (checkin.venue.venue_name) {
-            msg.send(`${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} at ${checkin.venue.venue_name} - ${timeAgo}`);
-          } else {
-            msg.send(`${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} - ${timeAgo}`);
-          }
-        });
+        robot.logger.debug(obj.response.user);
+        output.push(formatUser(obj.response.user));
+        untappd.userActivityFeed(
+          (err1, obj1) => {
+            if (!checkUntappdErrors(err1, obj1, msg)) {
+              return;
+            }
+            robot.logger.debug(obj1.response.checkins);
+            if (err1) {
+              msg.send(`Could not retrieve recent checkins for ${username}.`);
+              return;
+            }
+            obj1.response.checkins.items.forEach((checkin) => {
+              output.push(formatCheckin(checkin));
+            });
+            // Slack formatting
+            if (/slack/i.test(robot.adapterName)) {
+              robot.messageRoom(msg.message.room, { attachments: output, unfurl_links: false });
+              return;
+            }
+            msg.send(output.join('\n'));
+          },
+          { USERNAME: username, limit: countToReturn },
+        );
       },
-      { USERNAME: username, limit: countToReturn },
+      { USERNAME: username },
     );
   };
 

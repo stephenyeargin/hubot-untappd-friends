@@ -62,24 +62,24 @@ describe('hubot-untappd-friends for slack', () => {
               {
                 attachments: [
                   {
-                    author_name: 'an hour ago at 49 Çukurcuma',
                     color: '#7CD197',
                     fallback: 'heath (heathseals) was drinking Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery at 49 Çukurcuma - an hour ago',
-                    footer: 'Earned the Beer Foodie (Level 44) badge and 2 more',
+                    footer: '49 Çukurcuma • Earned the Beer Foodie (Level 44) badge and 2 more',
                     footer_icon: 'https://untappd.akamaized.net/badges/bdg_BeerFoodie_sm.jpg',
                     thumb_url: 'https://untappd.akamaized.net/site/beer_logos/beer-764911_07c43_sm.jpeg',
                     title: 'heath (heathseals) was drinking Blonde Ale by Gara Guzu Brewery',
                     title_link: 'https://untappd.com/user/heathseals/checkin/578981788',
+                    ts: 1522432073,
                   },
                   {
-                    author_name: '8 hours ago at DERALIYE OTTOMAN CUISINE',
                     color: '#7CD197',
                     fallback: 'heath (heathseals) was drinking Efes Pilsen (Pilsner - Other - 5%) by Anadolu Efes at DERALIYE OTTOMAN CUISINE - 8 hours ago',
-                    footer: 'Earned the Beer Connoisseur (Level 8) badge',
+                    footer: 'DERALIYE OTTOMAN CUISINE • Earned the Beer Connoisseur (Level 8) badge',
                     footer_icon: 'https://untappd.akamaized.net/badges/bdg_connoiseur_sm.jpg',
                     thumb_url: 'https://untappd.akamaized.net/site/beer_logos/beer-EfesPilsener_17259.jpeg',
                     title: 'heath (heathseals) was drinking Efes Pilsen by Anadolu Efes',
                     title_link: 'https://untappd.com/user/heathseals/checkin/578869664',
+                    ts: 1522406504,
                   },
                 ],
                 unfurl_links: false,
@@ -158,6 +158,98 @@ describe('hubot-untappd-friends for slack', () => {
                   },
                 ],
                 unfurl_links: false,
+              },
+            ],
+          ]);
+          done();
+        } catch (err) {
+          done(err);
+        }
+      },
+      100,
+    );
+  });
+
+  // hubot untappd user
+  it('responds with the latest beers from a particular user', (done) => {
+    nock('https://api.untappd.com')
+      .get('/v4/user/info/stephenyeargin')
+      .query({
+        USERNAME: 'stephenyeargin',
+        access_token: 'foobar3',
+      })
+      .replyWithFile(200, `${__dirname}/fixtures/user-info.json`);
+    nock('https://api.untappd.com')
+      .get('/v4/user/checkins/stephenyeargin')
+      .query({
+        limit: 2,
+        USERNAME: 'stephenyeargin',
+        access_token: 'foobar3',
+      })
+      .replyWithFile(200, `${__dirname}/fixtures/user-checkins-stephenyeargin.json`);
+
+    const selfRoom = this.room;
+    selfRoom.user.say('alice', '@hubot untappd user stephenyeargin');
+    setTimeout(
+      () => {
+        try {
+          expect(selfRoom.messages).to.eql([
+            ['alice', '@hubot untappd user stephenyeargin'],
+            [
+              'hubot',
+              {
+                unfurl_links: false,
+                attachments: [
+                  {
+                    color: '#7CD197',
+                    fields: [
+                      {
+                        short: true,
+                        title: 'Joined',
+                        value: 'Mar 30, 2018',
+                      },
+                      {
+                        short: true,
+                        title: 'Beers',
+                        value: 699,
+                      },
+                      {
+                        short: true,
+                        title: 'Checkins',
+                        value: 1056,
+                      },
+                      {
+                        short: true,
+                        title: 'Badges',
+                        value: 659,
+                      },
+                    ],
+                    thumb_url: 'https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2',
+                    title: 'Stephen Y (stephenyeargin)',
+                    title_link: 'https://untappd.com/user/stephenyeargin',
+                    fallback: 'Stephen Y (stephenyeargin): 699 beers, 1056 checkins, 659 badges',
+                  },
+                  {
+                    color: '#7CD197',
+                    fallback: 'Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company',
+                    footer: 'at Yazoo Brewing Company',
+                    footer_icon: 'https://untappd.akamaized.net/venuelogos/venue_8193_b107acce_bg_88.png',
+                    thumb_url: 'https://untappd.akamaized.net/site/assets/images/temp/badge-beer-default.png',
+                    title: 'Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company',
+                    title_link: 'https://untappd.com/user/stephenyeargin/checkin/574773374',
+                    ts: 1521412006,
+                  },
+                  {
+                    color: '#7CD197',
+                    fallback: 'Hopry (IPA - Imperial / Double - 7.9%) by Yazoo Brewing Company',
+                    footer: 'at Yazoo Brewing Company',
+                    footer_icon: 'https://untappd.akamaized.net/venuelogos/venue_8193_b107acce_bg_88.png',
+                    thumb_url: 'https://untappd.akamaized.net/site/beer_logos/beer-1040813_0a48f_sm.jpeg',
+                    title: 'Hopry (IPA - Imperial / Double - 7.9%) by Yazoo Brewing Company',
+                    title_link: 'https://untappd.com/user/stephenyeargin/checkin/574768822',
+                    ts: 1521411528,
+                  },
+                ],
               },
             ],
           ]);
