@@ -1,1 +1,2975 @@
-{"meta":{"code":200,"response_time":{"time":0.1,"measure":"seconds"},"init_time":{"time":0,"measure":"seconds"}},"notifications":{"type":"notifications","unread_count":{"comments":0,"toasts":0,"friends":0,"messages":0,"venues":0,"veunes":0,"others":1,"news":170}},"response":{"user":{"uid":1290813,"id":1290813,"user_name":"websagesrobot","first_name":"WebSages","last_name":"Robot","user_avatar":"https:\/\/gravatar.com\/avatar\/f20a3f07ffb2c63830c0a69f135f567b?size=100&d=https%3A%2F%2Funtappd.akamaized.net%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v2_gravatar.jpg%3Fv%3D2","user_avatar_hd":"https:\/\/gravatar.com\/avatar\/f20a3f07ffb2c63830c0a69f135f567b?size=125&d=https%3A%2F%2Funtappd.akamaized.net%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v2_gravatar.jpg%3Fv%3D2","user_cover_photo":"https:\/\/untappd.akamaized.net\/site\/assets\/v3\/images\/cover_default.jpg","user_cover_photo_offset":0,"is_private":0,"location":"Nashville, TN","url":"","bio":"","is_supporter":0,"is_moderator":0,"relationship":"self","block_status":"none","untappd_url":"http:\/\/untappd.com\/user\/websagesrobot","account_type":"user","stats":{"total_badges":0,"total_friends":17,"total_checkins":0,"total_beers":0,"total_created_beers":0,"total_followings":0,"total_photos":0},"recent_brews":{"count":0,"items":[]},"checkins":{"count":0,"items":[]},"media":{"count":0,"items":[]},"contact":[],"date_joined":"Sun, 18 May 2014 00:33:31 +0000","settings":{"badge":{"badges_to_facebook":0,"badges_to_twitter":1},"checkin":{"checkin_to_facebook":0,"checkin_to_twitter":0,"checkin_to_foursquare":0},"navigation":{"default_to_checkin":0},"email_address":"crunchy@wcyd.org"}}}}
+{
+    "meta": {
+        "code": 200,
+        "response_time": {
+            "time": 0.309,
+            "measure": "seconds"
+        },
+        "init_time": {
+            "time": 0,
+            "measure": "seconds"
+        }
+    },
+    "notifications": {
+        "type": "notifications",
+        "unread_count": {
+            "comments": 0,
+            "toasts": 0,
+            "friends": 0,
+            "messages": 0,
+            "venues": 0,
+            "veunes": 0,
+            "others": 225,
+            "news": 1170
+        }
+    },
+    "response": {
+        "user": {
+            "uid": 186401,
+            "id": 186401,
+            "user_name": "stephenyeargin",
+            "is_anonymous": 0,
+            "first_name": "Stephen",
+            "last_name": "Y",
+            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+            "user_avatar_hd": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=125&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+            "user_cover_photo": "https://assets.untappd.com/site/assets/v3/images/cover_default.jpg",
+            "user_cover_photo_offset": 0,
+            "is_private": 0,
+            "rating_bump": 0,
+            "location": "Nashville, Tennessee",
+            "url": "",
+            "bio": "",
+            "is_supporter": 0,
+            "is_moderator": 0,
+            "relationship": "friends",
+            "block_status": "none",
+            "mute_status": "unmute",
+            "untappd_url": "http://untappd.com/user/stephenyeargin",
+            "account_type": "user",
+            "stats": {
+                "total_badges": 659,
+                "total_friends": 73,
+                "total_checkins": 1056,
+                "total_beers": 699,
+                "total_created_beers": 1,
+                "total_followings": 1,
+                "total_photos": 79
+            },
+            "recent_brews": {
+                "count": 5,
+                "items": [
+                    {
+                        "beer": {
+                            "bid": 2412786,
+                            "beer_name": "Hazy Little Thing",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-2412786_c2d78_sm.jpeg",
+                            "beer_abv": 6.7,
+                            "beer_description": "As brewers, we get the privilege to sample our beers straight from the tanks in all their raw glory. Some beers need a little polishing to get ready to go out into the world, while others—the hop-heavy, rowdy, crowd-pleasers—should just be left alone. We wanted to share this brewery-only treat with you, so we present this Hazy Little Thing, our unfiltered, unprocessed IPA, straight from the tanks and into the can.",
+                            "beer_style": "IPA - New England / Hazy"
+                        },
+                        "brewery": {
+                            "brewery_id": 1142,
+                            "brewery_name": "Sierra Nevada Brewing Co.",
+                            "brewery_slug": "sierra-nevada-brewing-co",
+                            "brewery_page_url": "/SierraNevada",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1142_ddcfe.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "SierraNevada",
+                                "facebook": "https://www.facebook.com/sierranevadabeer",
+                                "instagram": "sierranevada",
+                                "url": "https://sierranevada.com"
+                            },
+                            "location": {
+                                "brewery_city": "Chico",
+                                "brewery_state": "CA",
+                                "lat": 39.7242012,
+                                "lng": -121.8150024
+                            },
+                            "brewery_active": 1
+                        }
+                    },
+                    {
+                        "beer": {
+                            "bid": 9657,
+                            "beer_name": "Big Wave",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-9657_429c5_sm.jpeg",
+                            "beer_abv": 4.4,
+                            "beer_description": "Big Wave is light golden ale with a subtle fruitiness and delicate hop aroma. A smooth, easy drinking refreshing ale. The lightly roasted honey malt contributes to the golden hue of this beer and also gives a slight sweetness that is balanced out by our special blend of hops.",
+                            "beer_style": "Golden Ale - American"
+                        },
+                        "brewery": {
+                            "brewery_id": 1988,
+                            "brewery_name": "Kona Brewing Hawaii",
+                            "brewery_slug": "kona-brewing-hawaii",
+                            "brewery_page_url": "/konabrewing",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-konabrewingcompany_1988.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "",
+                                "facebook": "https://www.facebook.com/Konapubandbrewery",
+                                "instagram": "konabrewinghawaii",
+                                "url": "http://konabrewinghawaii.com/"
+                            },
+                            "location": {
+                                "brewery_city": "Kailua-Kona",
+                                "brewery_state": "HI",
+                                "lat": 19.6427994,
+                                "lng": -155.9989929
+                            },
+                            "brewery_active": 1
+                        }
+                    },
+                    {
+                        "beer": {
+                            "bid": 1606668,
+                            "beer_name": "Mic Czech",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-1606668_c0381_sm.jpeg",
+                            "beer_abv": 5,
+                            "beer_description": "The classic Pilsner styles of The Czech Republic and of northern Germany are blended in our version of Pilsner lager to accentuate the best of both worlds. The malt profile is rounded and bready like the Bohemian style but ends clean and dry like the German style. A blend of classic Noble Hops from Czech and Germany combine to create a subtle flowery aroma and a firm clean bitterness. Balance is the key to our fine lager.",
+                            "beer_style": "Pilsner - Czech / Bohemian"
+                        },
+                        "brewery": {
+                            "brewery_id": 198233,
+                            "brewery_name": "Boomtown Brewery",
+                            "brewery_slug": "boomtown-brewery",
+                            "brewery_page_url": "/Boomtown_Brewery",
+                            "brewery_type": "Micro Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-198233_db0f9.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "",
+                                "facebook": "https://www.facebook.com/boomtown.brewery?fref=ts",
+                                "instagram": "boomtownbrewery",
+                                "url": "http://www.boomtownbrew.com/"
+                            },
+                            "location": {
+                                "brewery_city": "Los Angeles",
+                                "brewery_state": "CA",
+                                "lat": 34.0508003,
+                                "lng": -118.2330017
+                            },
+                            "brewery_active": 1
+                        }
+                    },
+                    {
+                        "beer": {
+                            "bid": 4435989,
+                            "beer_name": "TENN Golden Lager",
+                            "beer_label": "https://assets.untappd.com/site/assets/images/temp/badge-beer-default.png",
+                            "beer_abv": 4.5,
+                            "beer_description": "Our crisp, clean, balanced core golden lager. Light body, brilliant gold color, clean notes of cracker from the malt profile and a fast finish, all at a sessionable 4.5% ",
+                            "beer_style": "Lager - American"
+                        },
+                        "brewery": {
+                            "brewery_id": 1232,
+                            "brewery_name": "TailGate Brewery",
+                            "brewery_slug": "tailgate-brewery",
+                            "brewery_page_url": "/tailgatebeer",
+                            "brewery_type": "Micro Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1232_ac43e.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "tailgatebrewery",
+                                "facebook": "https://www.facebook.com/TailGateBeer",
+                                "instagram": "tailgatebrewery",
+                                "url": "https://www.tailgatebeer.com"
+                            },
+                            "location": {
+                                "brewery_city": "Nashville",
+                                "brewery_state": "TN",
+                                "lat": 36.1199989,
+                                "lng": -86.9197998
+                            },
+                            "brewery_active": 1
+                        }
+                    },
+                    {
+                        "beer": {
+                            "bid": 4869721,
+                            "beer_name": "Howdy Cloudy",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-4869721_49322_sm.jpeg",
+                            "beer_abv": 4.5,
+                            "beer_description": "A New England style Session IPA with a lush aroma of tangerine and citrus fruits, a soft cloudy body, and lower ABV. We teamed up with our friends at Nashville Zoo to donate a portion of proceeds from this beer directly to their Clouded Leopard conservation program. Nashville Zoo is a worldwide leader in efforts to save this vulnerable species. Enjoy for a good cause! ",
+                            "beer_style": "IPA - New England / Hazy"
+                        },
+                        "brewery": {
+                            "brewery_id": 1232,
+                            "brewery_name": "TailGate Brewery",
+                            "brewery_slug": "tailgate-brewery",
+                            "brewery_page_url": "/tailgatebeer",
+                            "brewery_type": "Micro Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1232_ac43e.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "tailgatebrewery",
+                                "facebook": "https://www.facebook.com/TailGateBeer",
+                                "instagram": "tailgatebrewery",
+                                "url": "https://www.tailgatebeer.com"
+                            },
+                            "location": {
+                                "brewery_city": "Nashville",
+                                "brewery_state": "TN",
+                                "lat": 36.1199989,
+                                "lng": -86.9197998
+                            },
+                            "brewery_active": 1
+                        }
+                    }
+                ]
+            },
+            "checkins": {
+                "count": 15,
+                "items": [
+                    {
+                        "checkin_id": 1321967102,
+                        "created_at": "Fri, 13 Oct 2023 06:06:09 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4.5,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 2412786,
+                            "beer_name": "Hazy Little Thing",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-2412786_c2d78_sm.jpeg",
+                            "beer_style": "IPA - New England / Hazy",
+                            "beer_slug": "sierra-nevada-brewing-co-hazy-little-thing",
+                            "beer_abv": 6.7,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 1142,
+                            "brewery_name": "Sierra Nevada Brewing Co.",
+                            "brewery_slug": "sierra-nevada-brewing-co",
+                            "brewery_page_url": "/SierraNevada",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1142_ddcfe.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "SierraNevada",
+                                "facebook": "https://www.facebook.com/sierranevadabeer",
+                                "instagram": "sierranevada",
+                                "url": "https://sierranevada.com"
+                            },
+                            "location": {
+                                "brewery_city": "Chico",
+                                "brewery_state": "CA",
+                                "lat": 39.7242012,
+                                "lng": -121.8150024
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": [],
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 0,
+                            "count": 0,
+                            "auth_toast": false,
+                            "items": []
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "count": 0,
+                            "items": []
+                        }
+                    },
+                    {
+                        "checkin_id": 1321731055,
+                        "created_at": "Thu, 12 Oct 2023 03:35:54 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4.25,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 9657,
+                            "beer_name": "Big Wave",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-9657_429c5_sm.jpeg",
+                            "beer_style": "Golden Ale - American",
+                            "beer_slug": "kona-brewing-hawaii-big-wave",
+                            "beer_abv": 4.4,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 1988,
+                            "brewery_name": "Kona Brewing Hawaii",
+                            "brewery_slug": "kona-brewing-hawaii",
+                            "brewery_page_url": "/konabrewing",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-konabrewingcompany_1988.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "",
+                                "facebook": "https://www.facebook.com/Konapubandbrewery",
+                                "instagram": "konabrewinghawaii",
+                                "url": "http://konabrewinghawaii.com/"
+                            },
+                            "location": {
+                                "brewery_city": "Kailua-Kona",
+                                "brewery_state": "HI",
+                                "lat": 19.6427994,
+                                "lng": -155.9989929
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 8151443,
+                            "venue_name": "Two Bit Circus",
+                            "venue_slug": "two-bit-circus",
+                            "primary_category_key": "Arts and Entertainment",
+                            "primary_category": "Arts and Entertainment",
+                            "parent_category_id": "4d4b7104d754a06370d81259",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "arcade",
+                                        "category_name": "Arcade",
+                                        "category_id": "4bf58dd8d48988d1e1931735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "634 Mateo Street",
+                                "venue_city": "Los Angeles",
+                                "venue_state": "CA",
+                                "venue_country": "United States",
+                                "lat": 34.0644798,
+                                "lng": -118.2195053
+                            },
+                            "contact": {
+                                "twitter": "@twobitcircus",
+                                "venue_url": "http://twobitcircus.com"
+                            },
+                            "foursquare": {
+                                "foursquare_id": "505e20d1e4b0ad0a3ebfaf47",
+                                "foursquare_url": "http://4sq.com/SjpQNt"
+                            },
+                            "venue_icon": {
+                                "sm": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/arcade_bg_64.png",
+                                "md": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/arcade_bg_88.png",
+                                "lg": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/arcade_bg_512.png"
+                            },
+                            "is_verified": false
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 1,
+                            "count": 1,
+                            "auth_toast": false,
+                            "items": [
+                                {
+                                    "uid": 26601,
+                                    "user": {
+                                        "uid": 26601,
+                                        "user_name": "hortoncd",
+                                        "first_name": "Chris",
+                                        "last_name": "Horton",
+                                        "bio": "Homebrewer and beer lover.",
+                                        "location": "Neskowin, OR",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://assets.untappd.com/profile/e76583dae1d9b26cfaafd573c717689c_100x100.png",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1416473842,
+                                    "like_owner": false,
+                                    "created_at": "Thu, 12 Oct 2023 04:33:13 +0000"
+                                }
+                            ]
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "count": 0,
+                            "items": []
+                        }
+                    },
+                    {
+                        "checkin_id": 1321727349,
+                        "created_at": "Thu, 12 Oct 2023 02:49:07 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4.25,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 1606668,
+                            "beer_name": "Mic Czech",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-1606668_c0381_sm.jpeg",
+                            "beer_style": "Pilsner - Czech / Bohemian",
+                            "beer_slug": "boomtown-brewery-mic-czech",
+                            "beer_abv": 5,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 198233,
+                            "brewery_name": "Boomtown Brewery",
+                            "brewery_slug": "boomtown-brewery",
+                            "brewery_page_url": "/Boomtown_Brewery",
+                            "brewery_type": "Micro Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-198233_db0f9.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "",
+                                "facebook": "https://www.facebook.com/boomtown.brewery?fref=ts",
+                                "instagram": "boomtownbrewery",
+                                "url": "http://www.boomtownbrew.com/"
+                            },
+                            "location": {
+                                "brewery_city": "Los Angeles",
+                                "brewery_state": "CA",
+                                "lat": 34.0508003,
+                                "lng": -118.2330017
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 8151443,
+                            "venue_name": "Two Bit Circus",
+                            "venue_slug": "two-bit-circus",
+                            "primary_category_key": "Arts and Entertainment",
+                            "primary_category": "Arts and Entertainment",
+                            "parent_category_id": "4d4b7104d754a06370d81259",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "arcade",
+                                        "category_name": "Arcade",
+                                        "category_id": "4bf58dd8d48988d1e1931735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "634 Mateo Street",
+                                "venue_city": "Los Angeles",
+                                "venue_state": "CA",
+                                "venue_country": "United States",
+                                "lat": 34.0644798,
+                                "lng": -118.2195053
+                            },
+                            "contact": {
+                                "twitter": "@twobitcircus",
+                                "venue_url": "http://twobitcircus.com"
+                            },
+                            "foursquare": {
+                                "foursquare_id": "505e20d1e4b0ad0a3ebfaf47",
+                                "foursquare_url": "http://4sq.com/SjpQNt"
+                            },
+                            "venue_icon": {
+                                "sm": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/arcade_bg_64.png",
+                                "md": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/arcade_bg_88.png",
+                                "lg": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/arcade_bg_512.png"
+                            },
+                            "is_verified": false
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 1,
+                            "count": 1,
+                            "auth_toast": false,
+                            "items": [
+                                {
+                                    "uid": 26601,
+                                    "user": {
+                                        "uid": 26601,
+                                        "user_name": "hortoncd",
+                                        "first_name": "Chris",
+                                        "last_name": "Horton",
+                                        "bio": "Homebrewer and beer lover.",
+                                        "location": "Neskowin, OR",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://assets.untappd.com/profile/e76583dae1d9b26cfaafd573c717689c_100x100.png",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1416459238,
+                                    "like_owner": false,
+                                    "created_at": "Thu, 12 Oct 2023 02:53:36 +0000"
+                                }
+                            ]
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "retro_status": false,
+                            "count": 2,
+                            "items": [
+                                {
+                                    "badge_id": 276032,
+                                    "user_badge_id": 1144662019,
+                                    "badge_name": "Cheers to Independent U.S. Craft Breweries (Level 29)",
+                                    "badge_description": "Cheers, beer patriot! You are supporting the small and independent American craft brewer. When you see the seal -- shaped like an upside-down beer bottle -- that's independence you're tasting. Try 5 more to earn Level 30!",
+                                    "created_at": "Thu, 12 Oct 2023 02:49:08 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_BAIndySeal18_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_BAIndySeal18_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_BAIndySeal18_lg.jpg"
+                                    }
+                                },
+                                {
+                                    "badge_id": 133274,
+                                    "user_badge_id": 1144662020,
+                                    "badge_name": "Draft City (Level 21)",
+                                    "badge_description": "Fresh from the tap is one of the best ways to enjoy a beer. Just try to use a glass and not drink directly from the tap, as tempting as it may be. That's 105 checkins with the serving style of Draft. Try 5 more for Level 22!",
+                                    "created_at": "Thu, 12 Oct 2023 02:49:08 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_DraftCity_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_DraftCity_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_DraftCity_lg.jpg"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "checkin_id": 1321506282,
+                        "created_at": "Tue, 10 Oct 2023 22:46:33 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 4435989,
+                            "beer_name": "TENN Golden Lager",
+                            "beer_label": "https://assets.untappd.com/site/assets/images/temp/badge-beer-default.png",
+                            "beer_style": "Lager - American",
+                            "beer_slug": "tailgate-brewery-tenn-golden-lager",
+                            "beer_abv": 4.5,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 1232,
+                            "brewery_name": "TailGate Brewery",
+                            "brewery_slug": "tailgate-brewery",
+                            "brewery_page_url": "/tailgatebeer",
+                            "brewery_type": "Micro Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1232_ac43e.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "tailgatebrewery",
+                                "facebook": "https://www.facebook.com/TailGateBeer",
+                                "instagram": "tailgatebrewery",
+                                "url": "https://www.tailgatebeer.com"
+                            },
+                            "location": {
+                                "brewery_city": "Nashville",
+                                "brewery_state": "TN",
+                                "lat": 36.1199989,
+                                "lng": -86.9197998
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 29004,
+                            "venue_name": "Nashville International Airport (BNA) (Nashville International Airport)",
+                            "venue_slug": "nashville-international-airport-bna-nashville-international-airport",
+                            "primary_category_key": "Travel and Transportation",
+                            "primary_category": "Travel and Transportation",
+                            "parent_category_id": "4d4b7105d754a06379d81259",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "international_airport",
+                                        "category_name": "International Airport",
+                                        "category_id": "63be6904847c3692a84b9c29",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "1 Terminal Dr",
+                                "venue_city": "Nashville",
+                                "venue_state": "TN",
+                                "venue_country": "United States",
+                                "lat": 36.1313248,
+                                "lng": -86.6695786
+                            },
+                            "contact": {
+                                "twitter": "@fly_nashville",
+                                "venue_url": "https://flynashville.com"
+                            },
+                            "foursquare": {
+                                "foursquare_id": "4ab654d3f964a5209f7620e3",
+                                "foursquare_url": "http://4sq.com/7Jfck5"
+                            },
+                            "venue_icon": {
+                                "sm": "https://ss3.4sqi.net/img/categories_v2/travel/airport_bg_64.png",
+                                "md": "https://ss3.4sqi.net/img/categories_v2/travel/airport_bg_88.png",
+                                "lg": "https://ss3.4sqi.net/img/categories_v2/travel/airport_bg_512.png"
+                            },
+                            "is_verified": false
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 0,
+                            "count": 0,
+                            "auth_toast": false,
+                            "items": []
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "retro_status": false,
+                            "count": 1,
+                            "items": [
+                                {
+                                    "badge_id": 283,
+                                    "user_badge_id": 1144463869,
+                                    "badge_name": "Lager Jack (Level 7)",
+                                    "badge_description": "After a long day, what better way to kick back than with a crisp and refreshing lager? You're already feeling more relaxed, aren’t you?. That’s 35 different Lagers! Try 5 more for Level 8!",
+                                    "created_at": "Tue, 10 Oct 2023 22:46:34 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_LagerJack_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_LagerJack_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_LagerJack_lg.jpg"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "checkin_id": 1321495586,
+                        "created_at": "Tue, 10 Oct 2023 21:53:27 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4.25,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 4869721,
+                            "beer_name": "Howdy Cloudy",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-4869721_49322_sm.jpeg",
+                            "beer_style": "IPA - New England / Hazy",
+                            "beer_slug": "tailgate-brewery-howdy-cloudy",
+                            "beer_abv": 4.5,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 1232,
+                            "brewery_name": "TailGate Brewery",
+                            "brewery_slug": "tailgate-brewery",
+                            "brewery_page_url": "/tailgatebeer",
+                            "brewery_type": "Micro Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1232_ac43e.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "tailgatebrewery",
+                                "facebook": "https://www.facebook.com/TailGateBeer",
+                                "instagram": "tailgatebrewery",
+                                "url": "https://www.tailgatebeer.com"
+                            },
+                            "location": {
+                                "brewery_city": "Nashville",
+                                "brewery_state": "TN",
+                                "lat": 36.1199989,
+                                "lng": -86.9197998
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 29004,
+                            "venue_name": "Nashville International Airport (BNA) (Nashville International Airport)",
+                            "venue_slug": "nashville-international-airport-bna-nashville-international-airport",
+                            "primary_category_key": "Travel and Transportation",
+                            "primary_category": "Travel and Transportation",
+                            "parent_category_id": "4d4b7105d754a06379d81259",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "international_airport",
+                                        "category_name": "international_airport",
+                                        "category_id": "63be6904847c3692a84b9c29",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "1 Terminal Dr",
+                                "venue_city": "Nashville",
+                                "venue_state": "TN",
+                                "venue_country": "United States",
+                                "lat": 36.1313248,
+                                "lng": -86.6695786
+                            },
+                            "contact": {
+                                "twitter": "@fly_nashville",
+                                "venue_url": "https://flynashville.com"
+                            },
+                            "foursquare": {
+                                "foursquare_id": "4ab654d3f964a5209f7620e3",
+                                "foursquare_url": "http://4sq.com/7Jfck5"
+                            },
+                            "venue_icon": {
+                                "sm": "https://ss3.4sqi.net/img/categories_v2/travel/airport_bg_64.png",
+                                "md": "https://ss3.4sqi.net/img/categories_v2/travel/airport_bg_88.png",
+                                "lg": "https://ss3.4sqi.net/img/categories_v2/travel/airport_bg_512.png"
+                            },
+                            "is_verified": false
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 0,
+                            "count": 0,
+                            "auth_toast": false,
+                            "items": []
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "retro_status": false,
+                            "count": 3,
+                            "items": [
+                                {
+                                    "badge_id": 3801,
+                                    "user_badge_id": 1144454592,
+                                    "badge_name": "Bar Explorer (Level 19)",
+                                    "badge_description": "Your quest to quench your thirst leaves no stone unturned! That's at least 95 distinct venues!",
+                                    "created_at": "Tue, 10 Oct 2023 21:53:28 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_goingPlaces_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_goingPlaces_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_goingPlaces_lg.jpg"
+                                    }
+                                },
+                                {
+                                    "badge_id": 5972,
+                                    "user_badge_id": 1144454593,
+                                    "badge_name": "Riding Steady (Level 10)",
+                                    "badge_description": "Want to enjoy a day of brews, but need to keep your wits sharp? There are plenty of delicious brews under 5% for you to sip on throughout the day. That's 50 different beers with an ABV of 5% and lower. Try 5 more for Level 11!",
+                                    "created_at": "Tue, 10 Oct 2023 21:53:28 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_RidingSteady_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_RidingSteady_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_RidingSteady_lg.jpg"
+                                    }
+                                },
+                                {
+                                    "badge_id": 2632,
+                                    "user_badge_id": 1144454594,
+                                    "badge_name": "I Believe in IPA! (Level 46)",
+                                    "badge_description": "We believe in IPA and you should too. You certainly have a taste for the hops! That's 230 different IPAs. Try 5 more for Level 47! Want to learn more about this badge? Check out our <a rel=\"link-out\" href=\"https://www.youtube.com/watch?v=EhBh7a4YrPk&list=\">podcast</a>",
+                                    "created_at": "Tue, 10 Oct 2023 21:53:28 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_hoptopia_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_hoptopia_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_hoptopia_lg.jpg"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "checkin_id": 1317915922,
+                        "created_at": "Fri, 29 Sep 2023 03:12:07 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4.5,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 5019118,
+                            "beer_name": "H.A.Z.Y. Double IPA",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-5019118_4bac0_sm.jpeg",
+                            "beer_style": "IPA - Imperial / Double New England / Hazy",
+                            "beer_slug": "sweetwater-brewing-company-h-a-z-y-double-ipa",
+                            "beer_abv": 8.5,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 1224,
+                            "brewery_name": "SweetWater Brewing Company",
+                            "brewery_slug": "sweetwater-brewing-company",
+                            "brewery_page_url": "/sweetwaterbrew",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1224_960f1.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "SweetWaterBrew",
+                                "facebook": "https://www.facebook.com/sweetwaterbrew",
+                                "instagram": "SweetWaterBrew",
+                                "url": "https://www.sweetwaterbrew.com"
+                            },
+                            "location": {
+                                "brewery_city": "Atlanta",
+                                "brewery_state": "GA",
+                                "lat": 33.8081017,
+                                "lng": -84.3812027
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 9917985,
+                            "venue_name": "Untappd at Home",
+                            "venue_slug": "at-home",
+                            "primary_category_key": null,
+                            "primary_category": null,
+                            "parent_category_id": "4e67e38e036454776db1fb3a",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "home_private",
+                                        "category_name": "Home (private)",
+                                        "category_id": "4bf58dd8d48988d103941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "",
+                                "venue_city": "",
+                                "venue_state": "NC",
+                                "venue_country": "United States",
+                                "lat": 34.2346611,
+                                "lng": -77.9482117
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": ""
+                            },
+                            "foursquare": {
+                                "foursquare_id": "5e7b4d99c91df60008e8b168",
+                                "foursquare_url": "https://4sq.com/3bDWYuq"
+                            },
+                            "venue_icon": {
+                                "sm": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_64.png",
+                                "md": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_88.png",
+                                "lg": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_176.png?v=1"
+                            },
+                            "is_verified": true
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 3,
+                            "count": 3,
+                            "auth_toast": false,
+                            "items": [
+                                {
+                                    "uid": 51046,
+                                    "user": {
+                                        "uid": 51046,
+                                        "user_name": "Walrus",
+                                        "first_name": "Steve",
+                                        "last_name": "Cunningham",
+                                        "bio": "",
+                                        "location": "Nashville, TN ??",
+                                        "relationship": "none",
+                                        "user_avatar": "https://gravatar.com/avatar/c726e74090556cb6df6430ef6258d2ba?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1411430508,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 29 Sep 2023 23:11:52 +0000"
+                                },
+                                {
+                                    "uid": 26601,
+                                    "user": {
+                                        "uid": 26601,
+                                        "user_name": "hortoncd",
+                                        "first_name": "Chris",
+                                        "last_name": "Horton",
+                                        "bio": "Homebrewer and beer lover.",
+                                        "location": "Neskowin, OR",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://assets.untappd.com/profile/e76583dae1d9b26cfaafd573c717689c_100x100.png",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1411338294,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 29 Sep 2023 20:42:30 +0000"
+                                },
+                                {
+                                    "uid": 213496,
+                                    "user": {
+                                        "uid": 213496,
+                                        "user_name": "mbcrouch",
+                                        "first_name": "Matt",
+                                        "last_name": "Crouch",
+                                        "bio": "",
+                                        "location": "",
+                                        "relationship": "none",
+                                        "user_avatar": "https://assets.untappd.com/profile/13316a1f9fc44f30ca731ca24b6f8ccc_thumb.jpg",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1411002296,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 29 Sep 2023 03:13:21 +0000"
+                                }
+                            ]
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "retro_status": false,
+                            "count": 2,
+                            "items": [
+                                {
+                                    "badge_id": 48,
+                                    "user_badge_id": 1141109779,
+                                    "badge_name": "Weekday Warrior",
+                                    "badge_description": "Planning on calling out tomorrow? If not, we’ll be sure to have some coffee ready for you! Drink 5 beers during the week after 10PM (to midnight).",
+                                    "created_at": "Fri, 29 Sep 2023 03:12:08 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_weekdayWarrior_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_weekdayWarrior_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_weekdayWarrior_lg.jpg"
+                                    }
+                                },
+                                {
+                                    "badge_id": 133368,
+                                    "user_badge_id": 1141109780,
+                                    "badge_name": "For the Can (Level 15)",
+                                    "badge_description": "Canning is all the rage and it's not hard to see why - travels well, more environmentally friendly, and no need to carry your bottle opener. That's 75 checkins with the serving style of Can. Try 5 more for Level 16! Want to learn more about this badge? Check out our <a rel=\"link-out\" href=\"https://www.youtube.com/watch?v=hynmM3Sb83s&t=1s\">podcast</a>",
+                                    "created_at": "Fri, 29 Sep 2023 03:12:08 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_GloryCan_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_GloryCan_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_GloryCan_lg.jpg"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "checkin_id": 1317150081,
+                        "created_at": "Sun, 24 Sep 2023 23:55:31 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4.25,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 5180469,
+                            "beer_name": "JTAP Lager",
+                            "beer_label": "https://assets.untappd.com/site/assets/images/temp/badge-beer-default.png",
+                            "beer_style": "Lager - American",
+                            "beer_slug": "wiseacre-brewing-company-jtap-lager",
+                            "beer_abv": 0,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 78648,
+                            "brewery_name": "Wiseacre Brewing Company",
+                            "brewery_slug": "wiseacre-brewing-company",
+                            "brewery_page_url": "/WISEACREBrewingCompany",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-78648_78053.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "wiseacrebrew",
+                                "facebook": "https://www.facebook.com/WiseacreBrewingCompany",
+                                "instagram": "wiseacrebrewingcompany",
+                                "url": "https://wiseacrebrew.com"
+                            },
+                            "location": {
+                                "brewery_city": "Memphis",
+                                "brewery_state": "TN",
+                                "lat": 35.146801,
+                                "lng": -89.9688034
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 311566,
+                            "venue_name": "Twin Kegs",
+                            "venue_slug": "twin-kegs",
+                            "primary_category_key": "Dining and Drinking",
+                            "primary_category": "Dining and Drinking",
+                            "parent_category_id": "63be6904847c3692a84b9bb5",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "bar",
+                                        "category_name": "Bar",
+                                        "category_id": "4bf58dd8d48988d116941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "413 East Thompson Lane",
+                                "venue_city": "Nashville",
+                                "venue_state": "TN",
+                                "venue_country": "United States",
+                                "lat": 36.1107483,
+                                "lng": -86.7469025
+                            },
+                            "contact": {
+                                "twitter": "@twinkegs",
+                                "venue_url": "http://www.twinkegs.com"
+                            },
+                            "foursquare": {
+                                "foursquare_id": "4b058669f964a520fb6022e3",
+                                "foursquare_url": "http://4sq.com/dz5T8S"
+                            },
+                            "venue_icon": {
+                                "sm": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_64.png",
+                                "md": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_88.png",
+                                "lg": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_512.png"
+                            },
+                            "is_verified": false
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 1,
+                            "count": 1,
+                            "auth_toast": false,
+                            "items": [
+                                {
+                                    "uid": 7108,
+                                    "user": {
+                                        "uid": 7108,
+                                        "user_name": "fancycwabs",
+                                        "first_name": "randal",
+                                        "last_name": "",
+                                        "bio": "",
+                                        "location": "nashville tn",
+                                        "relationship": "none",
+                                        "user_avatar": "https://gravatar.com/avatar/d40c11ceba725de85b00b005a060251b?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1409814254,
+                                    "like_owner": false,
+                                    "created_at": "Mon, 25 Sep 2023 00:18:55 +0000"
+                                }
+                            ]
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "retro_status": false,
+                            "count": 1,
+                            "items": [
+                                {
+                                    "badge_id": 5645,
+                                    "user_badge_id": 1140379028,
+                                    "badge_name": "Wheel of Styles (Level 16)",
+                                    "badge_description": "Round and round the wheel goes! Which style you’ll be drinking, nobody knows! Your desire to explore different styles is inspiring. Keep it up! That's a check-in to at least 80 different styles. Try 5 more for Level 17!",
+                                    "created_at": "Sun, 24 Sep 2023 23:55:32 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_WheelofStyles_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_WheelofStyles_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_WheelofStyles_lg.jpg"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "checkin_id": 1317149855,
+                        "created_at": "Sun, 24 Sep 2023 23:54:35 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 3.5,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 5323653,
+                            "beer_name": "Pub Ale",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-5323653_b0e63_sm.jpeg",
+                            "beer_style": "Bitter - Extra Special / Strong (ESB)",
+                            "beer_slug": "the-black-abbey-brewing-company-pub-ale",
+                            "beer_abv": 4.8,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 20035,
+                            "brewery_name": "The Black Abbey Brewing Company",
+                            "brewery_slug": "the-black-abbey-brewing-company",
+                            "brewery_page_url": "/blackabbeybrewing",
+                            "brewery_type": "Micro Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-TheBlackAbbeyBrewingCompany_20035.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "BlackAbbeyBrew",
+                                "facebook": "http://www.facebook.com/blackabbeybrewing",
+                                "instagram": "blackabbeybrewing",
+                                "url": "http://www.blackabbeybrewing.com"
+                            },
+                            "location": {
+                                "brewery_city": "Nashville",
+                                "brewery_state": "TN",
+                                "lat": 36.1058998,
+                                "lng": -86.7556
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 311566,
+                            "venue_name": "Twin Kegs",
+                            "venue_slug": "twin-kegs",
+                            "primary_category_key": "Dining and Drinking",
+                            "primary_category": "Dining and Drinking",
+                            "parent_category_id": "63be6904847c3692a84b9bb5",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "bar",
+                                        "category_name": "Bar",
+                                        "category_id": "4bf58dd8d48988d116941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "413 East Thompson Lane",
+                                "venue_city": "Nashville",
+                                "venue_state": "TN",
+                                "venue_country": "United States",
+                                "lat": 36.1107483,
+                                "lng": -86.7469025
+                            },
+                            "contact": {
+                                "twitter": "@twinkegs",
+                                "venue_url": "http://www.twinkegs.com"
+                            },
+                            "foursquare": {
+                                "foursquare_id": "4b058669f964a520fb6022e3",
+                                "foursquare_url": "http://4sq.com/dz5T8S"
+                            },
+                            "venue_icon": {
+                                "sm": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_64.png",
+                                "md": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_88.png",
+                                "lg": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_512.png"
+                            },
+                            "is_verified": false
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 0,
+                            "count": 0,
+                            "auth_toast": false,
+                            "items": []
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "count": 0,
+                            "items": []
+                        }
+                    },
+                    {
+                        "checkin_id": 1311850766,
+                        "created_at": "Fri, 08 Sep 2023 03:55:41 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 5208978,
+                            "beer_name": "Gone Trippin’",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-5208978_30d53_sm.jpeg",
+                            "beer_style": "IPA - American",
+                            "beer_slug": "sweetwater-brewing-company-gone-trippin",
+                            "beer_abv": 7,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 1224,
+                            "brewery_name": "SweetWater Brewing Company",
+                            "brewery_slug": "sweetwater-brewing-company",
+                            "brewery_page_url": "/sweetwaterbrew",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1224_960f1.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "SweetWaterBrew",
+                                "facebook": "https://www.facebook.com/sweetwaterbrew",
+                                "instagram": "SweetWaterBrew",
+                                "url": "https://www.sweetwaterbrew.com"
+                            },
+                            "location": {
+                                "brewery_city": "Atlanta",
+                                "brewery_state": "GA",
+                                "lat": 33.8081017,
+                                "lng": -84.3812027
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 9917985,
+                            "venue_name": "Untappd at Home",
+                            "venue_slug": "at-home",
+                            "primary_category_key": null,
+                            "primary_category": null,
+                            "parent_category_id": "4e67e38e036454776db1fb3a",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "home_private",
+                                        "category_name": "Home (private)",
+                                        "category_id": "4bf58dd8d48988d103941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "",
+                                "venue_city": "",
+                                "venue_state": "NC",
+                                "venue_country": "United States",
+                                "lat": 34.2346611,
+                                "lng": -77.9482117
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": ""
+                            },
+                            "foursquare": {
+                                "foursquare_id": "5e7b4d99c91df60008e8b168",
+                                "foursquare_url": "https://4sq.com/3bDWYuq"
+                            },
+                            "venue_icon": {
+                                "sm": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_64.png",
+                                "md": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_88.png",
+                                "lg": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_176.png?v=1"
+                            },
+                            "is_verified": true
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 4,
+                            "count": 4,
+                            "auth_toast": false,
+                            "items": [
+                                {
+                                    "uid": 1098,
+                                    "user": {
+                                        "uid": 1098,
+                                        "user_name": "lroggendorff",
+                                        "first_name": "Lance",
+                                        "last_name": "Roggendorff",
+                                        "bio": "Web craftsman, occasional homebrewer.",
+                                        "location": "Nashville, TN",
+                                        "relationship": "none",
+                                        "user_avatar": "https://gravatar.com/avatar/0048fb2e81716b415b44a08064a02494?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1407209795,
+                                    "like_owner": false,
+                                    "created_at": "Tue, 19 Sep 2023 03:41:42 +0000"
+                                },
+                                {
+                                    "uid": 26601,
+                                    "user": {
+                                        "uid": 26601,
+                                        "user_name": "hortoncd",
+                                        "first_name": "Chris",
+                                        "last_name": "Horton",
+                                        "bio": "Homebrewer and beer lover.",
+                                        "location": "Neskowin, OR",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://assets.untappd.com/profile/e76583dae1d9b26cfaafd573c717689c_100x100.png",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1402742880,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 08 Sep 2023 21:33:59 +0000"
+                                },
+                                {
+                                    "uid": 1556014,
+                                    "user": {
+                                        "uid": 1556014,
+                                        "user_name": "jameswhite",
+                                        "first_name": "James",
+                                        "last_name": "White",
+                                        "bio": "",
+                                        "location": "",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://gravatar.com/avatar/262c19f30b30e70d8cedfe533565796a?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1402385973,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 08 Sep 2023 06:01:58 +0000"
+                                },
+                                {
+                                    "uid": 1317871,
+                                    "user": {
+                                        "uid": 1317871,
+                                        "user_name": "rickmfnbradley",
+                                        "first_name": "Rick",
+                                        "last_name": "Bradley",
+                                        "bio": "",
+                                        "location": "Nashville, TN",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://gravatar.com/avatar/a44d5abad6e86cff4e34d9f0839535c9?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1402367864,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 08 Sep 2023 03:56:26 +0000"
+                                }
+                            ]
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "count": 0,
+                            "items": []
+                        }
+                    },
+                    {
+                        "checkin_id": 1311846348,
+                        "created_at": "Fri, 08 Sep 2023 03:07:09 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4.25,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 4029948,
+                            "beer_name": "H.A.Z.Y. IPA",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-4029948_0f676_sm.jpeg",
+                            "beer_style": "IPA - New England / Hazy",
+                            "beer_slug": "sweetwater-brewing-company-h-a-z-y-ipa",
+                            "beer_abv": 6.2,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 1224,
+                            "brewery_name": "SweetWater Brewing Company",
+                            "brewery_slug": "sweetwater-brewing-company",
+                            "brewery_page_url": "/sweetwaterbrew",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1224_960f1.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "SweetWaterBrew",
+                                "facebook": "https://www.facebook.com/sweetwaterbrew",
+                                "instagram": "SweetWaterBrew",
+                                "url": "https://www.sweetwaterbrew.com"
+                            },
+                            "location": {
+                                "brewery_city": "Atlanta",
+                                "brewery_state": "GA",
+                                "lat": 33.8081017,
+                                "lng": -84.3812027
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": [],
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 2,
+                            "count": 2,
+                            "auth_toast": false,
+                            "items": [
+                                {
+                                    "uid": 1556014,
+                                    "user": {
+                                        "uid": 1556014,
+                                        "user_name": "jameswhite",
+                                        "first_name": "James",
+                                        "last_name": "White",
+                                        "bio": "",
+                                        "location": "",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://gravatar.com/avatar/262c19f30b30e70d8cedfe533565796a?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1402385982,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 08 Sep 2023 06:02:07 +0000"
+                                },
+                                {
+                                    "uid": 382743,
+                                    "user": {
+                                        "uid": 382743,
+                                        "user_name": "northrup",
+                                        "first_name": "John",
+                                        "last_name": "Northrup",
+                                        "bio": "",
+                                        "location": "",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://assets.untappd.com/profile/2574dd0c1a7ac38b60b2afe92e7cef9d_100x100.jpeg",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1402365239,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 08 Sep 2023 03:39:43 +0000"
+                                }
+                            ]
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "count": 0,
+                            "items": []
+                        }
+                    },
+                    {
+                        "checkin_id": 1311843104,
+                        "created_at": "Fri, 08 Sep 2023 02:41:36 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 7053,
+                            "beer_name": "IPA",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-7053_4000a_sm.jpeg",
+                            "beer_style": "IPA - American",
+                            "beer_slug": "sweetwater-brewing-company-ipa",
+                            "beer_abv": 6.3,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 1224,
+                            "brewery_name": "SweetWater Brewing Company",
+                            "brewery_slug": "sweetwater-brewing-company",
+                            "brewery_page_url": "/sweetwaterbrew",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1224_960f1.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "SweetWaterBrew",
+                                "facebook": "https://www.facebook.com/sweetwaterbrew",
+                                "instagram": "SweetWaterBrew",
+                                "url": "https://www.sweetwaterbrew.com"
+                            },
+                            "location": {
+                                "brewery_city": "Atlanta",
+                                "brewery_state": "GA",
+                                "lat": 33.8081017,
+                                "lng": -84.3812027
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 9917985,
+                            "venue_name": "Untappd at Home",
+                            "venue_slug": "at-home",
+                            "primary_category_key": null,
+                            "primary_category": null,
+                            "parent_category_id": "4e67e38e036454776db1fb3a",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "home_private",
+                                        "category_name": "Home (private)",
+                                        "category_id": "4bf58dd8d48988d103941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "",
+                                "venue_city": "",
+                                "venue_state": "NC",
+                                "venue_country": "United States",
+                                "lat": 34.2346611,
+                                "lng": -77.9482117
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": ""
+                            },
+                            "foursquare": {
+                                "foursquare_id": "5e7b4d99c91df60008e8b168",
+                                "foursquare_url": "https://4sq.com/3bDWYuq"
+                            },
+                            "venue_icon": {
+                                "sm": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_64.png",
+                                "md": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_88.png",
+                                "lg": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_176.png?v=1"
+                            },
+                            "is_verified": true
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 3,
+                            "count": 3,
+                            "auth_toast": false,
+                            "items": [
+                                {
+                                    "uid": 1556014,
+                                    "user": {
+                                        "uid": 1556014,
+                                        "user_name": "jameswhite",
+                                        "first_name": "James",
+                                        "last_name": "White",
+                                        "bio": "",
+                                        "location": "",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://gravatar.com/avatar/262c19f30b30e70d8cedfe533565796a?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1402385988,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 08 Sep 2023 06:02:12 +0000"
+                                },
+                                {
+                                    "uid": 382743,
+                                    "user": {
+                                        "uid": 382743,
+                                        "user_name": "northrup",
+                                        "first_name": "John",
+                                        "last_name": "Northrup",
+                                        "bio": "",
+                                        "location": "",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://assets.untappd.com/profile/2574dd0c1a7ac38b60b2afe92e7cef9d_100x100.jpeg",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1402365270,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 08 Sep 2023 03:39:51 +0000"
+                                },
+                                {
+                                    "uid": 26601,
+                                    "user": {
+                                        "uid": 26601,
+                                        "user_name": "hortoncd",
+                                        "first_name": "Chris",
+                                        "last_name": "Horton",
+                                        "bio": "Homebrewer and beer lover.",
+                                        "location": "Neskowin, OR",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://assets.untappd.com/profile/e76583dae1d9b26cfaafd573c717689c_100x100.png",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1402354456,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 08 Sep 2023 02:44:32 +0000"
+                                }
+                            ]
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "retro_status": false,
+                            "count": 1,
+                            "items": [
+                                {
+                                    "badge_id": 418013,
+                                    "user_badge_id": 1135374590,
+                                    "badge_name": "Untappd at Home (Level 19)",
+                                    "badge_description": "Thanks for staying at home, and checking in with Untappd! It allows us to stay connected to a community of beer lovers, just like you, even if we can't be in the same physical location. From our home to yours, cheers and stay safe!",
+                                    "created_at": "Fri, 08 Sep 2023 02:41:37 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_untappdAtHome_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_untappdAtHome_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_untappdAtHome_lg.jpg"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "checkin_id": 1310355053,
+                        "created_at": "Sat, 02 Sep 2023 18:43:07 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 1796100,
+                            "beer_name": "Hi-Pitch Mosaic IPA",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-1796100_16c13_sm.jpeg",
+                            "beer_style": "IPA - American",
+                            "beer_slug": "hi-wire-brewing-hi-pitch-mosaic-ipa",
+                            "beer_abv": 6.7,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 64692,
+                            "brewery_name": "Hi-Wire Brewing",
+                            "brewery_slug": "hi-wire-brewing",
+                            "brewery_page_url": "/HiWireBrewing",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-64692_4d1d7.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "hiwirebrewing",
+                                "facebook": "https://www.facebook.com/hiwirebrewing",
+                                "instagram": "hiwirebrewing",
+                                "url": "http://hiwirebrewing.com"
+                            },
+                            "location": {
+                                "brewery_city": "Asheville",
+                                "brewery_state": "NC",
+                                "lat": 35.5709991,
+                                "lng": -82.5459976
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 14309,
+                            "venue_name": "Village Pub & Beer Garden",
+                            "venue_slug": "village-pub-beer-garden",
+                            "primary_category_key": "Dining and Drinking",
+                            "primary_category": "Dining and Drinking",
+                            "parent_category_id": "63be6904847c3692a84b9bb5",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "beer_garden",
+                                        "category_name": "Beer Garden",
+                                        "category_id": "4bf58dd8d48988d117941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "1308 McGavock Pike",
+                                "venue_city": "Nashville",
+                                "venue_state": "TN",
+                                "venue_country": "United States",
+                                "lat": 36.2044144,
+                                "lng": -86.7248001
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": "http://riversidevillagepub.com"
+                            },
+                            "foursquare": {
+                                "foursquare_id": "4bcb54af0687ef3b3f7dddcc",
+                                "foursquare_url": "http://4sq.com/9Y2H3y"
+                            },
+                            "venue_icon": {
+                                "sm": "https://ss3.4sqi.net/img/categories_v2/nightlife/beergarden_bg_64.png",
+                                "md": "https://ss3.4sqi.net/img/categories_v2/nightlife/beergarden_bg_88.png",
+                                "lg": "https://ss3.4sqi.net/img/categories_v2/nightlife/beergarden_bg_512.png"
+                            },
+                            "is_verified": false
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 1,
+                            "count": 1,
+                            "auth_toast": false,
+                            "items": [
+                                {
+                                    "uid": 26601,
+                                    "user": {
+                                        "uid": 26601,
+                                        "user_name": "hortoncd",
+                                        "first_name": "Chris",
+                                        "last_name": "Horton",
+                                        "bio": "Homebrewer and beer lover.",
+                                        "location": "Neskowin, OR",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://assets.untappd.com/profile/e76583dae1d9b26cfaafd573c717689c_100x100.png",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1400949533,
+                                    "like_owner": false,
+                                    "created_at": "Sun, 03 Sep 2023 22:19:47 +0000"
+                                }
+                            ]
+                        },
+                        "media": {
+                            "count": 1,
+                            "items": [
+                                {
+                                    "photo_id": 503892730,
+                                    "photo": {
+                                        "photo_img_sm": "https://assets.untappd.com/photos/2023_09_02/49d39ba856f9da3d79884afadd63a6d6_200x200.jpg",
+                                        "photo_img_md": "https://assets.untappd.com/photos/2023_09_02/49d39ba856f9da3d79884afadd63a6d6_640x640.jpg",
+                                        "photo_img_lg": "https://assets.untappd.com/photos/2023_09_02/49d39ba856f9da3d79884afadd63a6d6_1280x1280.jpg",
+                                        "photo_img_og": "https://assets.untappd.com/photos/2023_09_02/49d39ba856f9da3d79884afadd63a6d6_raw.jpg"
+                                    }
+                                }
+                            ]
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "retro_status": false,
+                            "count": 2,
+                            "items": [
+                                {
+                                    "badge_id": 276031,
+                                    "user_badge_id": 1133991938,
+                                    "badge_name": "Cheers to Independent U.S. Craft Breweries (Level 28)",
+                                    "badge_description": "Cheers, beer patriot! You are supporting the small and independent American craft brewer. When you see the seal -- shaped like an upside-down beer bottle -- that's independence you're tasting. Try 5 more to earn Level 29!",
+                                    "created_at": "Sat, 02 Sep 2023 18:43:08 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_BAIndySeal18_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_BAIndySeal18_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_BAIndySeal18_lg.jpg"
+                                    }
+                                },
+                                {
+                                    "badge_id": 133273,
+                                    "user_badge_id": 1133991939,
+                                    "badge_name": "Draft City (Level 20)",
+                                    "badge_description": "Fresh from the tap is one of the best ways to enjoy a beer. Just try to use a glass and not drink directly from the tap, as tempting as it may be. That's 100 checkins with the serving style of Draft. Try 5 more for Level 21!",
+                                    "created_at": "Sat, 02 Sep 2023 18:43:08 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_DraftCity_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_DraftCity_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_DraftCity_lg.jpg"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "checkin_id": 1309666202,
+                        "created_at": "Fri, 01 Sep 2023 04:44:13 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4.25,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 4029948,
+                            "beer_name": "H.A.Z.Y. IPA",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-4029948_0f676_sm.jpeg",
+                            "beer_style": "IPA - New England / Hazy",
+                            "beer_slug": "sweetwater-brewing-company-h-a-z-y-ipa",
+                            "beer_abv": 6.2,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 1224,
+                            "brewery_name": "SweetWater Brewing Company",
+                            "brewery_slug": "sweetwater-brewing-company",
+                            "brewery_page_url": "/sweetwaterbrew",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1224_960f1.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "SweetWaterBrew",
+                                "facebook": "https://www.facebook.com/sweetwaterbrew",
+                                "instagram": "SweetWaterBrew",
+                                "url": "https://www.sweetwaterbrew.com"
+                            },
+                            "location": {
+                                "brewery_city": "Atlanta",
+                                "brewery_state": "GA",
+                                "lat": 33.8081017,
+                                "lng": -84.3812027
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 9917985,
+                            "venue_name": "Untappd at Home",
+                            "venue_slug": "at-home",
+                            "primary_category_key": null,
+                            "primary_category": null,
+                            "parent_category_id": "4e67e38e036454776db1fb3a",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "home_private",
+                                        "category_name": "Home (private)",
+                                        "category_id": "4bf58dd8d48988d103941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "",
+                                "venue_city": "",
+                                "venue_state": "NC",
+                                "venue_country": "United States",
+                                "lat": 34.2346611,
+                                "lng": -77.9482117
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": ""
+                            },
+                            "foursquare": {
+                                "foursquare_id": "5e7b4d99c91df60008e8b168",
+                                "foursquare_url": "https://4sq.com/3bDWYuq"
+                            },
+                            "venue_icon": {
+                                "sm": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_64.png",
+                                "md": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_88.png",
+                                "lg": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_176.png?v=1"
+                            },
+                            "is_verified": true
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 0,
+                            "count": 0,
+                            "auth_toast": false,
+                            "items": []
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "retro_status": false,
+                            "count": 1,
+                            "items": [
+                                {
+                                    "badge_id": 288028,
+                                    "user_badge_id": 1133333027,
+                                    "badge_name": "Haze for Days (Level 3)",
+                                    "badge_description": "You may not be able to see through the haze, but that juicy, hoppy goodness goes down smooth. What started as a trend is here to stay. That's 15 different beers with the style of IPA - New England / Hazy, Pale Ale - New England / Hazy, IPA - Milkshake, or Pale Ale - Milkshake. Try 5 more for Level 4!",
+                                    "created_at": "Fri, 01 Sep 2023 04:44:14 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_neipa_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_neipa_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_neipa_lg.jpg"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "checkin_id": 1309663095,
+                        "created_at": "Fri, 01 Sep 2023 03:55:29 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 5208978,
+                            "beer_name": "Gone Trippin’",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-5208978_30d53_sm.jpeg",
+                            "beer_style": "IPA - American",
+                            "beer_slug": "sweetwater-brewing-company-gone-trippin",
+                            "beer_abv": 7,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 1224,
+                            "brewery_name": "SweetWater Brewing Company",
+                            "brewery_slug": "sweetwater-brewing-company",
+                            "brewery_page_url": "/sweetwaterbrew",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1224_960f1.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "SweetWaterBrew",
+                                "facebook": "https://www.facebook.com/sweetwaterbrew",
+                                "instagram": "SweetWaterBrew",
+                                "url": "https://www.sweetwaterbrew.com"
+                            },
+                            "location": {
+                                "brewery_city": "Atlanta",
+                                "brewery_state": "GA",
+                                "lat": 33.8081017,
+                                "lng": -84.3812027
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 9917985,
+                            "venue_name": "Untappd at Home",
+                            "venue_slug": "at-home",
+                            "primary_category_key": null,
+                            "primary_category": null,
+                            "parent_category_id": "4e67e38e036454776db1fb3a",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "home_private",
+                                        "category_name": "Home (private)",
+                                        "category_id": "4bf58dd8d48988d103941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "",
+                                "venue_city": "",
+                                "venue_state": "NC",
+                                "venue_country": "United States",
+                                "lat": 34.2346611,
+                                "lng": -77.9482117
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": ""
+                            },
+                            "foursquare": {
+                                "foursquare_id": "5e7b4d99c91df60008e8b168",
+                                "foursquare_url": "https://4sq.com/3bDWYuq"
+                            },
+                            "venue_icon": {
+                                "sm": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_64.png",
+                                "md": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_88.png",
+                                "lg": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_176.png?v=1"
+                            },
+                            "is_verified": true
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 0,
+                            "count": 0,
+                            "auth_toast": false,
+                            "items": []
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "count": 0,
+                            "items": []
+                        }
+                    },
+                    {
+                        "checkin_id": 1309653069,
+                        "created_at": "Fri, 01 Sep 2023 02:31:26 +0000",
+                        "checkin_comment": "",
+                        "rating_score": 4,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "location": "Nashville, Tennessee",
+                            "is_supporter": 0,
+                            "url": "",
+                            "bio": "",
+                            "relationship": "friends",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "is_private": 0,
+                            "public_toasts": 1,
+                            "contact": {
+                                "twitter": "stephenyeargin",
+                                "facebook": "184101999"
+                            }
+                        },
+                        "beer": {
+                            "bid": 7053,
+                            "beer_name": "IPA",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-7053_4000a_sm.jpeg",
+                            "beer_style": "IPA - American",
+                            "beer_slug": "sweetwater-brewing-company-ipa",
+                            "beer_abv": 6.3,
+                            "beer_active": 1,
+                            "has_had": false
+                        },
+                        "brewery": {
+                            "brewery_id": 1224,
+                            "brewery_name": "SweetWater Brewing Company",
+                            "brewery_slug": "sweetwater-brewing-company",
+                            "brewery_page_url": "/sweetwaterbrew",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-1224_960f1.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "SweetWaterBrew",
+                                "facebook": "https://www.facebook.com/sweetwaterbrew",
+                                "instagram": "SweetWaterBrew",
+                                "url": "https://www.sweetwaterbrew.com"
+                            },
+                            "location": {
+                                "brewery_city": "Atlanta",
+                                "brewery_state": "GA",
+                                "lat": 33.8081017,
+                                "lng": -84.3812027
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 9917985,
+                            "venue_name": "Untappd at Home",
+                            "venue_slug": "at-home",
+                            "primary_category_key": null,
+                            "primary_category": null,
+                            "parent_category_id": "4e67e38e036454776db1fb3a",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "home_private",
+                                        "category_name": "Home (private)",
+                                        "category_id": "4bf58dd8d48988d103941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "",
+                                "venue_city": "",
+                                "venue_state": "NC",
+                                "venue_country": "United States",
+                                "lat": 34.2346611,
+                                "lng": -77.9482117
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": ""
+                            },
+                            "foursquare": {
+                                "foursquare_id": "5e7b4d99c91df60008e8b168",
+                                "foursquare_url": "https://4sq.com/3bDWYuq"
+                            },
+                            "venue_icon": {
+                                "sm": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_64.png",
+                                "md": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_88.png",
+                                "lg": "https://assets.untappd.com/venuelogos/venue_9917985_b3a5d245_bg_176.png?v=1"
+                            },
+                            "is_verified": true
+                        },
+                        "comments": {
+                            "total_count": 0,
+                            "count": 0,
+                            "items": []
+                        },
+                        "toasts": {
+                            "total_count": 1,
+                            "count": 1,
+                            "auth_toast": false,
+                            "items": [
+                                {
+                                    "uid": 26601,
+                                    "user": {
+                                        "uid": 26601,
+                                        "user_name": "hortoncd",
+                                        "first_name": "Chris",
+                                        "last_name": "Horton",
+                                        "bio": "Homebrewer and beer lover.",
+                                        "location": "Neskowin, OR",
+                                        "relationship": "friends",
+                                        "user_avatar": "https://assets.untappd.com/profile/e76583dae1d9b26cfaafd573c717689c_100x100.png",
+                                        "account_type": "user",
+                                        "venue_details": [],
+                                        "brewery_details": []
+                                    },
+                                    "like_id": 1399199750,
+                                    "like_owner": false,
+                                    "created_at": "Fri, 01 Sep 2023 02:36:51 +0000"
+                                }
+                            ]
+                        },
+                        "media": {
+                            "count": 0,
+                            "items": []
+                        },
+                        "source": {
+                            "app_name": "Untappd for iPhone - (V2)",
+                            "app_website": "http://untpd.it/iphoneapp"
+                        },
+                        "badges": {
+                            "retro_status": false,
+                            "count": 1,
+                            "items": [
+                                {
+                                    "badge_id": 133367,
+                                    "user_badge_id": 1133322143,
+                                    "badge_name": "For the Can (Level 14)",
+                                    "badge_description": "Canning is all the rage and it's not hard to see why - travels well, more environmentally friendly, and no need to carry your bottle opener. That's 70 checkins with the serving style of Can. Try 5 more for Level 15! Want to learn more about this badge? Check out our <a rel=\"link-out\" href=\"https://www.youtube.com/watch?v=hynmM3Sb83s&t=1s\">podcast</a>",
+                                    "created_at": "Fri, 01 Sep 2023 02:31:27 +0000",
+                                    "badge_image": {
+                                        "sm": "https://assets.untappd.com/badges/bdg_GloryCan_sm.jpg",
+                                        "md": "https://assets.untappd.com/badges/bdg_GloryCan_md.jpg",
+                                        "lg": "https://assets.untappd.com/badges/bdg_GloryCan_lg.jpg"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "pagination": {
+                    "since_url": "https://api.untappd.com/v4/user/checkins/stephenyeargin?min_id=1321967102",
+                    "next_url": "https://api.untappd.com/v4/user/checkins/stephenyeargin?max_id=1309653069",
+                    "max_id": 1309653069
+                }
+            },
+            "media": {
+                "count": 5,
+                "items": [
+                    {
+                        "photo_id": 503892730,
+                        "photo": {
+                            "photo_img_sm": "https://assets.untappd.com/photos/2023_09_02/49d39ba856f9da3d79884afadd63a6d6_200x200.jpg",
+                            "photo_img_md": "https://assets.untappd.com/photos/2023_09_02/49d39ba856f9da3d79884afadd63a6d6_640x640.jpg",
+                            "photo_img_lg": "https://assets.untappd.com/photos/2023_09_02/49d39ba856f9da3d79884afadd63a6d6_1280x1280.jpg",
+                            "photo_img_og": "https://assets.untappd.com/photos/2023_09_02/49d39ba856f9da3d79884afadd63a6d6_raw.jpg"
+                        },
+                        "created_at": "Sat, 02 Sep 2023 18:43:39 +0000",
+                        "checkin_id": 1310355053,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "location": "Nashville, Tennessee",
+                            "bio": "",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "account_type": "user",
+                            "url": null
+                        },
+                        "beer": {
+                            "bid": 1796100,
+                            "beer_name": "Hi-Pitch Mosaic IPA",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-1796100_16c13_sm.jpeg",
+                            "beer_abv": 6.7,
+                            "beer_style": "IPA - American",
+                            "beer_description": "A balanced Western North Carolina IPA with bright citrus and tropical fruit aromas. Expect big grapefruit, tangerine and subtle melon flavors from the chorus of Mosaic & Centennial hops to balance out the malt in this dank & drinkable ale.",
+                            "auth_rating": 4,
+                            "wish_list": false
+                        },
+                        "brewery": {
+                            "brewery_id": 64692,
+                            "brewery_name": "Hi-Wire Brewing",
+                            "brewery_slug": "hi-wire-brewing",
+                            "brewery_page_url": "/HiWireBrewing",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-64692_4d1d7.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "hiwirebrewing",
+                                "facebook": "https://www.facebook.com/hiwirebrewing",
+                                "instagram": "hiwirebrewing",
+                                "url": "http://hiwirebrewing.com"
+                            },
+                            "location": {
+                                "brewery_city": "Asheville",
+                                "brewery_state": "NC",
+                                "lat": 35.5709991,
+                                "lng": -82.5459976
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 14309,
+                            "venue_name": "Village Pub & Beer Garden",
+                            "venue_slug": "village-pub-beer-garden",
+                            "primary_category_key": "Dining and Drinking",
+                            "primary_category": "Dining and Drinking",
+                            "parent_category_id": "63be6904847c3692a84b9bb5",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "beer_garden",
+                                        "category_name": "Beer Garden",
+                                        "category_id": "4bf58dd8d48988d117941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "1308 McGavock Pike",
+                                "venue_city": "Nashville",
+                                "venue_state": "TN",
+                                "venue_country": "United States",
+                                "lat": 36.2044144,
+                                "lng": -86.7248001
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": "http://riversidevillagepub.com"
+                            },
+                            "foursquare": {
+                                "foursquare_id": "4bcb54af0687ef3b3f7dddcc",
+                                "foursquare_url": "http://4sq.com/9Y2H3y"
+                            },
+                            "venue_icon": {
+                                "sm": "https://ss3.4sqi.net/img/categories_v2/nightlife/beergarden_bg_64.png",
+                                "md": "https://ss3.4sqi.net/img/categories_v2/nightlife/beergarden_bg_88.png",
+                                "lg": "https://ss3.4sqi.net/img/categories_v2/nightlife/beergarden_bg_512.png"
+                            },
+                            "is_verified": false
+                        }
+                    },
+                    {
+                        "photo_id": 474186220,
+                        "photo": {
+                            "photo_img_sm": "https://assets.untappd.com/photos/2023_03_04/7b026e492c214be37cd2114960195ee8_200x200.jpg",
+                            "photo_img_md": "https://assets.untappd.com/photos/2023_03_04/7b026e492c214be37cd2114960195ee8_640x640.jpg",
+                            "photo_img_lg": "https://assets.untappd.com/photos/2023_03_04/7b026e492c214be37cd2114960195ee8_1280x1280.jpg",
+                            "photo_img_og": "https://assets.untappd.com/photos/2023_03_04/7b026e492c214be37cd2114960195ee8_raw.jpg"
+                        },
+                        "created_at": "Sat, 04 Mar 2023 22:44:31 +0000",
+                        "checkin_id": 1253186417,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "location": "Nashville, Tennessee",
+                            "bio": "",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "account_type": "user",
+                            "url": null
+                        },
+                        "beer": {
+                            "bid": 13559,
+                            "beer_name": "Zombie Dust",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-13559_aaaa4_sm.jpeg",
+                            "beer_abv": 6.5,
+                            "beer_style": "Pale Ale - American",
+                            "beer_description": "This intensely hopped and gushing undead Pale Ale will be one’s only respite after the zombie apocalypse. Created with our marvelous friends in the comic industry.",
+                            "auth_rating": 4.5,
+                            "wish_list": false
+                        },
+                        "brewery": {
+                            "brewery_id": 2470,
+                            "brewery_name": "3 Floyds Brewing",
+                            "brewery_slug": "3-floyds-brewing",
+                            "brewery_page_url": "/3floyds",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-2470_fbcd9.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "3floyds",
+                                "facebook": "https://www.facebook.com/3floyds",
+                                "instagram": "3floydsbrewing",
+                                "url": "https://www.3floyds.com"
+                            },
+                            "location": {
+                                "brewery_city": "Munster",
+                                "brewery_state": "IN",
+                                "lat": 41.5354996,
+                                "lng": -87.5167007
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 2111,
+                            "venue_name": "Broadway Brewhouse & Mojo",
+                            "venue_slug": "broadway-brewhouse-mojo",
+                            "primary_category_key": "Dining and Drinking",
+                            "primary_category": "Dining and Drinking",
+                            "parent_category_id": "63be6904847c3692a84b9bb5",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "bar",
+                                        "category_name": "Bar",
+                                        "category_id": "4bf58dd8d48988d116941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "1900 Broadway",
+                                "venue_city": "Nashville",
+                                "venue_state": "TN",
+                                "venue_country": "United States",
+                                "lat": 36.1510239,
+                                "lng": -86.7968521
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": "http://broadwaybrewhouse.net"
+                            },
+                            "foursquare": {
+                                "foursquare_id": "4b058668f964a520c86022e3",
+                                "foursquare_url": "http://4sq.com/5Wk7Ey"
+                            },
+                            "venue_icon": {
+                                "sm": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_64.png",
+                                "md": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_88.png",
+                                "lg": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_512.png"
+                            },
+                            "is_verified": false
+                        }
+                    },
+                    {
+                        "photo_id": 433310385,
+                        "photo": {
+                            "photo_img_sm": "https://assets.untappd.com/photos/2022_06_22/f1152f3d411b96bb529f084a820259b2_200x200.jpg",
+                            "photo_img_md": "https://assets.untappd.com/photos/2022_06_22/f1152f3d411b96bb529f084a820259b2_640x640.jpg",
+                            "photo_img_lg": "https://assets.untappd.com/photos/2022_06_22/f1152f3d411b96bb529f084a820259b2_1280x1280.jpg",
+                            "photo_img_og": "https://assets.untappd.com/photos/2022_06_22/f1152f3d411b96bb529f084a820259b2_raw.jpg"
+                        },
+                        "created_at": "Wed, 22 Jun 2022 22:11:15 +0000",
+                        "checkin_id": 1171876046,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "location": "Nashville, Tennessee",
+                            "bio": "",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "account_type": "user",
+                            "url": null
+                        },
+                        "beer": {
+                            "bid": 4508055,
+                            "beer_name": "Sieg",
+                            "beer_label": "https://assets.untappd.com/site/assets/images/temp/badge-beer-default.png",
+                            "beer_abv": 5.1,
+                            "beer_style": "Kölsch",
+                            "beer_description": "",
+                            "auth_rating": 4,
+                            "wish_list": false
+                        },
+                        "brewery": {
+                            "brewery_id": 413851,
+                            "brewery_name": "Living Waters Brewing",
+                            "brewery_slug": "living-waters-brewing",
+                            "brewery_page_url": "/LivingWatersBrewing",
+                            "brewery_type": "Micro Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-413851_e12d1.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "",
+                                "facebook": "https://www.facebook.com/Livingwatersbrewing/",
+                                "instagram": "",
+                                "url": "https://www.livingwatersbrewing.com/"
+                            },
+                            "location": {
+                                "brewery_city": "Nashville",
+                                "brewery_state": "TN",
+                                "lat": 36.2033997,
+                                "lng": -86.7414017
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 9194709,
+                            "venue_name": "Living Waters Brewing",
+                            "venue_slug": "living-waters-brewing",
+                            "primary_category_key": null,
+                            "primary_category": null,
+                            "parent_category_id": "4d4b7105d754a06376d81259",
+                            "categories": {
+                                "count": 2,
+                                "items": [
+                                    {
+                                        "category_key": "brewery",
+                                        "category_name": "Brewery",
+                                        "category_id": "50327c8591d4c4b30a586d5d",
+                                        "is_primary": true
+                                    },
+                                    {
+                                        "category_key": "coffee_shop",
+                                        "category_name": "Coffee Shop",
+                                        "category_id": "4bf58dd8d48988d1e0931735",
+                                        "is_primary": false
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "1056 E Trinity Ln Ste 101",
+                                "venue_city": "Nashville",
+                                "venue_state": "TN",
+                                "venue_country": "United States",
+                                "lat": 36.2034798,
+                                "lng": -86.741333
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": ""
+                            },
+                            "foursquare": {
+                                "foursquare_id": "5d32a1aa2010d600080bcb86",
+                                "foursquare_url": "https://4sq.com/2SpQFm5"
+                            },
+                            "venue_icon": {
+                                "sm": "https://assets.untappd.com/venuelogos/venue_9194709_0aa7924d_bg_64.png",
+                                "md": "https://assets.untappd.com/venuelogos/venue_9194709_0aa7924d_bg_88.png",
+                                "lg": "https://assets.untappd.com/venuelogos/venue_9194709_0aa7924d_bg_176.png?v=1"
+                            },
+                            "is_verified": true
+                        }
+                    },
+                    {
+                        "photo_id": 415719877,
+                        "photo": {
+                            "photo_img_sm": "https://assets.untappd.com/photos/2022_03_11/d7a603c1068d3f1890bdda8c828e5cb4_200x200.jpg",
+                            "photo_img_md": "https://assets.untappd.com/photos/2022_03_11/d7a603c1068d3f1890bdda8c828e5cb4_640x640.jpg",
+                            "photo_img_lg": "https://assets.untappd.com/photos/2022_03_11/d7a603c1068d3f1890bdda8c828e5cb4_1280x1280.jpg",
+                            "photo_img_og": "https://assets.untappd.com/photos/2022_03_11/d7a603c1068d3f1890bdda8c828e5cb4_raw.jpg"
+                        },
+                        "created_at": "Fri, 11 Mar 2022 00:44:02 +0000",
+                        "checkin_id": 1136730695,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "location": "Nashville, Tennessee",
+                            "bio": "",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "account_type": "user",
+                            "url": null
+                        },
+                        "beer": {
+                            "bid": 13559,
+                            "beer_name": "Zombie Dust",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-13559_aaaa4_sm.jpeg",
+                            "beer_abv": 6.5,
+                            "beer_style": "Pale Ale - American",
+                            "beer_description": "This intensely hopped and gushing undead Pale Ale will be one’s only respite after the zombie apocalypse. Created with our marvelous friends in the comic industry.",
+                            "auth_rating": 4.5,
+                            "wish_list": false
+                        },
+                        "brewery": {
+                            "brewery_id": 2470,
+                            "brewery_name": "3 Floyds Brewing",
+                            "brewery_slug": "3-floyds-brewing",
+                            "brewery_page_url": "/3floyds",
+                            "brewery_type": "Regional Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-2470_fbcd9.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "3floyds",
+                                "facebook": "https://www.facebook.com/3floyds",
+                                "instagram": "3floydsbrewing",
+                                "url": "https://www.3floyds.com"
+                            },
+                            "location": {
+                                "brewery_city": "Munster",
+                                "brewery_state": "IN",
+                                "lat": 41.5354996,
+                                "lng": -87.5167007
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 2111,
+                            "venue_name": "Broadway Brewhouse & Mojo",
+                            "venue_slug": "broadway-brewhouse-mojo",
+                            "primary_category_key": "Dining and Drinking",
+                            "primary_category": "Dining and Drinking",
+                            "parent_category_id": "63be6904847c3692a84b9bb5",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "bar",
+                                        "category_name": "Bar",
+                                        "category_id": "4bf58dd8d48988d116941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "1900 Broadway",
+                                "venue_city": "Nashville",
+                                "venue_state": "TN",
+                                "venue_country": "United States",
+                                "lat": 36.1510239,
+                                "lng": -86.7968521
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": "http://broadwaybrewhouse.net"
+                            },
+                            "foursquare": {
+                                "foursquare_id": "4b058668f964a520c86022e3",
+                                "foursquare_url": "http://4sq.com/5Wk7Ey"
+                            },
+                            "venue_icon": {
+                                "sm": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_64.png",
+                                "md": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_88.png",
+                                "lg": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_512.png"
+                            },
+                            "is_verified": false
+                        }
+                    },
+                    {
+                        "photo_id": 415711240,
+                        "photo": {
+                            "photo_img_sm": "https://assets.untappd.com/photos/2022_03_10/6635ba353368551a0a567da61cd31d8d_200x200.jpg",
+                            "photo_img_md": "https://assets.untappd.com/photos/2022_03_10/6635ba353368551a0a567da61cd31d8d_640x640.jpg",
+                            "photo_img_lg": "https://assets.untappd.com/photos/2022_03_10/6635ba353368551a0a567da61cd31d8d_1280x1280.jpg",
+                            "photo_img_og": "https://assets.untappd.com/photos/2022_03_10/6635ba353368551a0a567da61cd31d8d_raw.jpg"
+                        },
+                        "created_at": "Thu, 10 Mar 2022 23:48:08 +0000",
+                        "checkin_id": 1136710127,
+                        "user": {
+                            "uid": 186401,
+                            "user_name": "stephenyeargin",
+                            "location": "Nashville, Tennessee",
+                            "bio": "",
+                            "first_name": "Stephen",
+                            "last_name": "Y",
+                            "user_avatar": "https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2",
+                            "account_type": "user",
+                            "url": null
+                        },
+                        "beer": {
+                            "bid": 4143,
+                            "beer_name": "Hopslam Ale",
+                            "beer_label": "https://assets.untappd.com/site/beer_logos/beer-4143_90b4a_sm.jpeg",
+                            "beer_abv": 10,
+                            "beer_style": "IPA - Imperial / Double",
+                            "beer_description": "A biting, bitter, tongue bruiser of an ale. With a name like Hopslam, what did you expect?",
+                            "auth_rating": 4.25,
+                            "wish_list": false
+                        },
+                        "brewery": {
+                            "brewery_id": 2507,
+                            "brewery_name": "Bell's Brewery",
+                            "brewery_slug": "bell-s-brewery",
+                            "brewery_page_url": "/bellsbrewery",
+                            "brewery_type": "Macro Brewery",
+                            "brewery_label": "https://assets.untappd.com/site/brewery_logos/brewery-2507_ad044.jpeg",
+                            "country_name": "United States",
+                            "contact": {
+                                "twitter": "BellsBrewery",
+                                "facebook": "https://www.facebook.com/bellsbeer/",
+                                "instagram": "bellsbrewery",
+                                "url": "http://www.bellsbeer.com/"
+                            },
+                            "location": {
+                                "brewery_city": "Comstock",
+                                "brewery_state": "MI",
+                                "lat": 42.2843018,
+                                "lng": -85.4537964
+                            },
+                            "brewery_active": 1
+                        },
+                        "venue": {
+                            "venue_id": 2111,
+                            "venue_name": "Broadway Brewhouse & Mojo",
+                            "venue_slug": "broadway-brewhouse-mojo",
+                            "primary_category_key": "Dining and Drinking",
+                            "primary_category": "Dining and Drinking",
+                            "parent_category_id": "63be6904847c3692a84b9bb5",
+                            "categories": {
+                                "count": 1,
+                                "items": [
+                                    {
+                                        "category_key": "bar",
+                                        "category_name": "Bar",
+                                        "category_id": "4bf58dd8d48988d116941735",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "location": {
+                                "venue_address": "1900 Broadway",
+                                "venue_city": "Nashville",
+                                "venue_state": "TN",
+                                "venue_country": "United States",
+                                "lat": 36.1510239,
+                                "lng": -86.7968521
+                            },
+                            "contact": {
+                                "twitter": "",
+                                "venue_url": "http://broadwaybrewhouse.net"
+                            },
+                            "foursquare": {
+                                "foursquare_id": "4b058668f964a520c86022e3",
+                                "foursquare_url": "http://4sq.com/5Wk7Ey"
+                            },
+                            "venue_icon": {
+                                "sm": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_64.png",
+                                "md": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_88.png",
+                                "lg": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_bg_512.png"
+                            },
+                            "is_verified": false
+                        }
+                    }
+                ]
+            },
+            "contact": {
+                "twitter": "stephenyeargin"
+            },
+            "date_joined": "Sat, 09 Jun 2012 19:30:51 +0000",
+            "settings": []
+        }
+    }
+}

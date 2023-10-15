@@ -108,6 +108,13 @@ describe('hubot-untappd-friends', () => {
   // hubot untappd user
   it('responds with the latest beers from a particular user', (done) => {
     nock('https://api.untappd.com')
+      .get('/v4/user/info/stephenyeargin')
+      .query({
+        USERNAME: 'stephenyeargin',
+        access_token: 'foobar3',
+      })
+      .replyWithFile(200, `${__dirname}/fixtures/user-info.json`);
+    nock('https://api.untappd.com')
       .get('/v4/user/checkins/stephenyeargin')
       .query({
         limit: 2,
@@ -123,8 +130,7 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd user stephenyeargin'],
-            ['hubot', 'Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company at Yazoo Brewing Company - 12 days ago'],
-            ['hubot', 'Hopry (IPA - Imperial / Double - 7.9%) by Yazoo Brewing Company at Yazoo Brewing Company - 12 days ago'],
+            ['hubot', 'Stephen Y (stephenyeargin): 699 beers, 1056 checkins, 659 badges\n- Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company at Yazoo Brewing Company - 12 days ago\n- Hopry (IPA - Imperial / Double - 7.9%) by Yazoo Brewing Company at Yazoo Brewing Company - 12 days ago'],
           ]);
           done();
         } catch (err) {
@@ -330,7 +336,7 @@ describe('hubot-untappd-friends', () => {
         client_secret: 'foobar2',
         access_token: 'foobar3',
       })
-      .replyWithFile(200, `${__dirname}/fixtures/user-info.json`);
+      .replyWithFile(200, `${__dirname}/fixtures/user-info-bot.json`);
 
     const selfRoom = this.room;
     selfRoom.user.say('alice', '@hubot untappd register');
