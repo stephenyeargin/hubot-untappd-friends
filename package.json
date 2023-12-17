@@ -23,7 +23,7 @@
     "node-untappd": "stephenyeargin/node-untappd#v0.5-pinned"
   },
   "peerDependencies": {
-    "hubot": ">=2 <10 || 0.0.0-development"
+    "hubot": ">=3 || 0.0.0-development"
   },
   "devDependencies": {
     "chai": "^4.3.7",
@@ -34,14 +34,15 @@
     "husky": "^8.0.3",
     "mocha": "^10.2.0",
     "nock": "^13.3.2",
-    "release-it": "^16.1.3",
     "sinon": "^15.2.0",
     "sinon-chai": "^3.7.0"
   },
   "main": "index.js",
   "scripts": {
-    "release": "release-it",
-    "test": "mocha \"test/**/*.js\" --reporter spec",
+    "test": "script/test",
     "prepare": "husky install"
+  },
+  "volta": {
+    "node": "18.19.0"
   }
 }

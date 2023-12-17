@@ -3,4 +3,4 @@
 # bootstrap environment
 source script/bootstrap
 
-mocha --require "test/**/*.js" --reporter spec
+mocha "test/**/*.js" --reporter spec --exit
