@@ -1,7 +1,7 @@
 {
   "name": "hubot-untappd-friends",
   "description": "Get the latest checkins from your Untappd friends.",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "author": "Stephen Yeargin <stephen@yearg.in>",
   "license": "MIT",
   "homepage": "https://github.com/stephenyeargin/hubot-untappd-friends",
