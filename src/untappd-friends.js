@@ -38,7 +38,7 @@ module.exports = (robot) => {
     maxDescriptionLength = parseInt(process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH, 10);
   }
 
-  const untappd = new UntappdClient(false);
+  const untappd = new UntappdClient(/debug/i.test(process.env.HUBOT_LOG_LEVEL));
   untappd.setClientId(process.env.UNTAPPD_API_KEY);
   untappd.setClientSecret(process.env.UNTAPPD_API_SECRET);
   untappd.setAccessToken(process.env.UNTAPPD_API_ACCESS_TOKEN);
@@ -56,10 +56,10 @@ module.exports = (robot) => {
   const checkUntappdErrors = (err, obj, msg) => {
     if (err) {
       robot.logger.error(err);
-      msg.send(err);
+      msg.send(JSON.stringify(err));
       return false;
     }
-    if (obj.meta.error_detail) {
+    if (obj.meta?.error_detail) {
       robot.logger.error(obj);
       msg.send(`${obj.meta.code}: ${obj.meta.error_detail}`);
       return false;
@@ -133,6 +133,19 @@ module.exports = (robot) => {
     return `${user.first_name} ${user.last_name} (${user.user_name}): ${user.stats.total_beers} beers, ${user.stats.total_checkins} checkins, ${user.stats.total_badges} badges`;
   };
 
+  // Format beer
+  const formatBeerResponse = (beerData) => {
+    let beerName = beerData.beer_name;
+    if (beerData.is_in_production === 0) {
+      beerName = `${beerName} [Out of Production]`;
+    }
+    if (beerData.beer_description && (maxDescriptionLength > 0)) {
+      const shortDescription = formatShortDescription(beerData.beer_description);
+      return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name} - ${shortDescription} - https://untappd.com/beer/${beerData.bid}`;
+    }
+    return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name} - https://untappd.com/beer/${beerData.bid}`;
+  };
+
   // Get Friend Feed
   const getFriendFeed = (msg) => untappd.activityFeed(
     (err, obj) => {
@@ -185,6 +198,72 @@ module.exports = (robot) => {
     },
     { limit: countToReturn },
   );
+
+  // Toast recent checkins
+  const toastRecentCheckins = (msg) => {
+    const username = msg.match[1].trim();
+    const users = {};
+    if (username) {
+      untappd.userActivityFeed(
+        (err, obj) => {
+          if (!checkUntappdErrors(err, obj, msg)) {
+            return;
+          }
+          obj.response.checkins.items.forEach((checkin) => {
+            if (users[checkin.user.uid] || checkin.toasts.auth_toast) {
+              robot.logger.info(`Already toasted recent checkin for ${checkin.user.first_name} ${checkin.user.last_name} (${checkin.user.user_name})`);
+              return;
+            }
+            users[checkin.user.uid] = true;
+            untappd.toast(
+              (err2, obj2) => {
+                if (!checkUntappdErrors(err2, obj2, msg)) {
+                  return;
+                }
+                if (obj2.result !== 'success') {
+                  robot.logger.error('Failed to toast checkin.');
+                  robot.logger.debug(obj2);
+                }
+                msg.send(`🍻 Toasted ${checkin.user.first_name} ${checkin.user.last_name} (${checkin.user.user_name})'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })}`);
+              },
+              { CHECKIN_ID: checkin.checkin_id },
+            );
+          });
+        },
+        { USERNAME: username, limit: 1 },
+      );
+      return;
+    }
+
+    untappd.activityFeed(
+      (err, obj) => {
+        if (!checkUntappdErrors(err, obj, msg)) {
+          return;
+        }
+        obj.response.checkins.items.forEach((checkin) => {
+          if (checkin.toasts.auth_toast || users[checkin.user.uid]) {
+            robot.logger.info(`Already toasted recent checkin for ${checkin.user.first_name} ${checkin.user.last_name} (${checkin.user.user_name})`);
+            return;
+          }
+          users[checkin.user.uid] = true;
+          untappd.toast(
+            (err2, obj2) => {
+              if (!checkUntappdErrors(err2, obj2, msg)) {
+                return;
+              }
+              if (obj2.result !== 'success') {
+                robot.logger.error('Failed to toast checkin.');
+                robot.logger.debug(obj2);
+              }
+              msg.send(`🍻 Toasted ${checkin.user.first_name} ${checkin.user.last_name} (${checkin.user.user_name})'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })}`);
+            },
+            { CHECKIN_ID: checkin.checkin_id },
+          );
+        });
+      },
+      { limit: countToReturn },
+    );
+  };
 
   // Get Badge Feed
   const getBadgeFeed = (msg) => untappd.activityFeed(
@@ -297,18 +376,6 @@ module.exports = (robot) => {
       },
       { q: searchTerm, limit: countToReturn },
     );
-  };
-
-  const formatBeerResponse = (beerData) => {
-    let beerName = beerData.beer_name;
-    if (beerData.is_in_production === 0) {
-      beerName = `${beerName} [Out of Production]`;
-    }
-    if (beerData.beer_description && (maxDescriptionLength > 0)) {
-      const shortDescription = formatShortDescription(beerData.beer_description);
-      return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name} - ${shortDescription} - https://untappd.com/beer/${beerData.bid}`;
-    }
-    return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name} - https://untappd.com/beer/${beerData.bid}`;
   };
 
   // Get Random Beer
@@ -465,6 +532,12 @@ module.exports = (robot) => {
   robot.respond(/untappd$/i, (msg) => {
     if (!checkConfiguration(msg)) { return; }
     getFriendFeed(msg);
+  });
+
+  // Toast checkins
+  robot.respond(/untappd (?:toast|toast|prost)\s?(.*)$/i, (msg) => {
+    if (!checkConfiguration(msg)) { return; }
+    toastRecentCheckins(msg);
   });
 
   // Badges

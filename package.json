@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "moment": "^2.29.4",
-    "node-untappd": "stephenyeargin/node-untappd#v0.5-pinned"
+    "node-untappd": "stephenyeargin/node-untappd#be7ae9b723a6044a51c1826db7fc0539fa7fee7f"
   },
   "peerDependencies": {
     "hubot": ">=3 || 0.0.0-development"
