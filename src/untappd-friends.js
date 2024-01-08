@@ -16,6 +16,8 @@
 //  hubot untappd beer random - Retrieve a random beer
 //  hubot untappd beer <query|ID> - Get data about a particular beer
 //  hubot untappd brewery <query> - Get data about a particular brewery
+//  hubot untappd toast - Have the bot toast the most recent checkin from each user in activity feed
+//  hubot untappd toast <username> - Have the bot toast user's most recent checkin
 //  hubot untappd register - Instructions to register with the bot
 //  hubot untappd approve - Approve all pending friend requests
 //  hubot untappd friends - List the bot's friends
@@ -31,7 +33,7 @@ module.exports = (robot) => {
   let maxDescriptionLength;
 
   const countToReturn = process.env.UNTAPPD_MAX_COUNT || 5;
-  const maxRandomBeerId = process.env.UNTAPPD_MAX_RANDOM_ID || 5485000;
+  const maxRandomBeerId = process.env.UNTAPPD_MAX_RANDOM_ID || 5600000;
   if (typeof process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH === 'undefined') {
     maxDescriptionLength = 150;
   } else {
