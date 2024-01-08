@@ -11,7 +11,7 @@ Get the latest check-ins from your Untappd friends.
 
 You will first need to go through the process of applying for an API key. This can take anywhere from 2-3 weeks, and you will need to explain for what you intend to use the API key. You can send a link to this page and say you want to use this package.
 
-From here, it can be a little frustrating. [Take a look at the documentation](https://untappd.com/api/docs#authentication). It uses an OAuth1 workflow to send data back the specified endpoint, which you then need to exchange again to get an access token. A free [Runscope](http://runscope.com) account may make things easier because you can create a "bucket" to capture data coming back through the API. You will want to go through the **Server Side Documentation** workflow.
+From here, it can be a little frustrating. [Take a look at the documentation](https://untappd.com/api/docs#authentication). It uses an OAuth1 workflow to send data back the specified endpoint, which you then need to exchange again to get an access token. [Postman](https://www.postman.com/) is a great tool to generate the `UNTAPPD_API_ACCESS_TOKEN` by plugging in your API credentials.
 
 ## Installation
 
