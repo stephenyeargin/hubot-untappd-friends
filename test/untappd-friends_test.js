@@ -103,7 +103,7 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd toast'],
-            ['hubot', "🍻 Toasted heath (heathseals)'s Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery - https://untappd.com/beer/764911"],
+            ['hubot', "🍻 Toasted heath (heathseals)'s Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery - https://untappd.com/user/heathseals/checkin/578981788"],
           ]);
           done();
         } catch (err) {
@@ -138,7 +138,7 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd toast stephenyeargin'],
-            ['hubot', "🍻 Toasted Stephen (stephenyeargin)'s Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company - https://untappd.com/beer/1967993"],
+            ['hubot', "🍻 Toasted Stephen (stephenyeargin)'s Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company - https://untappd.com/user/stephenyeargin/checkin/574773374"],
           ]);
           done();
         } catch (err) {

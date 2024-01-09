@@ -146,10 +146,16 @@ module.exports = (robot) => {
     }
     if (beerData.beer_description && (maxDescriptionLength > 0)) {
       const shortDescription = formatShortDescription(beerData.beer_description);
-      return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name} - ${shortDescription} - https://untappd.com/beer/${beerData.bid}`;
+      return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name} - ${shortDescription}`;
     }
-    return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name} - https://untappd.com/beer/${beerData.bid}`;
+    return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name}`;
   };
+
+  // Format beer link
+  const formatBeerLink = (beer) => `https://untappd.com/beer/${beer.bid}`;
+
+  // Format checkin link
+  const formatCheckinLink = (checkin) => `https://untappd.com/user/${checkin.user.user_name}/checkin/${checkin.checkin_id}`;
 
   // Get Friend Feed
   const getFriendFeed = (msg) => untappd.activityFeed(
@@ -229,7 +235,7 @@ module.exports = (robot) => {
                   robot.logger.error('Failed to toast checkin.');
                   robot.logger.debug(obj2);
                 }
-                msg.send(`🍻 Toasted ${formatDisplayName(checkin.user)}'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })}`);
+                msg.send(`🍻 Toasted ${formatDisplayName(checkin.user)}'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} - ${formatCheckinLink(checkin)}`);
               },
               { CHECKIN_ID: checkin.checkin_id },
             );
@@ -260,7 +266,7 @@ module.exports = (robot) => {
                 robot.logger.error('Failed to toast checkin.');
                 robot.logger.debug(obj2);
               }
-              msg.send(`🍻 Toasted ${formatDisplayName(checkin.user)}'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })}`);
+              msg.send(`🍻 Toasted ${formatDisplayName(checkin.user)}'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} - ${formatCheckinLink(checkin)}`);
             },
             { CHECKIN_ID: checkin.checkin_id },
           );
@@ -398,7 +404,7 @@ module.exports = (robot) => {
         if (!checkUntappdErrors(err, obj, msg)) {
           return;
         }
-        msg.send(formatBeerResponse(obj.response.beer));
+        msg.send(`${formatBeerResponse(obj.response.beer)} - ${formatBeerLink(obj.response.beer)}`);
         randomAttempts = 0;
       },
       { BID: beerId, limit: countToReturn },
@@ -417,7 +423,7 @@ module.exports = (robot) => {
           if (!checkUntappdErrors(err, obj, msg)) {
             return;
           }
-          msg.send(formatBeerResponse(obj.response.beer));
+          msg.send(`${formatBeerResponse(obj.response.beer)} - ${formatBeerLink(obj.response.beer)}`);
         },
         { BID: searchTerm, limit: countToReturn },
       );
@@ -441,7 +447,7 @@ module.exports = (robot) => {
           // Search results put these at different spots
           const beerData = result.beer;
           beerData.brewery = result.brewery;
-          msg.send(formatBeerResponse(beerData));
+          msg.send(`${formatBeerResponse(beerData)} - ${formatBeerLink(beerData)}`);
         });
       },
       { q: searchTerm, limit: countToReturn },
