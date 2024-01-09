@@ -103,7 +103,7 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd toast'],
-            ['hubot', "🍻 Toasted heath seals (heathseals)'s Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery - https://untappd.com/beer/764911"],
+            ['hubot', "🍻 Toasted heath (heathseals)'s Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery - https://untappd.com/beer/764911"],
           ]);
           done();
         } catch (err) {
@@ -123,7 +123,7 @@ describe('hubot-untappd-friends', () => {
         USERNAME: 'stephenyeargin',
         access_token: 'foobar3',
       })
-      .replyWithFile(200, `${__dirname}/fixtures/user-checkins-stephenyeargin.json`);
+      .replyWithFile(200, `${__dirname}/fixtures/user-checkins-stephenyeargin-limit-1.json`);
     nock('https://api.untappd.com')
       .post('/v4/checkin/toast/574773374')
       .query({
@@ -138,7 +138,7 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd toast stephenyeargin'],
-            ['hubot', "🍻 Toasted Stephen Y. (stephenyeargin)'s Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company - https://untappd.com/beer/1967993"],
+            ['hubot', "🍻 Toasted Stephen (stephenyeargin)'s Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company - https://untappd.com/beer/1967993"],
           ]);
           done();
         } catch (err) {
@@ -205,7 +205,7 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd user stephenyeargin'],
-            ['hubot', 'Stephen Y (stephenyeargin): 699 beers, 1056 checkins, 659 badges\n- Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company at Yazoo Brewing Company - 12 days ago\n- Hopry (IPA - Imperial / Double - 7.9%) by Yazoo Brewing Company at Yazoo Brewing Company - 12 days ago'],
+            ['hubot', 'Stephen (stephenyeargin): 699 beers, 1056 checkins, 659 badges\n- Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company at Yazoo Brewing Company - 12 days ago\n- Hopry (IPA - Imperial / Double - 7.9%) by Yazoo Brewing Company at Yazoo Brewing Company - 12 days ago'],
           ]);
           done();
         } catch (err) {
@@ -480,7 +480,7 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd friends'],
-            ['hubot', 'Howard C. (hchoularton), Dan D. (Tacoma_Dan), Ruben V. (Tecate213), Michael B. (Boyernator), Lennard K. (magistraalhardzuipen), Jasper R. (JasperRusthoven), Wouter R. (non_will_survive), Jacob D. (Flintquatch), B R. (Beer4Brad), Paddy  (paddyboy1918), Jimmy V  (Jvande0313), Raymond  (r4ymond), Josh R. (JoshRaynes), Roel R. (rrijks), Frankie F. (FrankieFierYo), Jim M. (jimmcm88), Sean M. (sean_themighty), Tom M. (Mostreytom), Luke P. (lukepillar), Jake W. (JakeWinstone), Maurice W. (Maurice079), Jonathan B. (jonnybgoode82), Craig B. (Arcticwolf8), Kayleigh  (_Kayleigh_), Dustin R. (droberts5)'],
+            ['hubot', 'Howard (hchoularton), Dan (Tacoma_Dan), Ruben (Tecate213), Michael (Boyernator), Lennard (magistraalhardzuipen), Jasper (JasperRusthoven), Wouter (non_will_survive), Jacob (Flintquatch), B (Beer4Brad), Paddy (paddyboy1918), Jimmy V (Jvande0313), Raymond (r4ymond), Josh (JoshRaynes), Roel (rrijks), Frankie (FrankieFierYo), Jim (jimmcm88), Sean (sean_themighty), Tom (Mostreytom), Luke (lukepillar), Jake (JakeWinstone), Maurice (Maurice079), Jonathan (jonnybgoode82), Craig (Arcticwolf8), Kayleigh (_Kayleigh_), Dustin (droberts5)'],
           ]);
           done();
         } catch (err) {

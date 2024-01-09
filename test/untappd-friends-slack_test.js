@@ -225,9 +225,9 @@ describe('hubot-untappd-friends for slack', () => {
                       },
                     ],
                     thumb_url: 'https://gravatar.com/avatar/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2',
-                    title: 'Stephen Y (stephenyeargin)',
+                    title: 'Stephen (stephenyeargin)',
                     title_link: 'https://untappd.com/user/stephenyeargin',
-                    fallback: 'Stephen Y (stephenyeargin): 699 beers, 1056 checkins, 659 badges',
+                    fallback: 'Stephen (stephenyeargin): 699 beers, 1056 checkins, 659 badges',
                   },
                   {
                     color: '#7CD197',

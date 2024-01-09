@@ -1,0 +1,195 @@
+{
+    "meta": {
+        "code": 200,
+        "response_time": {
+            "time": 0.075,
+            "measure": "seconds"
+        },
+        "init_time": {
+            "time": 0,
+            "measure": "seconds"
+        }
+    },
+    "notifications": {
+        "type": "notifications",
+        "unread_count": {
+            "comments": 0,
+            "toasts": 0,
+            "friends": 0,
+            "messages": 0,
+            "venues": 0,
+            "veunes": 0,
+            "others": 1,
+            "news": 170
+        }
+    },
+    "response": {
+        "pagination": {
+            "since_url": "https:\/\/api.untappd.com\/v4\/user\/checkins\/stephenyeargin?min_id=574773374",
+            "next_url": "https:\/\/api.untappd.com\/v4\/user\/checkins\/stephenyeargin?max_id=574768822",
+            "max_id": 574768822
+        },
+        "checkins": {
+            "count": 1,
+            "items": [
+                {
+                    "checkin_id": 574773374,
+                    "created_at": "Sun, 18 Mar 2018 22:26:46 +0000",
+                    "checkin_comment": "",
+                    "rating_score": 4.5,
+                    "user": {
+                        "uid": 186401,
+                        "user_name": "stephenyeargin",
+                        "first_name": "Stephen",
+                        "last_name": "Y.",
+                        "location": "Nashville.",
+                        "is_supporter": 0,
+                        "url": "",
+                        "bio": "",
+                        "relationship": "friends",
+                        "user_avatar": "https:\/\/gravatar.com\/avatar\/cd8e64b56de7d6c766d895a7b257322d?size=100&d=https%3A%2F%2Funtappd.akamaized.net%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v2_gravatar.jpg%3Fv%3D2",
+                        "is_private": 0,
+                        "contact": {
+                            "twitter": "stephenyeargin",
+                            "facebook": "184101999"
+                        }
+                    },
+                    "beer": {
+                        "bid": 1967993,
+                        "beer_name": "Spring Seasonal",
+                        "beer_label": "https:\/\/untappd.akamaized.net\/site\/assets\/images\/temp\/badge-beer-default.png",
+                        "beer_style": "Belgian Strong Golden Ale",
+                        "beer_slug": "yazoo-brewing-company-spring-seasonal",
+                        "beer_abv": 6,
+                        "beer_active": 1,
+                        "has_had": false
+                    },
+                    "brewery": {
+                        "brewery_id": 2688,
+                        "brewery_name": "Yazoo Brewing Company",
+                        "brewery_slug": "yazoo-brewing-company",
+                        "brewery_page_url": "\/yazoobrew",
+                        "brewery_label": "https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-2688_bc839.jpeg",
+                        "country_name": "United States",
+                        "contact": {
+                            "twitter": "YazooBrew",
+                            "facebook": "https:\/\/www.facebook.com\/yazoobrewing",
+                            "instagram": "Yazoobrew",
+                            "url": "http:\/\/www.yazoobrew.com"
+                        },
+                        "location": {
+                            "brewery_city": "Nashville",
+                            "brewery_state": "TN",
+                            "lat": 36.151,
+                            "lng": -86.7821
+                        },
+                        "brewery_active": 1
+                    },
+                    "venue": {
+                        "venue_id": 8193,
+                        "venue_name": "Yazoo Brewing Company",
+                        "venue_slug": "yazoo-brewing-company",
+                        "primary_category": "Nightlife Spot",
+                        "parent_category_id": "4d4b7105d754a06376d81259",
+                        "categories": {
+                            "count": 3,
+                            "items": [
+                                {
+                                    "category_name": "Brewery",
+                                    "category_id": "50327c8591d4c4b30a586d5d",
+                                    "is_primary": true
+                                },
+                                {
+                                    "category_name": "Bar",
+                                    "category_id": "4bf58dd8d48988d116941735",
+                                    "is_primary": false
+                                },
+                                {
+                                    "category_name": "Beer Bar",
+                                    "category_id": "56aa371ce4b08b9a8d57356c",
+                                    "is_primary": false
+                                }
+                            ]
+                        },
+                        "location": {
+                            "venue_address": "910 Division St",
+                            "venue_city": "Nashville",
+                            "venue_state": "TN",
+                            "venue_country": "United States",
+                            "lat": 36.1512,
+                            "lng": -86.7821
+                        },
+                        "contact": {
+                            "twitter": "@yazootaproom",
+                            "venue_url": "http:\/\/yazoobrew.com\/"
+                        },
+                        "foursquare": {
+                            "foursquare_id": "4b09f68ef964a520792023e3",
+                            "foursquare_url": "http:\/\/4sq.com\/6SVtR7"
+                        },
+                        "venue_icon": {
+                            "sm": "https:\/\/untappd.akamaized.net\/venuelogos\/venue_8193_b107acce_bg_64.png",
+                            "md": "https:\/\/untappd.akamaized.net\/venuelogos\/venue_8193_b107acce_bg_88.png",
+                            "lg": "https:\/\/untappd.akamaized.net\/venuelogos\/venue_8193_b107acce_bg_88.png"
+                        },
+                        "is_verified": true
+                    },
+                    "comments": {
+                        "total_count": 0,
+                        "count": 0,
+                        "items": []
+                    },
+                    "toasts": {
+                        "total_count": 1,
+                        "count": 1,
+                        "auth_toast": false,
+                        "items": [
+                            {
+                                "uid": 26601,
+                                "user": {
+                                    "uid": 26601,
+                                    "user_name": "hortoncd",
+                                    "first_name": "Chris",
+                                    "last_name": "Horton",
+                                    "bio": "Homebrewer and beer lover.",
+                                    "location": "Neskowin, OR",
+                                    "relationship": "friends",
+                                    "user_avatar": "https:\/\/gravatar.com\/avatar\/8bf438230b2e5d7153c2899b9705975b?size=100&d=https%3A%2F%2Funtappd.akamaized.net%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v2_gravatar.jpg%3Fv%3D2",
+                                    "account_type": "user",
+                                    "venue_details": [],
+                                    "brewery_details": []
+                                },
+                                "like_id": 490125652,
+                                "like_owner": false,
+                                "created_at": "Sun, 18 Mar 2018 22:27:15 +0000"
+                            }
+                        ]
+                    },
+                    "media": {
+                        "count": 1,
+                        "items": [
+                            {
+                                "photo_id": 164138892,
+                                "photo": {
+                                    "photo_img_sm": "https:\/\/untappd.akamaized.net\/photos\/2018_03_18\/252f51fd557e63c91605347c7d297a1a_100x100.jpg",
+                                    "photo_img_md": "https:\/\/untappd.akamaized.net\/photos\/2018_03_18\/252f51fd557e63c91605347c7d297a1a_320x320.jpg",
+                                    "photo_img_lg": "https:\/\/untappd.akamaized.net\/photos\/2018_03_18\/252f51fd557e63c91605347c7d297a1a_640x640.jpg",
+                                    "photo_img_og": "https:\/\/untappd.akamaized.net\/photos\/2018_03_18\/252f51fd557e63c91605347c7d297a1a_raw.jpg"
+                                }
+                            }
+                        ]
+                    },
+                    "source": {
+                        "app_name": "Untappd for iPhone - (V2)",
+                        "app_website": "http:\/\/untpd.it\/iphoneapp"
+                    },
+                    "badges": {
+                        "retro_status": false,
+                        "count": 0,
+                        "items": []
+                    }
+                }
+            ]
+        }
+    }
+}

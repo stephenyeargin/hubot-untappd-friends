@@ -115,12 +115,15 @@ module.exports = (robot) => {
     return `- ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} - ${timeAgo}`;
   };
 
+  // Format display name
+  const formatDisplayName = (user) => `${user.first_name} (${user.user_name})`;
+
   // Format user
   const formatUser = (user) => {
     if (/slack/i.test(robot.adapterName)) {
       return {
-        title: `${user.first_name} ${user.last_name} (${user.user_name})`,
-        fallback: `${user.first_name} ${user.last_name} (${user.user_name}): ${user.stats.total_beers} beers, ${user.stats.total_checkins} checkins, ${user.stats.total_badges} badges`,
+        title: formatDisplayName(user),
+        fallback: `${formatDisplayName(user)}: ${user.stats.total_beers} beers, ${user.stats.total_checkins} checkins, ${user.stats.total_badges} badges`,
         thumb_url: user.user_avatar,
         title_link: `https://untappd.com/user/${user.user_name}`,
         color: '#7CD197',
@@ -132,7 +135,7 @@ module.exports = (robot) => {
         ],
       };
     }
-    return `${user.first_name} ${user.last_name} (${user.user_name}): ${user.stats.total_beers} beers, ${user.stats.total_checkins} checkins, ${user.stats.total_badges} badges`;
+    return `${formatDisplayName(user)}: ${user.stats.total_beers} beers, ${user.stats.total_checkins} checkins, ${user.stats.total_badges} badges`;
   };
 
   // Format beer
@@ -159,20 +162,20 @@ module.exports = (robot) => {
       const contents = [];
       obj.response.checkins.items.forEach((checkin) => {
         let firstBadge;
+        const timeAgo = moment(new Date(checkin.created_at)).fromNow();
+        const displayName = formatDisplayName(checkin.user);
         chunk = {
-          title: `${checkin.user.first_name} (${checkin.user.user_name}) was drinking ${checkin.beer.beer_name} by ${checkin.brewery.brewery_name}`,
+          title: `${displayName} was drinking ${checkin.beer.beer_name} by ${checkin.brewery.brewery_name}`,
           title_link: `https://untappd.com/user/${checkin.user.user_name}/checkin/${checkin.checkin_id}`,
           thumb_url: `${checkin.beer.beer_label}`,
           color: '#7CD197',
           ts: moment(new Date(checkin.created_at)).unix(),
         };
-
-        const timeAgo = moment(new Date(checkin.created_at)).fromNow();
         if (checkin.venue.venue_name) {
           chunk.footer = `${checkin.venue.venue_name}`;
-          chunk.fallback = `${checkin.user.first_name} (${checkin.user.user_name}) was drinking ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} at ${checkin.venue.venue_name} - ${timeAgo}`;
+          chunk.fallback = `${displayName} was drinking ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} at ${checkin.venue.venue_name} - ${timeAgo}`;
         } else {
-          chunk.fallback = `${checkin.user.first_name} (${checkin.user.user_name}) was drinking ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} - ${timeAgo}`;
+          chunk.fallback = `${displayName} was drinking ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} - ${timeAgo}`;
         }
 
         if (checkin.badges.count === 1) {
@@ -213,7 +216,7 @@ module.exports = (robot) => {
           }
           obj.response.checkins.items.forEach((checkin) => {
             if (users[checkin.user.uid] || checkin.toasts.auth_toast) {
-              robot.logger.info(`Already toasted recent checkin for ${checkin.user.first_name} ${checkin.user.last_name} (${checkin.user.user_name})`);
+              robot.logger.info(`Already toasted recent checkin for ${formatDisplayName(checkin.user)}`);
               return;
             }
             users[checkin.user.uid] = true;
@@ -226,7 +229,7 @@ module.exports = (robot) => {
                   robot.logger.error('Failed to toast checkin.');
                   robot.logger.debug(obj2);
                 }
-                msg.send(`🍻 Toasted ${checkin.user.first_name} ${checkin.user.last_name} (${checkin.user.user_name})'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })}`);
+                msg.send(`🍻 Toasted ${formatDisplayName(checkin.user)}'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })}`);
               },
               { CHECKIN_ID: checkin.checkin_id },
             );
@@ -244,7 +247,7 @@ module.exports = (robot) => {
         }
         obj.response.checkins.items.forEach((checkin) => {
           if (checkin.toasts.auth_toast || users[checkin.user.uid]) {
-            robot.logger.info(`Already toasted recent checkin for ${checkin.user.first_name} ${checkin.user.last_name} (${checkin.user.user_name})`);
+            robot.logger.info(`Already toasted recent checkin for ${formatDisplayName(checkin.user)})`);
             return;
           }
           users[checkin.user.uid] = true;
@@ -257,7 +260,7 @@ module.exports = (robot) => {
                 robot.logger.error('Failed to toast checkin.');
                 robot.logger.debug(obj2);
               }
-              msg.send(`🍻 Toasted ${checkin.user.first_name} ${checkin.user.last_name} (${checkin.user.user_name})'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })}`);
+              msg.send(`🍻 Toasted ${formatDisplayName(checkin.user)}'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })}`);
             },
             { CHECKIN_ID: checkin.checkin_id },
           );
@@ -280,7 +283,7 @@ module.exports = (robot) => {
         const timeAgo = moment(new Date(checkin.created_at)).fromNow();
         checkin.badges.items.forEach((badge) => {
           chunk = {
-            title: `${checkin.user.first_name} (${checkin.user.user_name}) earned the ${badge.badge_name} Badge`,
+            title: `${formatDisplayName(checkin.user)} earned the ${badge.badge_name} Badge`,
             title_link: `https://untappd.com/user/${checkin.user.user_name}/checkin/${checkin.checkin_id}`,
             thumb_url: `${badge.badge_image.sm}`,
             footer: `${checkin.beer.beer_name}`,
@@ -289,10 +292,10 @@ module.exports = (robot) => {
           };
           if (checkin.venue.venue_name) {
             chunk.author_name = `${timeAgo} at ${checkin.venue.venue_name}`;
-            chunk.fallback = `${checkin.user.first_name} (${checkin.user.user_name}) earned the ${badge.badge_name} Badge after drinking a ${checkin.beer.beer_name} at ${checkin.venue.venue_name} - ${timeAgo}`;
+            chunk.fallback = `${formatDisplayName(checkin.user)} earned the ${badge.badge_name} Badge after drinking a ${checkin.beer.beer_name} at ${checkin.venue.venue_name} - ${timeAgo}`;
           } else {
             chunk.author_name = `${timeAgo}`;
-            chunk.fallback = `${checkin.user.first_name} (${checkin.user.user_name}) earned the ${badge.badge_name} Badge after drinking a ${checkin.beer.beer_name} - ${timeAgo}`;
+            chunk.fallback = `${formatDisplayName(checkin.user)} earned the ${badge.badge_name} Badge after drinking a ${checkin.beer.beer_name} - ${timeAgo}`;
           }
 
           contents.push(chunk);
@@ -472,7 +475,7 @@ module.exports = (robot) => {
         if (result.response.items.length > 0) {
           const friends = [];
           result.response.items.forEach((friend) => {
-            friends.push(`${friend.user.first_name} ${friend.user.last_name} (${friend.user.user_name})`);
+            friends.push(formatDisplayName(friend.user));
           });
           msg.send(friends.join(', '));
           return;
