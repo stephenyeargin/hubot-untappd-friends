@@ -74,6 +74,81 @@ describe('hubot-untappd-friends', () => {
     );
   });
 
+  // hubot untappd toast
+  it('send a toast for all latest activity of your friends', (done) => {
+    nock('https://api.untappd.com')
+      .get('/v4/checkin/recent')
+      .query({
+        limit: 2,
+        access_token: 'foobar3',
+      })
+      .replyWithFile(200, `${__dirname}/fixtures/checkin-recent.json`);
+    nock('https://api.untappd.com')
+      .post('/v4/checkin/toast/578981788')
+      .query({
+        access_token: 'foobar3',
+      })
+      .replyWithFile(200, `${__dirname}/fixtures/toast.json`);
+    nock('https://api.untappd.com')
+      .post('/v4/checkin/toast/578869664')
+      .query({
+        access_token: 'foobar3',
+      })
+      .replyWithFile(200, `${__dirname}/fixtures/toast.json`);
+
+    const selfRoom = this.room;
+    selfRoom.user.say('alice', '@hubot untappd toast');
+    setTimeout(
+      () => {
+        try {
+          expect(selfRoom.messages).to.eql([
+            ['alice', '@hubot untappd toast'],
+            ['hubot', "🍻 Toasted heath seals (heathseals)'s Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery - https://untappd.com/beer/764911"],
+          ]);
+          done();
+        } catch (err) {
+          done(err);
+        }
+      },
+      100,
+    );
+  });
+
+  // hubot untappd toast friend
+  it('send a toast for a particular user recent checkin', (done) => {
+    nock('https://api.untappd.com')
+      .get('/v4/user/checkins/stephenyeargin')
+      .query({
+        limit: 1,
+        USERNAME: 'stephenyeargin',
+        access_token: 'foobar3',
+      })
+      .replyWithFile(200, `${__dirname}/fixtures/user-checkins-stephenyeargin.json`);
+    nock('https://api.untappd.com')
+      .post('/v4/checkin/toast/574773374')
+      .query({
+        access_token: 'foobar3',
+      })
+      .replyWithFile(200, `${__dirname}/fixtures/toast.json`);
+
+    const selfRoom = this.room;
+    selfRoom.user.say('alice', '@hubot untappd toast stephenyeargin');
+    setTimeout(
+      () => {
+        try {
+          expect(selfRoom.messages).to.eql([
+            ['alice', '@hubot untappd toast stephenyeargin'],
+            ['hubot', "🍻 Toasted Stephen Y. (stephenyeargin)'s Spring Seasonal (Belgian Strong Golden Ale - 6%) by Yazoo Brewing Company - https://untappd.com/beer/1967993"],
+          ]);
+          done();
+        } catch (err) {
+          done(err);
+        }
+      },
+      100,
+    );
+  });
+
   // hubot untappd badges
   it('responds with the latest badge activity from your friends', (done) => {
     nock('https://api.untappd.com')

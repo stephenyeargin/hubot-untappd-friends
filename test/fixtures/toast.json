@@ -1,0 +1,26 @@
+{
+    "result": "success",
+    "like_type": "toast",
+    "toasts": {
+      "auth_token": true,
+      "count": 1,
+      "items": {
+        "uid": 310818,
+        "user": {
+          "uid": 310818,
+          "user_name": "dp3dp",
+          "first_name": "Peter",
+          "last_name": "D",
+          "bio": "",
+          "location": "Fort Knox",
+          "user_avatar": "https://d1c8v1qci5en44.cloudfront.net/profile/e134e6926638619303567f289b8cc15b_thumb.jpeg",
+          "user_link": "https://untappd.com/user/dp3dp",
+          "account_type": "user",
+          "brewery_details": []
+        },
+        "like_id": 70553432,
+        "like_owner": false,
+        "created_at": "Sat, 13 Dec 2014 18:31:48 +0000"
+      }
+    }
+  }
