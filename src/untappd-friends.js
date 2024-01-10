@@ -91,12 +91,25 @@ module.exports = (robot) => {
     return shortDescription.substr(0, maxDescriptionLength - 1) + ((shortDescription.length > maxDescriptionLength ? ' ...' : ''));
   };
 
+  // Format beer
+  const formatBeerResponse = (beerData) => {
+    let beerName = beerData.beer_name;
+    if (beerData.is_in_production === 0) {
+      beerName = `${beerName} [Out of Production]`;
+    }
+    if (beerData.beer_description && (maxDescriptionLength > 0)) {
+      const shortDescription = formatShortDescription(beerData.beer_description);
+      return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name} - ${shortDescription}`;
+    }
+    return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name}`;
+  };
+
   // Format checkin
   const formatCheckin = (checkin) => {
     if (/slack/i.test(robot.adapterName)) {
       const output = {
-        title: `${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name}`,
-        fallback: `${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name}`,
+        title: formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery }),
+        fallback: formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery }),
         thumb_url: checkin.beer.beer_label,
         title_link: `https://untappd.com/user/${checkin.user.user_name}/checkin/${checkin.checkin_id}`,
         ts: moment(new Date(checkin.created_at)).unix(),
@@ -110,9 +123,9 @@ module.exports = (robot) => {
     }
     const timeAgo = moment(new Date(checkin.created_at)).fromNow();
     if (checkin.venue.venue_name) {
-      return `- ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} at ${checkin.venue.venue_name} - ${timeAgo}`;
+      return `- ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} at ${checkin.venue.venue_name} - ${timeAgo}`;
     }
-    return `- ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} - ${timeAgo}`;
+    return `- ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} - ${timeAgo}`;
   };
 
   // Format display name
@@ -136,19 +149,6 @@ module.exports = (robot) => {
       };
     }
     return `${formatDisplayName(user)}: ${user.stats.total_beers} beers, ${user.stats.total_checkins} checkins, ${user.stats.total_badges} badges`;
-  };
-
-  // Format beer
-  const formatBeerResponse = (beerData) => {
-    let beerName = beerData.beer_name;
-    if (beerData.is_in_production === 0) {
-      beerName = `${beerName} [Out of Production]`;
-    }
-    if (beerData.beer_description && (maxDescriptionLength > 0)) {
-      const shortDescription = formatShortDescription(beerData.beer_description);
-      return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name} - ${shortDescription}`;
-    }
-    return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name}`;
   };
 
   // Format beer link
@@ -179,9 +179,9 @@ module.exports = (robot) => {
         };
         if (checkin.venue.venue_name) {
           chunk.footer = `${checkin.venue.venue_name}`;
-          chunk.fallback = `${displayName} was drinking ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} at ${checkin.venue.venue_name} - ${timeAgo}`;
+          chunk.fallback = `${displayName} was drinking ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} at ${checkin.venue.venue_name} - ${timeAgo}`;
         } else {
-          chunk.fallback = `${displayName} was drinking ${checkin.beer.beer_name} (${checkin.beer.beer_style} - ${checkin.beer.beer_abv}%) by ${checkin.brewery.brewery_name} - ${timeAgo}`;
+          chunk.fallback = `${displayName} was drinking ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} - ${timeAgo}`;
         }
 
         if (checkin.badges.count === 1) {
