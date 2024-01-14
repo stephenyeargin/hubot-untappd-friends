@@ -75,7 +75,7 @@ describe('hubot-untappd-friends', () => {
   });
 
   // hubot untappd toast
-  it('send a toast for all latest activity of your friends', (done) => {
+  it('sends a toast for all latest activity of your friends', (done) => {
     nock('https://api.untappd.com')
       .get('/v4/checkin/recent')
       .query({
@@ -115,7 +115,7 @@ describe('hubot-untappd-friends', () => {
   });
 
   // hubot untappd toast friend
-  it('send a toast for a particular user recent checkin', (done) => {
+  it('sends a toast for a particular user recent checkin', (done) => {
     nock('https://api.untappd.com')
       .get('/v4/user/checkins/stephenyeargin')
       .query({
@@ -234,7 +234,7 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd beer miro miel'],
-            ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. Gives a nice crisp, malty finish, refreshing and light brew. - https://untappd.com/beer/1130814'],
+            ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. Gives a nice crisp, malty finish, refreshing and light brew. Our honey ... - https://untappd.com/beer/1130814'],
             ['hubot', 'Framboise Et Miel [Out of Production] (Fruit Beer - 5%) by Brouemont Micro-Brasserie & Restaurant - https://untappd.com/beer/352951'],
           ]);
           done();
@@ -264,7 +264,7 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd beer 1130814'],
-            ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. Gives a nice crisp, malty finish, refreshing and light brew. Our honey  ... - https://untappd.com/beer/1130814'],
+            ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. Gives a nice crisp, malty finish, refreshing and light brew. Our honey ... - https://untappd.com/beer/1130814'],
           ]);
           done();
         } catch (err) {
@@ -294,7 +294,7 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd beer random'],
-            ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. Gives a nice crisp, malty finish, refreshing and light brew. Our honey  ... - https://untappd.com/beer/1130814'],
+            ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. Gives a nice crisp, malty finish, refreshing and light brew. Our honey ... - https://untappd.com/beer/1130814'],
           ]);
           done();
         } catch (err) {
@@ -332,7 +332,7 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd beer random'],
-            ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. Gives a nice crisp, malty finish, refreshing and light brew. Our honey  ... - https://untappd.com/beer/1130814'],
+            ['hubot', 'Miro Miel (Blonde Ale - 5.2%) by East Nashville Beer Works - American Style Blonde Ale brewed with Pilsner malt and locally sourced honey. Gives a nice crisp, malty finish, refreshing and light brew. Our honey ... - https://untappd.com/beer/1130814'],
           ]);
           done();
         } catch (err) {
