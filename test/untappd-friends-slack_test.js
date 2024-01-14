@@ -682,8 +682,127 @@ describe('hubot-untappd-friends for slack', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd brewery east nashville beerworks'],
-            ['hubot', '209759: East Nashville Beer Works (Nashville, TN) - 27 beers'],
-            ['hubot', '301934: East Nashville Beerworks - 4 beers'],
+            [
+              'hubot',
+              {
+                attachments: [
+                  {
+                    color: '#7CD197',
+                    title: 'East Nashville Beer Works',
+                    title_link: 'https://untappd.com/brewery/209759',
+                    text: null,
+                    fallback: 'East Nashville Beer Works (Nashville, TN) - 27 beers - https://untappd.com/brewery/209759',
+                    thumb_url: 'https://untappd.akamaized.net/site/brewery_logos/brewery-209759_6b314.jpeg',
+                    fields: [
+                      {
+                        short: true,
+                        title: 'Location',
+                        value: 'Nashville, TN',
+                      },
+                      {
+                        short: true,
+                        title: 'Beers',
+                        value: '27',
+                      },
+                    ],
+                    mrkdwn_in: ['text'],
+                  },
+                ],
+                unfurl_links: false,
+              },
+            ],
+            [
+              'hubot',
+              {
+                attachments: [
+                  {
+                    color: '#7CD197',
+                    title: 'East Nashville Beerworks',
+                    title_link: 'https://untappd.com/brewery/301934',
+                    fallback: 'East Nashville Beerworks - 4 beers - https://untappd.com/brewery/301934',
+                    thumb_url: 'https://untappd.akamaized.net/site/assets/images/temp/badge-brewery-default.png',
+                    text: null,
+                    fields: [
+                      {
+                        short: true,
+                        title: 'Beers',
+                        value: '4',
+                      },
+                    ],
+                    mrkdwn_in: ['text'],
+                  },
+                ],
+                unfurl_links: false,
+              },
+            ],
+          ]);
+          done();
+        } catch (err) {
+          done(err);
+        }
+      },
+      100,
+    );
+  });
+
+  // hubot untappd brewery <id>
+  it('responds with the brewery info for an ID', (done) => {
+    nock('https://api.untappd.com')
+      .get('/v4/brewery/info/301934')
+      .query({
+        BREWERY_ID: '301934',
+        access_token: 'foobar3',
+      })
+      .replyWithFile(200, `${__dirname}/fixtures/search-brewery-by-id.json`);
+
+    const selfRoom = this.room;
+    selfRoom.user.say('alice', '@hubot untappd brewery 301934');
+    setTimeout(
+      () => {
+        try {
+          expect(selfRoom.messages).to.eql([
+            ['alice', '@hubot untappd brewery 301934'],
+            [
+              'hubot',
+              {
+                attachments: [
+                  {
+                    color: '#7CD197',
+                    fallback: 'East Nashville Beer Works (Nashville, TN) - 24 beers - https://untappd.com/brewery/209759',
+                    fields: [
+                      {
+                        short: true,
+                        title: 'Location',
+                        value: 'Nashville, TN',
+                      },
+                      {
+                        short: true,
+                        title: 'Brewery Type',
+                        value: 'Micro Brewery',
+                      },
+                      {
+                        short: true,
+                        title: 'Beers',
+                        value: '24',
+                      },
+                      {
+                        short: true,
+                        title: 'Rating',
+                        value: '3.59 (8,727 ratings)',
+                      },
+                    ],
+                    mrkdwn_in: [
+                      'text',
+                    ],
+                    text: 'East Nashville Beer Works is a small, neighborhood brewery in East Nashville, Tennessee. A growing and thriving area, our brewery is focused on the taproom, while we do distribute kegs and soon to be cans of our brew. \n\nOur taproom is a community gathering space, with a full food menu centered on artisan pizza, with salads, and apps. We have great outdoor space with our beer garden, and a fun vibe that is also family friendly.',
+                    thumb_url: 'https://untappd.akamaized.net/site/brewery_logos/brewery-209759_6b314.jpeg',
+                    title: 'East Nashville Beer Works',
+                    title_link: 'https://untappd.com/brewery/209759',
+                  },
+                ],
+                unfurl_links: false,
+              },
+            ],
           ]);
           done();
         } catch (err) {

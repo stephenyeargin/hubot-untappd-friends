@@ -206,6 +206,48 @@ module.exports = (robot) => {
     return `${formatBeerName(beerData)} - ${formatBeerLink(beerData)}`;
   };
 
+  // Format beer response
+  const formatBrewery = (breweryData) => {
+    const fallback = breweryData.location?.brewery_city
+      ? `${breweryData.brewery_name} (${breweryData.location?.brewery_city}, ${breweryData.location?.brewery_state}) - ${breweryData.beer_count} beers - https://untappd.com/brewery/${breweryData.brewery_id}`
+      : `${breweryData.brewery_name} - ${breweryData.beer_count} beers - https://untappd.com/brewery/${breweryData.brewery_id}`;
+    if (/slack/i.test(robot.adapterName)) {
+      const breweryFields = [];
+      if (breweryData.location?.brewery_city) {
+        breweryFields.push({ title: 'Location', value: `${breweryData.location.brewery_city}, ${breweryData.location.brewery_state}`, short: true });
+      }
+      if (breweryData.brewery_type) {
+        breweryFields.push({ title: 'Brewery Type', value: breweryData.brewery_type, short: true });
+      }
+      if (breweryData.beer_count) {
+        breweryFields.push({ title: 'Beers', value: `${breweryData.beer_count.toLocaleString()}`, short: true });
+      }
+      if (breweryData.rating?.rating_score) {
+        breweryFields.push({
+          title: 'Rating',
+          value: `${breweryData.rating.rating_score.toFixed(2)} (${breweryData.rating.count.toLocaleString()} ratings)`,
+          short: true,
+        });
+      }
+      return {
+        attachments: [
+          {
+            fallback,
+            title: breweryData.brewery_name,
+            title_link: `https://untappd.com/brewery/${breweryData.brewery_id}`,
+            text: breweryData.brewery_description || null,
+            thumb_url: breweryData.brewery_label,
+            fields: breweryFields,
+            color: '#7CD197',
+            mrkdwn_in: ['text'],
+          },
+        ],
+        unfurl_links: false,
+      };
+    }
+    return fallback;
+  };
+
   // Get Friend Feed
   const getFriendFeed = (msg) => untappd.activityFeed(
     (err, obj) => {
@@ -415,23 +457,32 @@ module.exports = (robot) => {
       msg.send('Must provide a brewery name to ask about.');
       return;
     }
+    if (/\d+/.test(searchTerm)) {
+      untappd.breweryInfo(
+        (err, obj) => {
+          if (!checkUntappdErrors(err, obj, msg)) {
+            return;
+          }
+          msg.send(formatBrewery(obj.response.brewery));
+        },
+        {
+          BREWERY_ID: searchTerm,
+        },
+      );
+      return;
+    }
     untappd.brewerySearch(
       (err, obj) => {
         if (!checkUntappdErrors(err, obj, msg)) {
           return;
         }
-        robot.logger.debug(obj.response.beers);
+        robot.logger.debug(obj.response.brewery);
         if (obj.response.brewery.items.length === 0) {
           msg.send(`No breweries matched '${searchTerm}'`);
           return;
         }
         obj.response.brewery.items.slice(0, countToReturn).forEach((result) => {
-          let output = `${result.brewery.brewery_id}: ${result.brewery.brewery_name}`;
-          if (result.brewery.location.brewery_city !== '') {
-            output += ` (${result.brewery.location.brewery_city}, ${result.brewery.location.brewery_state})`;
-          }
-          output += ` - ${result.brewery.beer_count} beers`;
-          msg.send(output);
+          msg.send(formatBrewery(result.brewery));
         });
       },
       { q: searchTerm, limit: countToReturn },

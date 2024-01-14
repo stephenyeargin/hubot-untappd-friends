@@ -343,8 +343,8 @@ describe('hubot-untappd-friends', () => {
     );
   });
 
-  // hubot untappd beer <query> with numbers
-  it('responds with the beer search results for a query', (done) => {
+  // hubot untappd beer <id>
+  it('responds with the beer info for an ID', (done) => {
     nock('https://api.untappd.com')
       .get('/v4/search/beer')
       .query({
@@ -390,8 +390,36 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd brewery east nashville beerworks'],
-            ['hubot', '209759: East Nashville Beer Works (Nashville, TN) - 27 beers'],
-            ['hubot', '301934: East Nashville Beerworks - 4 beers'],
+            ['hubot', 'East Nashville Beer Works (Nashville, TN) - 27 beers - https://untappd.com/brewery/209759'],
+            ['hubot', 'East Nashville Beerworks - 4 beers - https://untappd.com/brewery/301934'],
+          ]);
+          done();
+        } catch (err) {
+          done(err);
+        }
+      },
+      100,
+    );
+  });
+
+  // hubot untappd brewery <id>
+  it('responds with the brewery info for an ID', (done) => {
+    nock('https://api.untappd.com')
+      .get('/v4/brewery/info/301934')
+      .query({
+        BREWERY_ID: '301934',
+        access_token: 'foobar3',
+      })
+      .replyWithFile(200, `${__dirname}/fixtures/search-brewery-by-id.json`);
+
+    const selfRoom = this.room;
+    selfRoom.user.say('alice', '@hubot untappd brewery 301934');
+    setTimeout(
+      () => {
+        try {
+          expect(selfRoom.messages).to.eql([
+            ['alice', '@hubot untappd brewery 301934'],
+            ['hubot', 'East Nashville Beer Works (Nashville, TN) - 24 beers - https://untappd.com/brewery/209759'],
           ]);
           done();
         } catch (err) {
