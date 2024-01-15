@@ -30,15 +30,9 @@ const UntappdClient = require('node-untappd');
 const moment = require('moment');
 
 module.exports = (robot) => {
-  let maxDescriptionLength;
-
   const countToReturn = process.env.UNTAPPD_MAX_COUNT || 5;
   const maxRandomBeerId = process.env.UNTAPPD_MAX_RANDOM_ID || 5600000;
-  if (typeof process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH === 'undefined') {
-    maxDescriptionLength = 150;
-  } else {
-    maxDescriptionLength = parseInt(process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH, 10);
-  }
+  let maxDescriptionLength = process.env.UNTAPPD_MAX_DESCRIPTION_LENGTH;
 
   const untappd = new UntappdClient(/debug/i.test(process.env.HUBOT_LOG_LEVEL));
   untappd.setClientId(process.env.UNTAPPD_API_KEY);
@@ -85,21 +79,30 @@ module.exports = (robot) => {
     return true;
   };
 
-  // Short Beer Description
-  const formatShortDescription = (beerDescription) => {
-    const shortDescription = beerDescription.replace(/\r?\n|\r/g, '').trim();
-    return shortDescription.substr(0, maxDescriptionLength - 1) + ((shortDescription.length > maxDescriptionLength ? ' ...' : ''));
+  // Format beer description
+  const formatBeerDescription = (beerData) => {
+    if (!beerData.beer_description) {
+      return '';
+    }
+    if (typeof maxDescriptionLength === 'undefined') {
+      maxDescriptionLength = 150;
+    }
+    if (maxDescriptionLength === '0') {
+      return '';
+    }
+    maxDescriptionLength = parseInt(maxDescriptionLength, 10);
+    const shortDescription = beerData.beer_description.replace(/\r?\n|\r/g, ' ').replace(/\s+/g, ' ').trim();
+    return shortDescription.substr(0, maxDescriptionLength - 1).trim() + ((shortDescription.length > maxDescriptionLength ? ' ...' : ''));
   };
 
-  // Format beer
-  const formatBeerResponse = (beerData) => {
+  // Format beer name
+  const formatBeerName = (beerData, slackTitle = false) => {
     let beerName = beerData.beer_name;
     if (beerData.is_in_production === 0) {
       beerName = `${beerName} [Out of Production]`;
     }
-    if (beerData.beer_description && (maxDescriptionLength > 0)) {
-      const shortDescription = formatShortDescription(beerData.beer_description);
-      return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name} - ${shortDescription}`;
+    if (slackTitle) {
+      return `${beerName} (${beerData.beer_style})`;
     }
     return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name}`;
   };
@@ -108,8 +111,8 @@ module.exports = (robot) => {
   const formatCheckin = (checkin) => {
     if (/slack/i.test(robot.adapterName)) {
       const output = {
-        title: formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery }),
-        fallback: formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery }),
+        title: formatBeerName({ ...checkin.beer, brewery: checkin.brewery }),
+        fallback: formatBeerName({ ...checkin.beer, brewery: checkin.brewery }),
         thumb_url: checkin.beer.beer_label,
         title_link: `https://untappd.com/user/${checkin.user.user_name}/checkin/${checkin.checkin_id}`,
         ts: moment(new Date(checkin.created_at)).unix(),
@@ -123,9 +126,9 @@ module.exports = (robot) => {
     }
     const timeAgo = moment(new Date(checkin.created_at)).fromNow();
     if (checkin.venue.venue_name) {
-      return `- ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} at ${checkin.venue.venue_name} - ${timeAgo}`;
+      return `- ${formatBeerName({ ...checkin.beer, brewery: checkin.brewery })} at ${checkin.venue.venue_name} - ${timeAgo}`;
     }
-    return `- ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} - ${timeAgo}`;
+    return `- ${formatBeerName({ ...checkin.beer, brewery: checkin.brewery })} - ${timeAgo}`;
   };
 
   // Format display name
@@ -157,6 +160,94 @@ module.exports = (robot) => {
   // Format checkin link
   const formatCheckinLink = (checkin) => `https://untappd.com/user/${checkin.user.user_name}/checkin/${checkin.checkin_id}`;
 
+  // Format beer response
+  const formatBeer = (beerData) => {
+    if (/slack/i.test(robot.adapterName)) {
+      const beerFields = [];
+      if (beerData.rating_score) {
+        beerFields.push({
+          title: 'Rating',
+          value: `${beerData.rating_score.toFixed(2)} (${beerData.rating_count.toLocaleString()} ratings)`,
+          short: true,
+        });
+      }
+      if (beerData.beer_abv) {
+        beerFields.push({ title: 'ABV', value: `${beerData.beer_abv}%`, short: true });
+      }
+      if (beerData.beer_ibu) {
+        beerFields.push({ title: 'IBU', value: beerData.beer_ibu, short: true });
+      }
+      return {
+        attachments: [
+          {
+            fallback: formatBeerDescription(beerData) !== ''
+              ? `${formatBeerName(beerData)} - ${formatBeerDescription(beerData)}`
+              : formatBeerName(beerData),
+            title: formatBeerName(beerData, true),
+            title_link: `${formatBeerLink(beerData)}`,
+            text: formatBeerDescription(beerData),
+            thumb_url: beerData.beer_label,
+            fields: beerFields,
+            color: '#7CD197',
+            mrkdwn_in: ['text'],
+            author_icon: beerData.brewery.brewery_label,
+            author_link: beerData.brewery.contact?.url,
+            author_name: beerData.brewery.location?.brewery_city
+              ? `${beerData.brewery.brewery_name} (${beerData.brewery.location?.brewery_city}, ${beerData.brewery.location?.brewery_state})`
+              : beerData.brewery.brewery_name,
+          },
+        ],
+        unfurl_links: false,
+      };
+    }
+    if (formatBeerDescription(beerData) !== '') {
+      return `${formatBeerName(beerData)} - ${formatBeerDescription(beerData)} - ${formatBeerLink(beerData)}`;
+    }
+    return `${formatBeerName(beerData)} - ${formatBeerLink(beerData)}`;
+  };
+
+  // Format beer response
+  const formatBrewery = (breweryData) => {
+    const fallback = breweryData.location?.brewery_city
+      ? `${breweryData.brewery_name} (${breweryData.location?.brewery_city}, ${breweryData.location?.brewery_state}) - ${breweryData.beer_count} beers - https://untappd.com/brewery/${breweryData.brewery_id}`
+      : `${breweryData.brewery_name} - ${breweryData.beer_count} beers - https://untappd.com/brewery/${breweryData.brewery_id}`;
+    if (/slack/i.test(robot.adapterName)) {
+      const breweryFields = [];
+      if (breweryData.location?.brewery_city) {
+        breweryFields.push({ title: 'Location', value: `${breweryData.location.brewery_city}, ${breweryData.location.brewery_state}`, short: true });
+      }
+      if (breweryData.brewery_type) {
+        breweryFields.push({ title: 'Brewery Type', value: breweryData.brewery_type, short: true });
+      }
+      if (breweryData.beer_count) {
+        breweryFields.push({ title: 'Beers', value: `${breweryData.beer_count.toLocaleString()}`, short: true });
+      }
+      if (breweryData.rating?.rating_score) {
+        breweryFields.push({
+          title: 'Rating',
+          value: `${breweryData.rating.rating_score.toFixed(2)} (${breweryData.rating.count.toLocaleString()} ratings)`,
+          short: true,
+        });
+      }
+      return {
+        attachments: [
+          {
+            fallback,
+            title: breweryData.brewery_name,
+            title_link: `https://untappd.com/brewery/${breweryData.brewery_id}`,
+            text: breweryData.brewery_description || null,
+            thumb_url: breweryData.brewery_label,
+            fields: breweryFields,
+            color: '#7CD197',
+            mrkdwn_in: ['text'],
+          },
+        ],
+        unfurl_links: false,
+      };
+    }
+    return fallback;
+  };
+
   // Get Friend Feed
   const getFriendFeed = (msg) => untappd.activityFeed(
     (err, obj) => {
@@ -179,9 +270,9 @@ module.exports = (robot) => {
         };
         if (checkin.venue.venue_name) {
           chunk.footer = `${checkin.venue.venue_name}`;
-          chunk.fallback = `${displayName} was drinking ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} at ${checkin.venue.venue_name} - ${timeAgo}`;
+          chunk.fallback = `${displayName} was drinking ${formatBeerName({ ...checkin.beer, brewery: checkin.brewery })} at ${checkin.venue.venue_name} - ${timeAgo}`;
         } else {
-          chunk.fallback = `${displayName} was drinking ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} - ${timeAgo}`;
+          chunk.fallback = `${displayName} was drinking ${formatBeerName({ ...checkin.beer, brewery: checkin.brewery })} - ${timeAgo}`;
         }
 
         if (checkin.badges.count === 1) {
@@ -235,7 +326,7 @@ module.exports = (robot) => {
                   robot.logger.error('Failed to toast checkin.');
                   robot.logger.debug(obj2);
                 }
-                msg.send(`🍻 Toasted ${formatDisplayName(checkin.user)}'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} - ${formatCheckinLink(checkin)}`);
+                msg.send(`🍻 Toasted ${formatDisplayName(checkin.user)}'s ${formatBeerName({ ...checkin.beer, brewery: checkin.brewery })} - ${formatCheckinLink(checkin)}`);
               },
               { CHECKIN_ID: checkin.checkin_id },
             );
@@ -266,7 +357,7 @@ module.exports = (robot) => {
                 robot.logger.error('Failed to toast checkin.');
                 robot.logger.debug(obj2);
               }
-              msg.send(`🍻 Toasted ${formatDisplayName(checkin.user)}'s ${formatBeerResponse({ ...checkin.beer, brewery: checkin.brewery })} - ${formatCheckinLink(checkin)}`);
+              msg.send(`🍻 Toasted ${formatDisplayName(checkin.user)}'s ${formatBeerName({ ...checkin.beer, brewery: checkin.brewery })} - ${formatCheckinLink(checkin)}`);
             },
             { CHECKIN_ID: checkin.checkin_id },
           );
@@ -366,23 +457,32 @@ module.exports = (robot) => {
       msg.send('Must provide a brewery name to ask about.');
       return;
     }
+    if (/\d+/.test(searchTerm)) {
+      untappd.breweryInfo(
+        (err, obj) => {
+          if (!checkUntappdErrors(err, obj, msg)) {
+            return;
+          }
+          msg.send(formatBrewery(obj.response.brewery));
+        },
+        {
+          BREWERY_ID: searchTerm,
+        },
+      );
+      return;
+    }
     untappd.brewerySearch(
       (err, obj) => {
         if (!checkUntappdErrors(err, obj, msg)) {
           return;
         }
-        robot.logger.debug(obj.response.beers);
+        robot.logger.debug(obj.response.brewery);
         if (obj.response.brewery.items.length === 0) {
           msg.send(`No breweries matched '${searchTerm}'`);
           return;
         }
         obj.response.brewery.items.slice(0, countToReturn).forEach((result) => {
-          let output = `${result.brewery.brewery_id}: ${result.brewery.brewery_name}`;
-          if (result.brewery.location.brewery_city !== '') {
-            output += ` (${result.brewery.location.brewery_city}, ${result.brewery.location.brewery_state})`;
-          }
-          output += ` - ${result.brewery.beer_count} beers`;
-          msg.send(output);
+          msg.send(formatBrewery(result.brewery));
         });
       },
       { q: searchTerm, limit: countToReturn },
@@ -404,8 +504,7 @@ module.exports = (robot) => {
         if (!checkUntappdErrors(err, obj, msg)) {
           return;
         }
-        msg.send(`${formatBeerResponse(obj.response.beer)} - ${formatBeerLink(obj.response.beer)}`);
-        randomAttempts = 0;
+        msg.send(formatBeer(obj.response.beer));
       },
       { BID: beerId, limit: countToReturn },
     );
@@ -423,7 +522,7 @@ module.exports = (robot) => {
           if (!checkUntappdErrors(err, obj, msg)) {
             return;
           }
-          msg.send(`${formatBeerResponse(obj.response.beer)} - ${formatBeerLink(obj.response.beer)}`);
+          msg.send(formatBeer(obj.response.beer));
         },
         { BID: searchTerm, limit: countToReturn },
       );
@@ -447,7 +546,7 @@ module.exports = (robot) => {
           // Search results put these at different spots
           const beerData = result.beer;
           beerData.brewery = result.brewery;
-          msg.send(`${formatBeerResponse(beerData)} - ${formatBeerLink(beerData)}`);
+          msg.send(formatBeer(beerData));
         });
       },
       { q: searchTerm, limit: countToReturn },
