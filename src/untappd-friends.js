@@ -97,14 +97,17 @@ module.exports = (robot) => {
 
   // Format beer name
   const formatBeerName = (beerData, slackTitle = false) => {
-    let beerName = beerData.beer_name;
+    let beerName = beerData.beer_name.trim();
     if (beerData.is_in_production === 0) {
       beerName = `${beerName} [Out of Production]`;
     }
     if (slackTitle) {
       return `${beerName} (${beerData.beer_style})`;
     }
-    return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name}`;
+    if (beerData.beer_abv > 0) {
+      return `${beerName} (${beerData.beer_style} - ${beerData.beer_abv}%) by ${beerData.brewery.brewery_name?.trim()}`;
+    }
+    return `${beerName} (${beerData.beer_style}) by ${beerData.brewery.brewery_name?.trim()}`;
   };
 
   // Format checkin
