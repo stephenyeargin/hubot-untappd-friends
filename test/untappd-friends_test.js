@@ -166,10 +166,10 @@ describe('hubot-untappd-friends', () => {
         try {
           expect(selfRoom.messages).to.eql([
             ['alice', '@hubot untappd badges'],
-            ['hubot', 'heath (heathseals) earned the Beer Foodie (Level 44) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago'],
-            ['hubot', 'heath (heathseals) earned the 99 Bottles (Level 38) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago'],
-            ['hubot', 'heath (heathseals) earned the Pizza & Brew (Level 4) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago'],
-            ['hubot', 'heath (heathseals) earned the Beer Connoisseur (Level 8) Badge after drinking a Efes Pilsen at DERALIYE OTTOMAN CUISINE - 8 hours ago'],
+            ['hubot', 'heath (heathseals) earned the Beer Foodie (Level 44) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago - https://untappd.com/user/heathseals/checkin/578981788'],
+            ['hubot', 'heath (heathseals) earned the 99 Bottles (Level 38) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago - https://untappd.com/user/heathseals/checkin/578981788'],
+            ['hubot', 'heath (heathseals) earned the Pizza & Brew (Level 4) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago - https://untappd.com/user/heathseals/checkin/578981788'],
+            ['hubot', 'heath (heathseals) earned the Beer Connoisseur (Level 8) Badge after drinking a Efes Pilsen at DERALIYE OTTOMAN CUISINE - 8 hours ago - https://untappd.com/user/heathseals/checkin/578869664'],
           ]);
           done();
         } catch (err) {

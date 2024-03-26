@@ -200,7 +200,7 @@ describe('hubot-untappd-friends for slack', () => {
                   {
                     author_name: 'an hour ago at 49 Çukurcuma',
                     color: '#7CD197',
-                    fallback: 'heath (heathseals) earned the Beer Foodie (Level 44) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago',
+                    fallback: 'heath (heathseals) earned the Beer Foodie (Level 44) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago - https://untappd.com/user/heathseals/checkin/578981788',
                     footer: 'Blonde Ale',
                     footer_icon: 'https://untappd.akamaized.net/site/beer_logos/beer-764911_07c43_sm.jpeg',
                     thumb_url: 'https://untappd.akamaized.net/badges/bdg_BeerFoodie_sm.jpg',
@@ -210,7 +210,7 @@ describe('hubot-untappd-friends for slack', () => {
                   {
                     author_name: 'an hour ago at 49 Çukurcuma',
                     color: '#7CD197',
-                    fallback: 'heath (heathseals) earned the 99 Bottles (Level 38) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago',
+                    fallback: 'heath (heathseals) earned the 99 Bottles (Level 38) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago - https://untappd.com/user/heathseals/checkin/578981788',
                     footer: 'Blonde Ale',
                     footer_icon: 'https://untappd.akamaized.net/site/beer_logos/beer-764911_07c43_sm.jpeg',
                     thumb_url: 'https://untappd.akamaized.net/badges/bdg_99Bottles_sm.jpg',
@@ -220,7 +220,7 @@ describe('hubot-untappd-friends for slack', () => {
                   {
                     author_name: 'an hour ago at 49 Çukurcuma',
                     color: '#7CD197',
-                    fallback: 'heath (heathseals) earned the Pizza & Brew (Level 4) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago',
+                    fallback: 'heath (heathseals) earned the Pizza & Brew (Level 4) Badge after drinking a Blonde Ale at 49 Çukurcuma - an hour ago - https://untappd.com/user/heathseals/checkin/578981788',
                     footer: 'Blonde Ale',
                     footer_icon: 'https://untappd.akamaized.net/site/beer_logos/beer-764911_07c43_sm.jpeg',
                     thumb_url: 'https://untappd.akamaized.net/badges/bdg_PizzaAndBrew_sm.jpg',
@@ -230,7 +230,7 @@ describe('hubot-untappd-friends for slack', () => {
                   {
                     author_name: '8 hours ago at DERALIYE OTTOMAN CUISINE',
                     color: '#7CD197',
-                    fallback: 'heath (heathseals) earned the Beer Connoisseur (Level 8) Badge after drinking a Efes Pilsen at DERALIYE OTTOMAN CUISINE - 8 hours ago',
+                    fallback: 'heath (heathseals) earned the Beer Connoisseur (Level 8) Badge after drinking a Efes Pilsen at DERALIYE OTTOMAN CUISINE - 8 hours ago - https://untappd.com/user/heathseals/checkin/578869664',
                     footer: 'Efes Pilsen',
                     footer_icon: 'https://untappd.akamaized.net/site/beer_logos/beer-EfesPilsener_17259.jpeg',
                     thumb_url: 'https://untappd.akamaized.net/badges/bdg_connoiseur_sm.jpg',

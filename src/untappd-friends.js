@@ -392,10 +392,10 @@ module.exports = (robot) => {
           };
           if (checkin.venue.venue_name) {
             chunk.author_name = `${timeAgo} at ${checkin.venue.venue_name}`;
-            chunk.fallback = `${formatDisplayName(checkin.user)} earned the ${badge.badge_name} Badge after drinking a ${checkin.beer.beer_name} at ${checkin.venue.venue_name} - ${timeAgo}`;
+            chunk.fallback = `${formatDisplayName(checkin.user)} earned the ${badge.badge_name} Badge after drinking a ${checkin.beer.beer_name} at ${checkin.venue.venue_name} - ${timeAgo} - ${formatCheckinLink(checkin)}`;
           } else {
             chunk.author_name = `${timeAgo}`;
-            chunk.fallback = `${formatDisplayName(checkin.user)} earned the ${badge.badge_name} Badge after drinking a ${checkin.beer.beer_name} - ${timeAgo}`;
+            chunk.fallback = `${formatDisplayName(checkin.user)} earned the ${badge.badge_name} Badge after drinking a ${checkin.beer.beer_name} - ${timeAgo} - ${formatCheckinLink(checkin)}`;
           }
 
           contents.push(chunk);
@@ -648,7 +648,7 @@ module.exports = (robot) => {
   });
 
   // Toast checkins
-  robot.respond(/untappd (?:toast|toast|prost)\s?(.*)$/i, (msg) => {
+  robot.respond(/untappd (?:toast|toast|prost|salud|cheers|santé)\s?(.*)$/i, (msg) => {
     if (!checkConfiguration(msg)) { return; }
     toastRecentCheckins(msg);
   });
