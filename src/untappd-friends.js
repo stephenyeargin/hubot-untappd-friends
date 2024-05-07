@@ -292,6 +292,29 @@ module.exports = (robot) => {
         contents.push(chunk);
       });
 
+      // Congratulate the users that "run the board"
+      if (countToReturn > 1) {
+        const uniqueUsers = [];
+        const uniqueLocations = [];
+        obj.response.checkins.items.forEach((checkin) => {
+          if (!uniqueUsers.includes(formatDisplayName(checkin.user))) {
+            uniqueUsers.push(formatDisplayName(checkin.user));
+          }
+          if (!uniqueLocations.includes(checkin.venue.venue_name)) {
+            uniqueLocations.push(checkin.venue.venue_name);
+          }
+        });
+        if (uniqueLocations.length === 1 && uniqueLocations[0]) {
+          contents.push({
+            fallback: `🏆 Congratulations to ${uniqueUsers.join(' + ')} for running the board at ${uniqueLocations[0]}! 🍻`,
+          });
+        } else if (uniqueUsers.length === 1) {
+          contents.push({
+            fallback: `🏆 Congratulations to ${uniqueUsers[0]} for running the board! 🍻`,
+          });
+        }
+      }
+
       // Slack formatting
       if (/slack/i.test(robot.adapterName)) {
         robot.messageRoom(msg.message.room, { attachments: contents, unfurl_links: false });
