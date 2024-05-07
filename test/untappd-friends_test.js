@@ -64,6 +64,7 @@ describe('hubot-untappd-friends', () => {
             ['alice', '@hubot untappd'],
             ['hubot', 'heath (heathseals) was drinking Blonde Ale (Blonde Ale - 5%) by Gara Guzu Brewery at 49 Çukurcuma - an hour ago'],
             ['hubot', 'heath (heathseals) was drinking Efes Pilsen (Pilsner - Other - 5%) by Anadolu Efes at DERALIYE OTTOMAN CUISINE - 8 hours ago'],
+            ['hubot', '🏆 Congratulations to heath (heathseals) for running the board! 🍻'],
           ]);
           done();
         } catch (err) {

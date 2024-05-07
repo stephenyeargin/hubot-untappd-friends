@@ -87,6 +87,10 @@ describe('hubot-untappd-friends for slack', () => {
                     title_link: 'https://untappd.com/user/heathseals/checkin/578869664',
                     ts: 1522406504,
                   },
+                  {
+                    text: '🏆 Congratulations to heath (heathseals) for running the board! 🍻',
+                    fallback: '🏆 Congratulations to heath (heathseals) for running the board! 🍻',
+                  },
                 ],
                 unfurl_links: false,
               },
