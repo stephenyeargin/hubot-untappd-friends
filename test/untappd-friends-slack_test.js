@@ -88,6 +88,7 @@ describe('hubot-untappd-friends for slack', () => {
                     ts: 1522406504,
                   },
                   {
+                    text: '🏆 Congratulations to heath (heathseals) for running the board! 🍻',
                     fallback: '🏆 Congratulations to heath (heathseals) for running the board! 🍻',
                   },
                 ],

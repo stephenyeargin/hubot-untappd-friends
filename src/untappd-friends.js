@@ -306,10 +306,12 @@ module.exports = (robot) => {
         });
         if (uniqueLocations.length === 1 && uniqueLocations[0]) {
           contents.push({
+            text: `🏆 Congratulations to ${uniqueUsers.join(' + ')} for running the board at ${uniqueLocations[0]}! 🍻`,
             fallback: `🏆 Congratulations to ${uniqueUsers.join(' + ')} for running the board at ${uniqueLocations[0]}! 🍻`,
           });
         } else if (uniqueUsers.length === 1) {
           contents.push({
+            text: `🏆 Congratulations to ${uniqueUsers[0]} for running the board! 🍻`,
             fallback: `🏆 Congratulations to ${uniqueUsers[0]} for running the board! 🍻`,
           });
         }
