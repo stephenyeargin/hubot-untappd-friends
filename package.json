@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "moment": "^2.29.4",
-    "node-untappd": "stephenyeargin/node-untappd#be7ae9b723a6044a51c1826db7fc0539fa7fee7f"
+    "@stephenyeargin/node-untappd": "^0.6.1"
   },
   "peerDependencies": {
     "hubot": "^14"

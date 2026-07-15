@@ -26,7 +26,7 @@
 // Author:
 //  sethington, stephenyeargin
 
-const UntappdClient = require('node-untappd');
+const UntappdClient = require('@stephenyeargin/node-untappd');
 const moment = require('moment');
 
 module.exports = (robot) => {
